@@ -9,13 +9,35 @@ function useScrollReveal() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.05 }
     );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    els.forEach((el) => {
+      if (!el.classList.contains("visible")) observer.observe(el);
+    });
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        document.querySelectorAll(".fade-up:not(.visible)").forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add("visible");
+            observer.unobserve(el);
+          }
+        });
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, []);
 }
 
@@ -609,17 +631,17 @@ export default function Home() {
           </h2>
           <div className="team-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5rem" }}>
             {[
-              { initial: "A", name: "Alwi", title: "CEO & Co-Founder", bullets: ["UCL MEng Biomedical Engineering", "Serial entrepreneur across import, distribution and software", "Clinical access via neurosurgeon father and orthopaedic family network", "Malaysian — deep market knowledge, government relationships, local clinical infrastructure"] },
-              { initial: "R", name: "Ronit", title: "CTO & Co-Founder", bullets: ["UCL MEng Biomedical Engineering", "Biomaterials industry experience post-graduation", "Full-stack engineering capability", "Deep expertise in biocompatible materials and device durability testing", "Malaysian — technical rigour meets local market depth"] },
-              { initial: "M", name: "Martynas", title: "COO & Co-Founder", bullets: ["UCL MEng Biomedical Engineering", "Multiple startup founder experience across Europe", "Fundraising, operations and go-to-market execution", "European investor network and UCL alumni connections"] },
-              { initial: "J", name: "Joonmin", title: "Head of Clinical & Co-Founder", bullets: ["UCL MEng Biomedical Engineering", "Clinical testing and validation experience", "Medical device regulatory expertise", "Clinical trial design and ethics board submissions", "MDA Malaysia and CE Mark pathway knowledge", "UK-based clinical network"] },
+              { image: "/images/alwi-alhaddad.jpg", name: "Alwi Al-Haddad", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — deep learning research for early NEC diagnosis in neonates (87.5% accuracy, SE-ResNet50, published dissertation)", "Founded multiple live commercial products: Gunung (climbing gear distribution), SAPOT (mental health platform), MIDPOINT (consumer tech)", "Clinical access via consultant neurosurgeon father and orthopaedic family network in Malaysia", "Malaysian — deep market knowledge, government relationships, and local clinical infrastructure"] },
+              { image: "/images/ronit-sarna.jpg", name: "Ronit Sarna", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — co-developed AI-powered assistive smart glasses through full design cycle including prototyping and regulatory research", "Software Development Engineer at Materialise — global leader in 3D printing software for medical devices and prosthetics, based in Kuala Lumpur", "Research and Innovation Intern at Royal National Orthopaedic Hospital — AI for patient-specific surgical guides in live scoliosis procedures", "Research Intern at STMicroelectronics — built stroke detection hardware integrated into an eyeglasses frame"] },
+              { image: "/images/martynas-pocius.jpg", name: "Martynas Pocius", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — first-author publication at IEEE ISBI 2024 on reinforcement learning in medical imaging", "Founding Engineer at Drafted.ai (San Francisco); previously Senior ML Engineer at Autodesk Research", "Co-founded UCL AI Foundry — cohort produced Audiogen (seed funding via Entrepreneur First, SF) and other funded AI startups", "Founder in Residence at The Residency (Chapter 3, backed by Sam Altman) and Founders, Inc., San Francisco"] },
+              { image: "/images/joonmin-han.jpg", name: "Joonin Han", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — Master's thesis on wheelchair sports accessibility; medical device design, CAD, FEA, and prototyping", "Clinical Data Analyst at Blatchford — inside-industry knowledge from one of the world's leading prosthetics and orthotics manufacturers", "Clinical Trial Assistant at PANORAMIC DIGITAL HEALTH — GCP certified, wearable sensor data analysis, trial management", "Bachelor's research on digital measures of fatigue — wearable sensor analysis and technical data communication"] },
             ].map((member) => (
               <div key={member.name} className="fade-up" style={{ background: "rgba(6,22,34,0.85)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
-                  <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(2,128,144,0.2)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "1.2rem", color: "var(--teal)", flexShrink: 0 }}>{member.initial}</div>
+                  <img src={member.image} alt={`${member.name} portrait`} style={{ width: 56, height: 56, borderRadius: "50%", objectFit: "cover", objectPosition: "center", border: "1.5px solid var(--teal)", flexShrink: 0, background: "rgba(2,128,144,0.12)" }} />
                   <div>
                     <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "1rem", color: "#fff" }}>{member.name}</div>
                     <div style={{ fontSize: "0.78rem", color: "var(--teal)", fontWeight: 600, letterSpacing: "0.03em", textTransform: "uppercase", marginTop: "0.15rem" }}>{member.title}</div>
@@ -683,7 +705,7 @@ export default function Home() {
               { n: "03", title: "Build", desc: "First functional prototype. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
               { n: "04", title: "Prove", desc: "Clinical feasibility work. Ethics board approval. Malaysian regulatory submission planning. Singapore market-entry preparation." },
               { n: "05", title: "Scale", desc: "First hospital sales in Malaysia. Public-support and procurement applications where applicable. Singapore expansion. Series A for regional scale." },
-              { n: "06", title: "Global", desc: "UCL clinical partnerships and NHS pilot programme in London. CE Mark conversion opens UK, EU and Australia. Martynas leads European investor relationships and startup network. London as western headquarters. The device built for the hardest market conquers every other one." },
+              { n: "06", title: "Global", desc: "UCL clinical partnerships and NHS pilot programme in London. CE Mark conversion opens UK, EU and Australia. Martynas Pocius leads European investor relationships and startup network. London as western headquarters. The device built for the hardest market conquers every other one." },
             ].map((step, i, arr) => (
               <div key={step.n} className="fade-up" style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
