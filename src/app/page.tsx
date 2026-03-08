@@ -43,12 +43,14 @@ function StatCounter({
   value,
   prefix = "",
   suffix = "",
+  displayValue,
   label,
   started,
 }: {
   value: number;
   prefix?: string;
   suffix?: string;
+  displayValue?: string;
   label: string;
   started: boolean;
 }) {
@@ -56,7 +58,7 @@ function StatCounter({
   return (
     <div style={{ textAlign: "center" }}>
       <div style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--teal)", lineHeight: 1.1 }}>
-        {prefix}{count.toLocaleString()}{suffix}
+        {displayValue ?? `${prefix}${count.toLocaleString()}${suffix}`}
       </div>
       <div style={{ fontSize: "0.85rem", color: "var(--white-60)", marginTop: "0.35rem", letterSpacing: "0.02em" }}>
         {label}
@@ -206,11 +208,11 @@ export default function Home() {
             >Contact Us</a>
           </div>
           <div ref={heroRef} className="fade-up" style={{ display: "flex", gap: "clamp(1.5rem, 5vw, 4rem)", justifyContent: "center", flexWrap: "wrap", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-            <StatCounter value={600} suffix="K+" label="Upper limb amputees across SEA" started={statsStarted} />
-            <StatCounter value={80000} prefix="RM " label="Cost of imported arm" started={statsStarted} />
+            <StatCounter value={695} suffix="M" label="People across Southeast Asia" started={statsStarted} />
+            <StatCounter value={2500} displayValue="2.5B+" label="Need assistive products globally" started={statsStarted} />
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--teal)", lineHeight: 1.1 }}>&lt;5%</div>
-              <div style={{ fontSize: "0.85rem", color: "var(--white-60)", marginTop: "0.35rem" }}>Who can afford one</div>
+              <div style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--teal)", lineHeight: 1.1 }}>3%-90%</div>
+              <div style={{ fontSize: "0.85rem", color: "var(--white-60)", marginTop: "0.35rem" }}>Assistive-product access range by income level</div>
             </div>
           </div>
         </div>
@@ -220,13 +222,13 @@ export default function Home() {
       <section id="problem" style={{ padding: "7rem clamp(1.25rem, 6vw, 5rem)", maxWidth: 1200, margin: "0 auto" }}>
         <p className="section-label fade-up">The Problem</p>
         <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", lineHeight: 1.15, letterSpacing: "-0.02em", marginBottom: "3.5rem", maxWidth: 640 }}>
-          Millions have lost limbs. Almost none<br />can afford to move again.
+          Millions live with limb loss.<br />Access is still defined by cost.
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem", marginBottom: "2rem" }}>
           {[
-            { number: "7,000+", title: "Annual amputations in Malaysia", desc: "Driven primarily by diabetes complications — one of the highest rates in Asia." },
-            { number: "RM 20K\u201380K", title: "Cost of imported robotic prosthetics", desc: "Equivalent to 1\u20133 years of median Malaysian household income. Entirely inaccessible for most." },
-            { number: "0", title: "Local robotic prosthetic manufacturers", desc: "Malaysia has no serious local manufacturer of robotic prosthetics. The market is wide open." },
+            { number: "2.5B+", title: "People who need assistive products", desc: "WHO estimates more than 2.5 billion people globally need one or more assistive products." },
+            { number: "3%-90%", title: "Access range across countries", desc: "WHO reports access can be as low as 3% in some low-income countries versus 90% in some high-income countries." },
+            { number: "830M", title: "People living with diabetes in 2022", desc: "WHO lists diabetes as a major cause of lower-limb amputation alongside kidney failure, stroke, and cardiovascular disease." },
           ].map((item) => (
             <div key={item.number} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
@@ -238,9 +240,12 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <p className="fade-up" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.45)", marginBottom: "2rem", letterSpacing: "0.02em" }}>
+          Selected figures: UN World Population Prospects 2024 Revision; WHO Assistive Technology fact sheet (2024); WHO Diabetes fact sheet (2024).
+        </p>
         <div className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem 2.5rem", marginBottom: "4rem" }}>
           <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.75, maxWidth: 820 }}>
-            <span style={{ fontFamily: "var(--font-heading)", color: "#fff", fontWeight: 600 }}>SOCSO and OKU government schemes cover basic passive prosthetics only.</span>{" "}No programme currently subsidises robotic limbs. Patients are left without options.
+            <span style={{ fontFamily: "var(--font-heading)", color: "#fff", fontWeight: 600 }}>WHO identifies cost, procurement complexity, workforce gaps, and inadequate funding as core barriers to access.</span>{" "}That is the gap an affordable, locally serviceable prosthetic company in Malaysia is trying to close.
           </p>
         </div>
 
@@ -290,10 +295,10 @@ export default function Home() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
             {[
-              { n: "01", title: "Accelerating patient crisis", desc: "Malaysia's diabetic amputee rate grows 8% year-on-year. The patient pipeline is not slowing — it's compounding." },
+              { n: "01", title: "Growing chronic-disease burden", desc: "WHO reports 830 million people were living with diabetes in 2022, and diabetes remains a major driver of amputation risk." },
               { n: "02", title: "3D printing cost collapse", desc: "Industrial FDM hardware costs have fallen over 70% in five years. Small-batch, custom-fit manufacturing is now economically viable at our price point." },
-              { n: "03", title: "Defined regulatory pathway", desc: "MDA Malaysia's Class C medical device framework is now mature. The path from prototype to registration is scoped, costed and achievable." },
-              { n: "04", title: "No local incumbent", desc: "No Malaysian company manufactures robotic prosthetics at any price point. The market is open — but not indefinitely. First mover owns the channel." },
+              { n: "03", title: "Defined regulatory pathway", desc: "Malaysia has an established medical-device approval framework, giving the team a concrete route to plan around while final device classification is confirmed with MDA." },
+              { n: "04", title: "Regional scale is undeniable", desc: "Southeast Asia is home to roughly 695 million people, yet access to advanced assistive technology remains deeply uneven." },
             ].map((item) => (
               <div key={item.n} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
@@ -324,7 +329,7 @@ export default function Home() {
               { name: "3D Printed & Custom Fit", desc: "Every device printed to exact patient dimensions. No expensive moulds or long lead times. Iteration in days, not months." },
               { name: "Biocompatible Materials", desc: "ISO 10993-compliant skin-contact components selected by our biomaterials co-founder. Safe, durable, lightweight." },
               { name: "Repairable & Upgradeable", desc: "Modular design means components replace individually. No need to replace the whole arm if a single motor fails. Maintenance accessible locally." },
-              { name: "RM 4,000\u20138,000 Target Price", desc: "Up to 90% cheaper than imported alternatives. Designed for the B40-M40 market. Compatible with SOCSO/OKU subsidy pathways once registered." },
+              { name: "RM 4,000\u20138,000 Target Price", desc: "Intended to sit materially below imported alternatives and closer to what Malaysian hospitals, prosthetists, and families may be able to support." },
               { name: "Tiered Product Range", desc: "From passive 3D-printed devices at RM 500 to full myoelectric arms at RM 8,000. Every patient. Every budget. One platform." },
             ].map((feat) => (
               <div key={feat.name} style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
@@ -337,7 +342,7 @@ export default function Home() {
             ))}
             <div style={{ border: "1px solid var(--teal)", borderRadius: "10px", padding: "1.25rem 1.5rem" }}>
               <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.8)", lineHeight: 1.7 }}>
-                <span style={{ color: "var(--teal)", fontWeight: 600, fontFamily: "var(--font-heading)" }}>Regulatory-first design.</span>{" "}Built for MDA Malaysia Class C registration from day one. Not a prototype looking for approval — a device built for it.
+                <span style={{ color: "var(--teal)", fontWeight: 600, fontFamily: "var(--font-heading)" }}>Regulatory-first design.</span>{" "}Built around Malaysian medical-device approval requirements from day one, with final classification and submission route to be confirmed through MDA engagement.
               </p>
             </div>
           </div>
@@ -369,13 +374,13 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">Market Opportunity</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
-            A region of 670 million people.<br />No serious local competitor.
+            A region of 695 million people.<br />A global category worth USD 6.56B in 2024.
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.5rem", marginBottom: "3.5rem" }}>
             {[
-              { value: "USD 1.2B", label: "SEA Prosthetics Market", sub: "Growing 8% annually" },
-              { value: "USD 11.4B", label: "Global TAM", sub: "6.8% CAGR" },
-              { value: "USD 80M", label: "Year 1\u20133 Addressable", sub: "Malaysia + Singapore beachhead" },
+              { value: "USD 6.56B", label: "Global prosthetics & orthotics market", sub: "Grand View Research estimate for 2024" },
+              { value: "695M", label: "Southeast Asia population", sub: "UN-backed regional estimate for 2024" },
+              { value: "USD 80M", label: "Year 1\u20133 beachhead model", sub: "Internal estimate for Malaysia + Singapore" },
             ].map((m) => (
               <div key={m.label} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", textAlign: "center", transition: "border-color 200ms, transform 200ms" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
@@ -387,6 +392,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="fade-up" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.45)", marginBottom: "2rem", letterSpacing: "0.02em" }}>
+            Sources: UN World Population Prospects 2024 Revision; Grand View Research Prosthetics and Orthotics Market Summary (updated 2024). Beachhead estimate is an internal model.
+          </p>
           <div className="fade-up">
             <div style={{ display: "flex", alignItems: "center", overflowX: "auto", paddingBottom: "0.5rem" }}>
               {[
@@ -417,7 +425,7 @@ export default function Home() {
             We are not competing with Open Bionics.<br />We are filling the gap they cannot fill.
           </h2>
           <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, maxWidth: 680, marginBottom: "3rem" }}>
-            BANGKIT is the only player combining local manufacturing, custom fit, clinical-grade design, and a price accessible to the B40-M40 market.
+            Our position combines local manufacturing, custom fit, clinical collaboration, and lower target pricing for the Malaysian market.
           </p>
           <div className="fade-up" style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", minWidth: 640 }}>
@@ -430,8 +438,8 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  { company: "BANGKIT Bionics", highlight: true, price: "RM 4K\u20138K (flagship RM 5,500)", local: "Malaysia-based", fit: "3D custom", sea: "Built for SEA", reg: "MDA pathway active" },
-                  { company: "Open Bionics", highlight: false, price: "USD 10K\u201315K", local: "UK only", fit: "Partial", sea: "Western market", reg: "CE Mark / FDA" },
+                  { company: "BANGKIT Bionics", highlight: true, price: "RM 4K\u20138K (flagship RM 5,500)", local: "Malaysia-based", fit: "3D custom", sea: "Built for SEA", reg: "MDA pathway planned" },
+                  { company: "Open Bionics", highlight: false, price: "Quote-based", local: "Imported", fit: "Partial", sea: "Selective distributor markets", reg: "CE Mark / FDA" },
                   { company: "Ottobock", highlight: false, price: "USD 20K\u201380K", local: "Distributor only", fit: "Limited", sea: "Premium only", reg: "CE Mark / FDA" },
                   { company: "Glomas (MY)", highlight: false, price: "Undisclosed", local: "Malaysia", fit: "Basic passive", sea: "Local", reg: "Limited" },
                   { company: "e-NABLE / DIY", highlight: false, price: "<USD 100", local: "Community", fit: "Basic", sea: "Partial", reg: "None" },
@@ -462,7 +470,7 @@ export default function Home() {
             {[
               { n: "01", title: "Direct to Hospital", desc: "B2B sales to public and private hospitals and rehabilitation centres. Procurement through existing medical device supply chains. Highest margin, longest cycle." },
               { n: "02", title: "Prosthetist Channel", desc: "Licensed prosthetists fit, sell and service devices directly to patients. Faster volume growth, lower CAC. Prosthetist earns a margin; we scale without a direct salesforce." },
-              { n: "03", title: "Government Reimbursement", desc: "Targeting SOCSO and OKU subsidy listing. Once listed, devices become accessible to B40 patients at near-zero out-of-pocket cost — unlocking the largest patient segment." },
+              { n: "03", title: "Government and Institutional Funding", desc: "Targeting employer-injury, disability-support, and hospital procurement pathways. If approved, these channels could materially reduce patient out-of-pocket cost." },
             ].map((ch) => (
               <div key={ch.n} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
@@ -496,7 +504,7 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">Financial Projections</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
-            RM 55M revenue by Year 5.<br />Break-even from Year 2.
+            Illustrative path to RM 55M revenue by Year 5.<br />Break-even case from Year 2.
           </h2>
           <div className="fade-up" style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", minWidth: 700 }}>
@@ -513,7 +521,7 @@ export default function Home() {
                   { year: "Year 2", units: "300", rev: "RM 1.65M", gp: "RM 825K", margin: "50%", market: "Malaysia + Singapore", milestone: "First hospital contracts", highlight: false },
                   { year: "Year 3", units: "1,000", rev: "RM 5.5M", gp: "RM 2.75M", margin: "50%", market: "+ Indonesia + Thailand", milestone: "Regional expansion", highlight: true },
                   { year: "Year 4", units: "3,500", rev: "RM 19.25M", gp: "RM 9.6M", margin: "50%+", market: "SEA-wide + UK pilot", milestone: "Series B, UK pilot begins", highlight: true },
-                  { year: "Year 5", units: "10,000", rev: "RM 55M", gp: "RM 27.5M", margin: "50%+", market: "SEA + UK + Europe", milestone: "SEA dominance, global story", highlight: true },
+                  { year: "Year 5", units: "10,000", rev: "RM 55M", gp: "RM 27.5M", margin: "50%+", market: "SEA + UK + Europe", milestone: "Regional scale, global optionality", highlight: true },
                 ].map((row) => (
                   <tr key={row.year} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: row.highlight ? "rgba(2,128,144,0.06)" : "transparent" }}>
                     <td style={{ padding: "1rem", fontFamily: "var(--font-heading)", fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>{row.year}</td>
@@ -558,20 +566,20 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
             {[
               {
-                label: "01", title: "Clinical Network â€” Day Zero",
-                desc: "Direct access to neurosurgery via our CEO\u2019s father, a practising consultant neurosurgeon. Orthopaedic referral network confirmed. 10 pilot patient cases identified and waiting for a device.",
+                label: "01", title: "Clinical Network — Day Zero",
+                desc: "Direct access to neurosurgery via our CEO\u2019s father, a practising consultant neurosurgeon. Orthopaedic referral conversations are underway, with early pilot-patient outreach in progress.",
               },
               {
                 label: "02", title: "Technology Validated at Component Level",
-                desc: "EMG signal capture and filtering circuit breadboarded and tested. TinyML gesture classification achieves 94% accuracy on a 5-class grip dataset. FDM structural components load-tested.",
+                desc: "Bench testing is underway on EMG signal capture, filtering, and printed structural parts. The goal is to de-risk core subsystems before full-device prototyping.",
               },
               {
                 label: "03", title: "Regulatory Pathway Mapped",
-                desc: "MDA Class C prosthetic device classification confirmed. Ethics board submission process documented. CE Mark conversion pathway via ISO 13485 identified for Year 3.",
+                desc: "The Malaysian regulatory pathway is being mapped against MDA requirements, while ethics-board preparation and ISO 13485 planning are being scoped in parallel.",
               },
               {
                 label: "04", title: "Grant Pipeline Active",
-                desc: "Cradle Fund CIP 500 application in preparation. MRANTI Deep Tech grant eligibility confirmed. NIH Malaysia preliminary conversations initiated. RM 500K non-dilutive target.",
+                desc: "The team is evaluating Malaysian grant and deep-tech funding pathways, with RM 500K as the current non-dilutive funding target.",
               },
             ].map((item) => (
               <div key={item.label} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
@@ -586,7 +594,7 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "12px", padding: "2rem 2.5rem", marginTop: "2rem" }}>
             <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.75, maxWidth: 820 }}>
-              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This seed round is not building from zero.</span>{" "}The clinical pipeline, regulatory route, and technology proof points are already in place. The capital builds the product that these foundations are waiting for.
+              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This seed round is not starting from a blank page.</span>{" "}Clinical access, regulatory planning, and early technical work are already underway. The capital funds the next stage of product development.
             </p>
           </div>
         </div>
@@ -671,10 +679,10 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
               { n: "01", title: "Validate", desc: "Conversations with neurosurgeon network. Identify 10 real patient cases. Confirm unmet need. Zero cost — pure discovery." },
-              { n: "02", title: "Fund", desc: "Cradle Fund CIP 500, MRANTI Deep Tech, NIH Malaysia. Parallel applications — not sequential. RM 500K target." },
+              { n: "02", title: "Fund", desc: "Grant and seed-funding outreach in parallel. RM 500K prototype-round target." },
               { n: "03", title: "Build", desc: "First functional prototype. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
-              { n: "04", title: "Prove", desc: "Formal clinical trial. Ethics board approval. MDA Class C registration pathway. CE Mark preparation for Singapore access." },
-              { n: "05", title: "Scale", desc: "First hospital sales in Malaysia. SOCSO/OKU subsidy application. Singapore expansion. Series A for regional scale." },
+              { n: "04", title: "Prove", desc: "Clinical feasibility work. Ethics board approval. Malaysian regulatory submission planning. Singapore market-entry preparation." },
+              { n: "05", title: "Scale", desc: "First hospital sales in Malaysia. Public-support and procurement applications where applicable. Singapore expansion. Series A for regional scale." },
               { n: "06", title: "Global", desc: "UCL clinical partnerships and NHS pilot programme in London. CE Mark conversion opens UK, EU and Australia. Martynas leads European investor relationships and startup network. London as western headquarters. The device built for the hardest market conquers every other one." },
             ].map((step, i, arr) => (
               <div key={step.n} className="fade-up" style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
@@ -709,7 +717,7 @@ export default function Home() {
               {[
                 "Working myoelectric prototype — biocompatible, 3D printed, EMG controlled",
                 "Clinical feasibility study with 3\u20135 amputee patients",
-                "MDA Malaysia pre-submission meeting and Class C application initiated",
+                "MDA pre-submission engagement and device classification review initiated",
                 "12 months of runway to Series A readiness",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", marginBottom: "0.8rem" }}>
@@ -723,7 +731,7 @@ export default function Home() {
               {[
                 "Series A raise — RM 3M+ from Cradle LCCM and impact investors",
                 "First hospital pilot sales and prosthetist channel launch",
-                "Full MDA Class C registration and CE Mark pathway",
+                "Full Malaysian regulatory submission and CE Mark planning pathway",
                 "Expansion into Singapore and Indonesia markets",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", marginBottom: "0.8rem" }}>
@@ -796,7 +804,7 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
           <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "0.9rem", color: "rgba(255,255,255,0.7)" }}>BANGKIT Bionics</span>
           <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textAlign: "center" }}>Kuala Lumpur, Malaysia &middot; hello@bangkitbionics.com</span>
-          <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textAlign: "right" }}>UCL MEng Biomedical Engineering &middot; Founded 2025</span>
+          <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textAlign: "right" }}>UCL MEng Biomedical Engineering &middot; Founded 2024</span>
         </div>
       </footer>
 
