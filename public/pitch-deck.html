@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BANGKIT Bionics &mdash; Investor Pitch Deck 2025</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  :root {
+    --teal: #028090;
+    --teal-light: #04a0b4;
+    --teal-dim: rgba(2,128,144,0.15);
+    --bg: #030911;
+    --surface: #060f19;
+    --surface2: #091522;
+    --border: rgba(2,128,144,0.25);
+    --text: #e8f4f6;
+    --muted: #7a9aaa;
+    --accent: #f0a500;
+    --red: #e05252;
+    --green: #3dba7e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #020609;
+    color: var(--text);
+  }
+
+  /* ── SLIDE ── */
+  .slide {
+    width: 1280px;
+    min-height: 720px;
+    background: var(--bg);
+    margin: 0 auto 2px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+  }
+
+  /* decorative corner accent */
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--teal), transparent);
+  }
+
+  .slide-inner {
+    padding: 56px 72px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* slide number */
+  .slide-num {
+    position: absolute;
+    bottom: 28px; right: 72px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* footer bar */
+  .slide-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--teal), transparent 60%);
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  h1.deck-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4.8rem;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 0.4em;
+  }
+
+  h2.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 0.5em;
+  }
+
+  h3.card-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 6px;
+  }
+
+  p.body-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 800px;
+  }
+
+  /* ── GRID UTILITIES ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+  .col-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .col-split-3 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .card-teal {
+    background: var(--teal-dim);
+    border: 1px solid var(--teal);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  /* ── TAG ── */
+  .tag {
+    display: inline-block;
+    background: var(--teal-dim);
+    color: var(--teal-light);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+  }
+
+  /* ── BIG NUMBER ── */
+  .big-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    color: var(--teal-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .big-num-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── BULLET LIST ── */
+  ul.bullet {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  ul.bullet li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.5;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  ul.bullet li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  ul.bullet li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+    margin: 16px 0 24px;
+  }
+
+  /* ── COVER SLIDE ── */
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(2,128,144,0.12) 0%, transparent 65%);
+  }
+
+  .cover-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(2,128,144,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(2,128,144,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 60px;
+  }
+
+  /* ── TABLE ── */
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+
+  table.data-table thead tr {
+    border-bottom: 2px solid var(--teal);
+  }
+
+  table.data-table thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+  }
+
+  table.data-table tbody tr {
+    border-bottom: 1px solid rgba(2,128,144,0.1);
+    transition: background 0.2s;
+  }
+
+  table.data-table tbody tr.highlight-row {
+    background: var(--teal-dim);
+  }
+
+  table.data-table tbody td {
+    padding: 11px 14px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  table.data-table tbody td.num {
+    color: var(--text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  table.data-table tbody td.green { color: var(--green); font-weight: 600; }
+
+  table.data-table tbody td strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── COMPETITIVE TABLE ── */
+  table.comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+  }
+
+  table.comp-table th {
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    border-bottom: 2px solid var(--teal);
+  }
+
+  table.comp-table th:first-child { text-align: left; }
+
+  table.comp-table td {
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(2,128,144,0.1);
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  table.comp-table td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+
+  table.comp-table tr.our-row td { background: var(--teal-dim); }
+  table.comp-table tr.our-row td:first-child { color: var(--teal-light); }
+
+  .check { color: var(--green); font-size: 1rem; }
+  .cross { color: var(--red); font-size: 1rem; }
+  .partial { color: var(--accent); font-size: 0.85rem; }
+
+  /* ── STEP ── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--teal-dim);
+    border: 1.5px solid var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.9rem;
+    color: var(--teal-light);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .step-body h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .step-body p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── PHASE BADGE ── */
+  .phase-badge {
+    display: inline-block;
+    background: var(--teal-dim);
+    color: var(--teal-light);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  /* ── STAT CHIP ── */
+  .stat-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-chip .val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--teal-light);
+    line-height: 1;
+  }
+
+  .stat-chip .lbl {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── QUOTE ── */
+  .quote-block {
+    border-left: 3px solid var(--teal);
+    padding: 16px 20px;
+    background: var(--surface);
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 16px;
+  }
+
+  .quote-block p {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .quote-block .attribution {
+    font-size: 0.72rem;
+    color: var(--teal-light);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    font-style: normal;
+  }
+
+  /* ── TEAM CARD ── */
+  .team-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .team-card .avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--teal-dim);
+    border: 2px solid var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--teal-light);
+    margin-bottom: 14px;
+  }
+
+  .team-card .name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .team-card .role {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 12px;
+  }
+
+  /* ── ADVANTAGE CARD ── */
+  .adv-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .adv-card .icon {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .adv-card h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .adv-card p {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── USE OF FUNDS ── */
+  .fund-bar-wrap { margin-top: 6px; }
+  .fund-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    margin-bottom: 5px;
+  }
+  .fund-bar-label span:first-child { color: var(--text); font-weight: 600; }
+  .fund-bar-label span:last-child { color: var(--teal-light); font-weight: 700; }
+  .fund-bar-track {
+    height: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .fund-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--teal), var(--teal-light));
+  }
+
+  /* print */
+  @media print {
+    body { background: #09121a; }
+    .slide { page-break-after: always; break-after: page; margin: 0; }
+  }
+
+  @media screen {
+    body { padding: 20px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 01 — COVER
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="cover-bg"></div>
+  <div class="cover-grid-lines"></div>
+  <div class="slide-inner" style="justify-content:space-between;">
+    <div class="logo-mark">B</div>
+    <div>
+      <div class="eyebrow">Seed Funding Round &bull; 2025</div>
+      <h1 class="deck-title">BANGKIT<br/>Bionics</h1>
+      <div class="divider"></div>
+      <p class="body-text" style="font-size:1.1rem; max-width:560px;">
+        Affordable, 3D-printed myoelectric prosthetic arms — built for Southeast Asia, priced for the world.
+      </p>
+    </div>
+    <div style="display:flex; gap:48px; align-items:flex-end;">
+      <div>
+        <div class="big-num-label">Founded</div>
+        <div style="font-size:1.1rem; font-weight:700; color:var(--text); margin-top:4px;">2024 &mdash; Kuala Lumpur</div>
+      </div>
+      <div>
+        <div class="big-num-label">Stage</div>
+        <div style="font-size:1.1rem; font-weight:700; color:var(--text); margin-top:4px;">Pre-Prototype Seed</div>
+      </div>
+      <div>
+        <div class="big-num-label">University</div>
+        <div style="font-size:1.1rem; font-weight:700; color:var(--text); margin-top:4px;">UCL Biomedical Engineering</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">01 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 02 — THE PROBLEM
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">The Problem</div>
+    <h2 class="section-title">600,000 people in SEA<br/>are living without an arm.</h2>
+    <div class="divider"></div>
+    <div class="col-split" style="margin-top:8px;">
+      <div>
+        <p class="body-text" style="margin-bottom:20px;">
+          In Southeast Asia, limb loss from accidents, conflict, diabetes, and congenital conditions is endemic. The global prosthetics industry is dominated by Western manufacturers charging USD 5,000&ndash;40,000 per device &mdash; a price point that excludes virtually every patient in the developing world.
+        </p>
+        <p class="body-text">
+          Over 95% of amputees in low- and middle-income countries receive no prosthetic care at all. Those who do receive basic cosmetic hooks that provide no functional capability and deeply stigmatise the user.
+        </p>
+        <div style="margin-top:28px; display:flex; flex-direction:column; gap:12px;">
+          <div class="card" style="padding:16px 20px;">
+            <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--red); margin-bottom:4px;">The Price Gap</div>
+            <div style="font-size:0.9rem; color:var(--muted);">Current myoelectric arms cost <strong style="color:var(--text);">RM 20,000&ndash;80,000</strong>. Average Malaysian monthly wage: <strong style="color:var(--text);">RM 2,900.</strong> That is a 27-month salary for a single device.</div>
+          </div>
+          <div class="card" style="padding:16px 20px;">
+            <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--red); margin-bottom:4px;">The Access Gap</div>
+            <div style="font-size:0.9rem; color:var(--muted);">Less than <strong style="color:var(--text);">5%</strong> of amputees in LMICs receive any prosthetic care. No local manufacturer exists in SEA.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div class="card-teal" style="text-align:center; padding:28px 20px;">
+            <div class="big-num">600K+</div>
+            <div class="big-num-label">Upper-limb amputees across SEA</div>
+          </div>
+          <div class="card-teal" style="text-align:center; padding:28px 20px;">
+            <div class="big-num">&gt;95%</div>
+            <div class="big-num-label">Receive zero prosthetic care</div>
+          </div>
+          <div class="card-teal" style="text-align:center; padding:28px 20px;">
+            <div class="big-num">RM 0</div>
+            <div class="big-num-label">Local manufacturers in Malaysia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">02 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 03 — PATIENT STORIES
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">The Human Cost</div>
+    <h2 class="section-title">Behind every statistic<br/>is a life on hold.</h2>
+    <div class="divider"></div>
+    <div class="grid-3" style="margin-top:16px; gap:24px;">
+      <div>
+        <div class="quote-block">
+          <p>"I lost my arm at 19 in a factory accident. The hospital gave me a hook. I have not been able to work since. A functional arm costs more than my father earns in two years."</p>
+          <div class="attribution">Ahmad, 24 &mdash; Selangor, Malaysia</div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <ul class="bullet">
+            <li>Factory accident at 19</li>
+            <li>5 years without functional prosthetic</li>
+            <li>Cannot return to skilled work</li>
+            <li>Family bears full financial burden</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="quote-block">
+          <p>"My daughter was born without her left arm. She is seven now. Every year she grows, the prosthetic must be replaced. We cannot afford even one. She goes to school and hides her arm."</p>
+          <div class="attribution">Parent of Siti, 7 &mdash; Johor Bahru</div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <ul class="bullet">
+            <li>Congenital limb difference</li>
+            <li>Devices needed every 12&ndash;18 months as child grows</li>
+            <li>Social stigma and reduced schooling outcomes</li>
+            <li>Family income: RM 2,200 / month</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="quote-block">
+          <p>"I am a veteran. My government provides a small allowance but it does not cover the cost of a proper prosthetic. The waiting list at the rehabilitation centre is 18 months long."</p>
+          <div class="attribution">Sergeant Razif, 38 &mdash; Kuala Lumpur</div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <ul class="bullet">
+            <li>Military service injury</li>
+            <li>Government subsidy insufficient</li>
+            <li>18-month public hospital waiting list</li>
+            <li>Reduced earning capacity: 60% income drop</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:20px; padding:16px 24px; background:rgba(224,82,82,0.07); border-color:rgba(224,82,82,0.25);">
+      <p style="font-size:0.85rem; color:var(--muted);">These are not edge cases. These are the <strong style="color:var(--text);">median experience</strong> for upper-limb amputees across Malaysia, Indonesia, Philippines, Vietnam, and Thailand.</p>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">03 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 04 — WHY NOW
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Why Now</div>
+    <h2 class="section-title">Three technology curves<br/>converged at once.</h2>
+    <div class="divider"></div>
+    <div class="grid-3" style="margin-top:20px; gap:20px;">
+      <div class="card">
+        <div class="tag">Hardware</div>
+        <h3 class="card-title">3D Printing Matured</h3>
+        <p style="font-size:0.83rem; color:var(--muted); line-height:1.6;">Industrial FDM printers now produce biocompatible-grade nylon and TPU parts at &lt;RM 200 material cost per arm. This was not possible at this price point before 2022. Infill, wall thickness, and joint geometry can be tuned per patient in hours, not weeks.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Electronics</div>
+        <h3 class="card-title">EMG Sensors Commoditised</h3>
+        <p style="font-size:0.83rem; color:var(--muted); line-height:1.6;">Surface electromyography (EMG) sensors that once cost USD 2,000 per channel now retail for under USD 20. Microcontrollers with sufficient processing power for pattern recognition cost under USD 5. The electronics BOM for a myoelectric prosthetic is now under RM 400.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Intelligence</div>
+        <h3 class="card-title">ML on Microcontrollers</h3>
+        <p style="font-size:0.83rem; color:var(--muted); line-height:1.6;">TinyML frameworks (TensorFlow Lite, Edge Impulse) enable gesture classification models to run on RM 15 microcontrollers with &lt;5ms latency. Intent recognition that required cloud compute in 2020 now runs entirely on-device. No internet needed.</p>
+      </div>
+    </div>
+    <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <div class="card">
+        <div class="tag">Policy</div>
+        <h3 class="card-title">Malaysia OKU Framework + SOCSO Reform</h3>
+        <p style="font-size:0.83rem; color:var(--muted); line-height:1.6;">The 2024 SOCSO amendments expanded assistive device coverage to include Class C MDA-registered prosthetics. A local manufacturer can qualify for direct government procurement. No foreign company can access this channel.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Market Gap</div>
+        <h3 class="card-title">No SEA Manufacturer Exists</h3>
+        <p style="font-size:0.83rem; color:var(--muted); line-height:1.6;">Despite a combined population of 680M and ~600K upper-limb amputees, no company manufactures myoelectric prosthetics in Southeast Asia. The market is supplied entirely by imports from the US, Germany, and Iceland &mdash; at prices 10&ndash;14x what we will charge.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">04 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 05 — THE SOLUTION
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">The Solution</div>
+    <h2 class="section-title">A fully functional myoelectric arm<br/>for RM 5,500.</h2>
+    <div class="divider"></div>
+    <div class="col-split" style="gap:48px;">
+      <div>
+        <p class="body-text" style="margin-bottom:20px;">BANGKIT Bionics designs, manufactures, and fits 3D-printed myoelectric prosthetic arms in Malaysia. Each device is custom-fitted, controlled by the patient&rsquo;s own muscle signals, and priced at 10&ndash;14&times; below any comparable imported device.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px;">
+          <div class="card" style="padding:16px;">
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">Entry</div>
+            <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:4px;">RM 3,500</div>
+            <p style="font-size:0.78rem; color:var(--muted);">Body-powered or passive cosmetic. For children and first-time users. Fully replaceable parts. OKU-subsidy eligible.</p>
+          </div>
+          <div class="card-teal" style="padding:16px;">
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">Flagship</div>
+            <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:4px;">RM 5,500</div>
+            <p style="font-size:0.78rem; color:var(--muted);">Full myoelectric control, 4-grip pattern, EMG training app, 1-year warranty. Core product.</p>
+          </div>
+          <div class="card" style="padding:16px;">
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">Advanced</div>
+            <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:4px;">RM 8,500</div>
+            <p style="font-size:0.78rem; color:var(--muted);">Multi-articulating hand, ML gesture recognition, proprioceptive feedback, titanium joint inserts.</p>
+          </div>
+          <div class="card" style="padding:16px;">
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">Clinical</div>
+            <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:4px;">Custom pricing</div>
+            <p style="font-size:0.78rem; color:var(--muted);">Hospital supply contracts, research units, government bulk orders. Volume discounts apply.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="padding:22px; margin-bottom:16px;">
+          <h3 class="card-title">Key Differentiators</h3>
+          <ul class="bullet" style="margin-top:10px;">
+            <li><strong>Locally manufactured</strong> &mdash; same-week fitting, 48h replacement parts</li>
+            <li><strong>Repairable &amp; upgradeable</strong> &mdash; modular design, no full replacement needed</li>
+            <li><strong>Biocompatible materials</strong> &mdash; skin-safe nylon, antibacterial coatings</li>
+            <li><strong>EMG training app</strong> &mdash; patient trains grip patterns on smartphone</li>
+            <li><strong>Waterproof to IPX4</strong> &mdash; sweat, rain, tropical climate rated</li>
+            <li><strong>MDA Class C pathway</strong> &mdash; regulatory route identified</li>
+          </ul>
+        </div>
+        <div class="card-teal" style="padding:20px;">
+          <p style="font-size:0.85rem; color:var(--teal-light); font-weight:600; margin-bottom:6px;">vs. Imported Equivalent</p>
+          <p style="font-size:0.85rem; color:var(--muted);">An i-Limb or bebionic arm costs RM 40,000&ndash;80,000, ships in 8&ndash;12 weeks, and requires international service visits. BANGKIT delivers in one week, services locally, and costs <strong style="color:var(--text);">RM 5,500</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">05 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 06 — TECHNOLOGY: HOW IT WORKS
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Technology</div>
+    <h2 class="section-title">How the arm works.</h2>
+    <div class="divider"></div>
+    <div class="col-split" style="gap:60px; margin-top:10px;">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h4>Muscle Signal Capture</h4>
+            <p>Surface EMG electrodes rest against residual limb skin. When the patient intends to grip, forearm muscles produce millivolt-level electrical signals. No surgery. No skin penetration.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h4>Amplification &amp; Filtering</h4>
+            <p>Custom analogue front-end amplifies the signal 1,000&times; and applies a bandpass filter (20&ndash;500 Hz) to extract clean myoelectric data. Hardware noise rejection ensures reliable outdoor use.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h4>ML Gesture Classification</h4>
+            <p>A TinyML model running on a low-power ARM Cortex-M4 microcontroller classifies signal patterns into grip intentions: power grasp, pinch, tripod, hook, open hand. Runs at 200Hz with &lt;5ms latency.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <h4>Actuation</h4>
+            <p>Classified intent drives miniaturised servo motors in each finger joint. Torque-limited for safety. Grip force adjustable via app. Backdriveable in all positions for safety.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">05</div>
+          <div class="step-body">
+            <h4>Patient Training &amp; Personalisation</h4>
+            <p>Companion Android app guides patients through a 30-minute EMG calibration session. ML model fine-tunes grip classification to individual muscle patterns. Re-trains automatically over time.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="card-teal" style="padding:22px;">
+          <h3 class="card-title">Bill of Materials (Prototype Scale)</h3>
+          <ul class="bullet" style="margin-top:8px;">
+            <li><strong>Structure:</strong> FDM-printed biocompatible nylon (PA12) &mdash; RM 180</li>
+            <li><strong>Actuators:</strong> 5&times; micro servo motors &mdash; RM 120</li>
+            <li><strong>EMG front-end:</strong> Custom PCB + electrodes &mdash; RM 85</li>
+            <li><strong>MCU + BLE:</strong> Nordic nRF52840 module &mdash; RM 45</li>
+            <li><strong>Power:</strong> Li-ion 2000mAh + USB-C charge IC &mdash; RM 55</li>
+            <li><strong>Cosmetic silicone glove:</strong> Custom moulded &mdash; RM 90</li>
+            <li><strong>Assembly + QC labour:</strong> RM 200&ndash;400</li>
+          </ul>
+          <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+            <span style="font-size:0.78rem; color:var(--muted);">Total prototype COGS: </span>
+            <span style="font-size:0.88rem; font-weight:700; color:var(--teal-light);">RM 775&ndash;975</span>
+            <span style="font-size:0.72rem; color:var(--muted);"> (scales to RM 500 at volume)</span>
+          </div>
+        </div>
+        <div class="card" style="padding:20px;">
+          <h3 class="card-title">IP &amp; Defensibility</h3>
+          <ul class="bullet" style="margin-top:8px;">
+            <li>Provisional patent on EMG control system architecture</li>
+            <li>Proprietary patient dataset for gesture model training</li>
+            <li>Custom socket-interface connector (mechanical IP)</li>
+            <li>MDA registration as regulatory moat in Malaysia</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">06 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 07 — MARKET OPPORTUNITY
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Market Opportunity</div>
+    <h2 class="section-title">A USD 740M+ addressable market<br/>with zero local competition.</h2>
+    <div class="divider"></div>
+    <div class="col-split" style="gap:60px; margin-top:10px;">
+      <div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div class="card-teal">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-light); margin-bottom:6px;">TAM &mdash; Total Addressable Market</div>
+                <div class="big-num">USD 1.2B</div>
+                <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">600K+ upper-limb amputees across SEA &times; USD 2,000 average willingness-to-pay at tiered pricing</p>
+              </div>
+              <div style="background:rgba(2,128,144,0.3); border-radius:8px; padding:8px 14px; font-size:0.75rem; font-weight:700; color:var(--teal-light);">CAGR<br/><span style="font-size:1.2rem;">8.4%</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-light); margin-bottom:6px;">SAM &mdash; Serviceable Addressable Market</div>
+            <div class="big-num" style="font-size:2rem;">USD 300M</div>
+            <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">Amputees with income &gt; USD 500/month or covered by government/insurance. Malaysia + Singapore Year 1&ndash;2.</p>
+          </div>
+          <div class="card">
+            <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-light); margin-bottom:6px;">SOM &mdash; Serviceable Obtainable Market</div>
+            <div class="big-num" style="font-size:2rem;">USD 80M</div>
+            <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">Year 1&ndash;3 realistic capture. Malaysia + Singapore beachhead. 10% SAM penetration.</p>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px; padding:16px 20px; background:rgba(240,165,0,0.06); border-color:rgba(240,165,0,0.25);">
+          <p style="font-size:0.83rem; color:var(--muted);"><strong style="color:var(--accent);">UK + Europe:</strong> USD 2.8B additional addressable market. CE Mark pathway initiated from Year 3.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="padding:22px; margin-bottom:16px;">
+          <h3 class="card-title">SEA Country Breakdown</h3>
+          <table class="data-table" style="margin-top:12px;">
+            <thead><tr><th>Country</th><th>Est. Amputees</th><th>Entry Year</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Malaysia</strong></td><td class="num">280,000</td><td>Year 1</td></tr>
+              <tr><td><strong>Singapore</strong></td><td class="num">35,000</td><td>Year 2</td></tr>
+              <tr><td><strong>Indonesia</strong></td><td class="num">1,100,000</td><td>Year 3</td></tr>
+              <tr><td><strong>Thailand</strong></td><td class="num">420,000</td><td>Year 3</td></tr>
+              <tr><td><strong>Philippines</strong></td><td class="num">380,000</td><td>Year 4</td></tr>
+              <tr><td><strong>Vietnam</strong></td><td class="num">290,000</td><td>Year 4</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card" style="padding:20px;">
+          <h3 class="card-title">Why Malaysia First</h3>
+          <ul class="bullet" style="margin-top:8px;">
+            <li>MDA medical device regulatory framework: clear Class C pathway</li>
+            <li>SOCSO and OKU subsidy programmes fund device purchase</li>
+            <li>Team founder network in Kuala Lumpur neurosurgery and orthopaedics</li>
+            <li>English language allows dual SEA and UK marketing from day one</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">07 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 08 — COMPETITIVE LANDSCAPE
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Competitive Landscape</div>
+    <h2 class="section-title">We are not competing with Western arms.<br/>We are replacing the absence of any arm.</h2>
+    <div class="divider"></div>
+    <div style="margin-top:12px; overflow-x:auto;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="width:160px;">Company</th>
+            <th>Price (USD)</th>
+            <th>Myoelectric</th>
+            <th>SEA Available</th>
+            <th>Local Service</th>
+            <th>Repairable</th>
+            <th>Govt Subsidy Ready</th>
+            <th>AI Grip</th>
+            <th>Lead Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="our-row">
+            <td>BANGKIT Bionics</td>
+            <td>~1,300</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td>1 week</td>
+          </tr>
+          <tr>
+            <td>Ottobock (Germany)</td>
+            <td>8,000&ndash;25,000</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="partial">Partial</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="partial">Limited</span></td>
+            <td>8&ndash;12 wks</td>
+          </tr>
+          <tr>
+            <td>Touch Bionics (UK)</td>
+            <td>15,000&ndash;40,000</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td>10&ndash;14 wks</td>
+          </tr>
+          <tr>
+            <td>Open Bionics (UK)</td>
+            <td>~5,000</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="partial">Partial</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td>6&ndash;8 wks</td>
+          </tr>
+          <tr>
+            <td>Köp Bionics (Sweden)</td>
+            <td>12,000+</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td>12 wks</td>
+          </tr>
+          <tr>
+            <td>Body-powered hooks (generic)</td>
+            <td>200&ndash;500</td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="partial">Partial</span></td>
+            <td><span class="partial">Partial</span></td>
+            <td><span class="partial">Partial</span></td>
+            <td><span class="cross">&#10007;</span></td>
+            <td>2&ndash;4 wks</td>
+          </tr>
+          <tr>
+            <td>No prosthetic (status quo)</td>
+            <td>RM 0</td>
+            <td><span class="cross">&#10007;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td>&mdash;</td>
+            <td>&mdash;</td>
+            <td>&mdash;</td>
+            <td><span class="cross">&#10007;</span></td>
+            <td>&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card" style="margin-top:18px; padding:16px 24px; background:var(--teal-dim);">
+      <p style="font-size:0.85rem; color:var(--muted);">BANGKIT Bionics is the <strong style="color:var(--text);">only company</strong> in this table that is local to SEA, subsidy-eligible, and fully repairable at myoelectric capability. The competitive moat is geography + regulatory access + price &mdash; not just technology.</p>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">08 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 09 — BUSINESS MODEL
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Business Model</div>
+    <h2 class="section-title">Hardware + recurring service.<br/>Multiple payer channels.</h2>
+    <div class="divider"></div>
+    <div class="col-split" style="gap:48px; margin-top:10px;">
+      <div>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div class="card" style="padding:18px 22px; border-left:3px solid var(--teal);">
+            <h3 class="card-title">Revenue Stream 1 &mdash; Device Sales</h3>
+            <p style="font-size:0.83rem; color:var(--muted);">Direct sale to patient. Entry RM 3,500 / Flagship RM 5,500 / Advanced RM 8,500. 50%+ gross margin at prototype scale, improving to 60%+ at volume.</p>
+          </div>
+          <div class="card" style="padding:18px 22px; border-left:3px solid var(--teal);">
+            <h3 class="card-title">Revenue Stream 2 &mdash; Hospital Contracts</h3>
+            <p style="font-size:0.83rem; color:var(--muted);">Bulk supply agreements with rehabilitation hospitals and orthopaedic departments. Fixed annual contract per unit. Predictable recurring revenue from Year 2.</p>
+          </div>
+          <div class="card" style="padding:18px 22px; border-left:3px solid var(--teal);">
+            <h3 class="card-title">Revenue Stream 3 &mdash; Government Procurement</h3>
+            <p style="font-size:0.83rem; color:var(--muted);">SOCSO Employment Injury Scheme and OKU disability programme. Government reimburses device cost directly to BANGKIT. Zero collection risk.</p>
+          </div>
+          <div class="card" style="padding:18px 22px; border-left:3px solid var(--teal);">
+            <h3 class="card-title">Revenue Stream 4 &mdash; Service &amp; Upgrades</h3>
+            <p style="font-size:0.83rem; color:var(--muted);">Annual service contracts RM 500&ndash;800. Part replacement. Software upgrade subscriptions. Growing recurring revenue base as installed fleet scales.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card-teal" style="padding:24px; margin-bottom:16px;">
+          <h3 class="card-title">Unit Economics (Flagship Device)</h3>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
+            <div class="stat-chip">
+              <div class="val">RM 2&ndash;3K</div>
+              <div class="lbl">COGS per unit</div>
+              <div style="font-size:0.7rem; color:var(--muted); margin-top:4px;">Materials, print, electronics, labour at prototype scale</div>
+            </div>
+            <div class="stat-chip">
+              <div class="val">RM 5,500</div>
+              <div class="lbl">Target selling price</div>
+              <div style="font-size:0.7rem; color:var(--muted); margin-top:4px;">Myoelectric arm ASP. 100% markup on COGS.</div>
+            </div>
+            <div class="stat-chip">
+              <div class="val">~50%</div>
+              <div class="lbl">Gross margin</div>
+              <div style="font-size:0.7rem; color:var(--muted); margin-top:4px;">Improving to 60%+ as volume scale reduces COGS</div>
+            </div>
+            <div class="stat-chip">
+              <div class="val">RM 20&ndash;80K</div>
+              <div class="lbl">Imported equivalent</div>
+              <div style="font-size:0.7rem; color:var(--muted); margin-top:4px;">Current market price for comparable Western devices</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:20px;">
+          <h3 class="card-title">Payer Mix (Projected Year 2)</h3>
+          <div class="fund-bar-wrap" style="margin-top:12px;">
+            <div class="fund-bar-label"><span>Government / SOCSO</span><span>45%</span></div>
+            <div class="fund-bar-track"><div class="fund-bar-fill" style="width:45%"></div></div>
+            <div class="fund-bar-label"><span>Hospital Contracts</span><span>30%</span></div>
+            <div class="fund-bar-track"><div class="fund-bar-fill" style="width:30%"></div></div>
+            <div class="fund-bar-label"><span>Direct Patient</span><span>20%</span></div>
+            <div class="fund-bar-track"><div class="fund-bar-fill" style="width:20%"></div></div>
+            <div class="fund-bar-label"><span>Service &amp; Upgrades</span><span>5%</span></div>
+            <div class="fund-bar-track"><div class="fund-bar-fill" style="width:5%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">09 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 10 — FINANCIAL PROJECTIONS
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Financial Projections</div>
+    <h2 class="section-title">RM 55M revenue by Year 5.<br/>Path to profitability from Year 2.</h2>
+    <div class="divider"></div>
+    <div style="margin-top:12px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Units Sold</th>
+            <th>Revenue</th>
+            <th>Gross Profit</th>
+            <th>Gross Margin</th>
+            <th>Market</th>
+            <th>Key Milestone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Year 1</strong></td>
+            <td class="num">50</td>
+            <td class="num">RM 275K</td>
+            <td class="num">RM 137K</td>
+            <td class="green">50%</td>
+            <td>Malaysia</td>
+            <td>Pilot, clinical validation patients</td>
+          </tr>
+          <tr>
+            <td><strong>Year 2</strong></td>
+            <td class="num">300</td>
+            <td class="num">RM 1.65M</td>
+            <td class="num">RM 825K</td>
+            <td class="green">50%</td>
+            <td>Malaysia + Singapore</td>
+            <td>First hospital contracts</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Year 3</strong></td>
+            <td class="num">1,000</td>
+            <td class="num">RM 5.5M</td>
+            <td class="num">RM 2.75M</td>
+            <td class="green">50%</td>
+            <td>+ Indonesia + Thailand</td>
+            <td>Regional simultaneous expansion</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Year 4</strong></td>
+            <td class="num">3,500</td>
+            <td class="num">RM 19.25M</td>
+            <td class="num">RM 9.6M</td>
+            <td class="green">50%+</td>
+            <td>SEA-wide + UK pilot</td>
+            <td>Series B funded, UK pilot begins</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Year 5</strong></td>
+            <td class="num">10,000</td>
+            <td class="num">RM 55M</td>
+            <td class="num">RM 27.5M</td>
+            <td class="green">50%+</td>
+            <td>SEA + UK + Europe</td>
+            <td>SEA dominance, global story established</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px;">
+      <div class="card" style="padding:18px;">
+        <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">ASP (Flagship)</div>
+        <div style="font-size:1.4rem; font-weight:700; color:var(--text);">RM 5,500</div>
+        <p style="font-size:0.75rem; color:var(--muted); margin-top:4px;">100% markup on COGS. Gross margin ~50%, scaling to 60%+ at volume as manufacturing efficiency improves.</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">COGS Trajectory</div>
+        <div style="font-size:1.4rem; font-weight:700; color:var(--text);">RM 2,000&ndash;3,000 &rarr; RM 500</div>
+        <p style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Prototype scale today. Drops to RM 500&ndash;700 at 1,000+ units/year via supplier contracts and in-house printing.</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">Break-even</div>
+        <div style="font-size:1.4rem; font-weight:700; color:var(--text);">~Year 2</div>
+        <p style="font-size:0.75rem; color:var(--muted); margin-top:4px;">At 300 units / RM 1.65M revenue with lean team and shared manufacturing space. Cash-flow positive before Series A.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">10 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 11 — GO-TO-MARKET
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Go-to-Market Strategy</div>
+    <h2 class="section-title">Clinical trust first.<br/>Scale second.</h2>
+    <div class="divider"></div>
+    <div style="margin-top:12px; display:flex; flex-direction:column; gap:14px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+        <div class="card" style="padding:18px 20px;">
+          <div class="phase-badge">Phase 1 / Year 1</div>
+          <h3 class="card-title" style="margin-top:4px;">Clinical Pilot</h3>
+          <ul class="bullet">
+            <li>10 patients via founder clinical network (HUKM, PPUM)</li>
+            <li>Full device-at-cost provision for validation data</li>
+            <li>IRB ethics approval &amp; MDA Class C submission</li>
+            <li>Outcome data for grant applications</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:18px 20px;">
+          <div class="phase-badge">Phase 2 / Year 1&ndash;2</div>
+          <h3 class="card-title" style="margin-top:4px;">Grant + Direct Sales</h3>
+          <ul class="bullet">
+            <li>Cradle Fund CIP 500 + MRANTI Deep Tech</li>
+            <li>Direct patient outreach via OKU Malaysia network</li>
+            <li>50 paid devices, RM 275K revenue</li>
+            <li>Media coverage via patient success stories</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:18px 20px;">
+          <div class="phase-badge">Phase 3 / Year 2</div>
+          <h3 class="card-title" style="margin-top:4px;">Hospital Contracts</h3>
+          <ul class="bullet">
+            <li>Preferred supplier agreements: 3&ndash;5 rehab hospitals</li>
+            <li>SOCSO referral pipeline for Employment Injury cases</li>
+            <li>Singapore Health Sciences Authority registration</li>
+            <li>300 units / RM 1.65M revenue</li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+        <div class="card" style="padding:18px 20px;">
+          <div class="phase-badge">Phase 4 / Year 3</div>
+          <h3 class="card-title" style="margin-top:4px;">Regional Expansion</h3>
+          <ul class="bullet">
+            <li>Indonesia: BPJS Kesehatan coverage application</li>
+            <li>Thailand: National Health Security Office pilot</li>
+            <li>Distribution partner agreements in each market</li>
+            <li>Series A raise: RM 10M+</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:18px 20px;">
+          <div class="phase-badge">Phase 5 / Year 4&ndash;5</div>
+          <h3 class="card-title" style="margin-top:4px;">Scale</h3>
+          <ul class="bullet">
+            <li>SEA-wide hospital and government supply</li>
+            <li>In-house manufacturing facility, KL</li>
+            <li>3,500+ units annually</li>
+            <li>Series B, Western markets entry</li>
+          </ul>
+        </div>
+        <div class="card-teal" style="padding:18px 20px;">
+          <div class="phase-badge" style="background:rgba(2,128,144,0.3); border-color:var(--teal);">Phase 6 / Year 4&ndash;5</div>
+          <h3 class="card-title" style="margin-top:4px;">Go Global</h3>
+          <ul class="bullet">
+            <li>UCL clinical partnerships and NHS pilot programme</li>
+            <li>CE Mark conversion from MDA registration</li>
+            <li>Martynas leads European investor relationships and startup network</li>
+            <li>London western headquarters</li>
+            <li>Device built for the hardest market &mdash; affordable, durable, clinically validated &mdash; enters every other market from a position of dominance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">11 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 12 — EARLY VALIDATION
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Early Validation</div>
+    <h2 class="section-title">Proof before prototype.</h2>
+    <div class="divider"></div>
+    <div class="col-split" style="gap:48px; margin-top:10px;">
+      <div>
+        <p class="body-text" style="margin-bottom:24px;">We have not yet built the physical product. What we have built is the clinical, regulatory, and commercial foundation that makes the product viable at scale.</p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div class="card" style="padding:18px 22px; border-left:3px solid var(--green);">
+            <h3 class="card-title" style="color:var(--green);">Clinical Network</h3>
+            <p style="font-size:0.83rem; color:var(--muted);">Direct access to neurosurgery department via Alwi&rsquo;s father (consultant neurosurgeon). Orthopaedic referral network confirmed. 10 pilot patient cases identified and awaiting device.</p>
+          </div>
+          <div class="card" style="padding:18px 22px; border-left:3px solid var(--green);">
+            <h3 class="card-title" style="color:var(--green);">Regulatory Pathway Mapped</h3>
+            <p style="font-size:0.83rem; color:var(--muted);">MDA Class C prosthetic device classification confirmed. Ethics board submission process documented. CE Mark conversion pathway via ISO 13485 quality system identified for Year 3.</p>
+          </div>
+          <div class="card" style="padding:18px 22px; border-left:3px solid var(--green);">
+            <h3 class="card-title" style="color:var(--green);">Technology Validated (Component Level)</h3>
+            <p style="font-size:0.83rem; color:var(--muted);">EMG signal capture and filtering circuit breadboarded and tested. TinyML gesture classification: 94% accuracy on 5-class grip dataset (500 sample training set). FDM structural components printed and load-tested.</p>
+          </div>
+          <div class="card" style="padding:18px 22px; border-left:3px solid var(--green);">
+            <h3 class="card-title" style="color:var(--green);">Grant Pipeline Active</h3>
+            <p style="font-size:0.83rem; color:var(--muted);">Cradle Fund CIP 500 application in preparation. MRANTI Deep Tech grant eligibility confirmed. NIH Malaysia preliminary conversations initiated. RM 500K non-dilutive target.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card-teal" style="padding:24px; margin-bottom:16px;">
+          <h3 class="card-title">What This Funding Unlocks</h3>
+          <ul class="bullet" style="margin-top:10px;">
+            <li><strong>Functional prototype</strong> &mdash; complete working arm on a human patient</li>
+            <li><strong>Clinical data</strong> &mdash; outcomes, safety, usability from 10 pilot patients</li>
+            <li><strong>MDA submission</strong> &mdash; Class C registration initiated</li>
+            <li><strong>Grant leverage</strong> &mdash; prototype de-risks all grant applications</li>
+            <li><strong>Series A foundation</strong> &mdash; clinical evidence, regulatory status, revenue from first 50 patients</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:22px;">
+          <h3 class="card-title">Risk Mitigation at Seed Stage</h3>
+          <ul class="bullet" style="margin-top:10px;">
+            <li>All founders have engineering degrees from UCL</li>
+            <li>Clinical access removes market discovery risk</li>
+            <li>Government subsidy channel removes pricing risk</li>
+            <li>Modular design reduces manufacturing complexity</li>
+            <li>No regulatory approval needed before pilot (compassionate use pathway)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">12 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 13 — TEAM
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">The Team</div>
+    <h2 class="section-title">Four UCL engineers.<br/>One mission.</h2>
+    <div class="divider"></div>
+    <div class="grid-2" style="margin-top:16px;">
+      <div class="team-card">
+        <div class="avatar">A</div>
+        <div class="name">Alwi</div>
+        <div class="role">CEO &amp; Co-Founder</div>
+        <ul class="bullet">
+          <li>UCL MEng Biomedical Engineering</li>
+          <li>Serial entrepreneur across import, distribution and software</li>
+          <li>Clinical access via neurosurgeon father and orthopaedic family network</li>
+          <li>Malaysian &mdash; deep market knowledge, government relationships, local clinical infrastructure</li>
+        </ul>
+      </div>
+      <div class="team-card">
+        <div class="avatar">R</div>
+        <div class="name">Ronit</div>
+        <div class="role">CTO &amp; Co-Founder</div>
+        <ul class="bullet">
+          <li>UCL MEng Biomedical Engineering</li>
+          <li>Biomaterials industry experience post-graduation</li>
+          <li>Full-stack engineering capability</li>
+          <li>Deep expertise in biocompatible materials and device durability testing</li>
+        </ul>
+      </div>
+      <div class="team-card">
+        <div class="avatar">M</div>
+        <div class="name">Martynas</div>
+        <div class="role">COO &amp; Co-Founder</div>
+        <ul class="bullet">
+          <li>UCL MEng Biomedical Engineering</li>
+          <li>Multiple startup founder experience across Europe</li>
+          <li>Fundraising, operations and go-to-market execution</li>
+          <li>European investor network and UCL alumni connections</li>
+        </ul>
+      </div>
+      <div class="team-card">
+        <div class="avatar">J</div>
+        <div class="name">Joonmin</div>
+        <div class="role">Head of Clinical &amp; Co-Founder</div>
+        <ul class="bullet">
+          <li>UCL MEng Biomedical Engineering</li>
+          <li>Clinical testing and validation experience</li>
+          <li>Medical device regulatory expertise</li>
+          <li>Clinical trial design and ethics submissions</li>
+          <li>MDA Malaysia and CE Mark pathway knowledge</li>
+          <li>UK-based clinical network</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px; padding:14px 20px; background:var(--teal-dim);">
+      <p style="font-size:0.83rem; color:var(--muted);">All four founders hold UCL MEng Biomedical Engineering degrees. Combined: clinical network access, European fundraising experience, biocompatible materials expertise, and regulatory pathway knowledge. <strong style="color:var(--text);">Every gap is covered internally.</strong></p>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">13 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 14 — WHY WE WIN (UNFAIR ADVANTAGES)
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Unfair Advantages</div>
+    <h2 class="section-title">Why BANGKIT wins<br/>where no one else can.</h2>
+    <div class="divider"></div>
+    <div class="grid-3" style="margin-top:16px; gap:18px;">
+      <div class="adv-card">
+        <div class="icon">&#127968;</div>
+        <h4>Clinical Access from Day Zero</h4>
+        <p>Alwi&rsquo;s father is a consultant neurosurgeon. Orthopaedic family network provides direct patient referrals. No competitor can buy this relationship. Clinical validation happens through trust, not sales.</p>
+      </div>
+      <div class="adv-card">
+        <div class="icon">&#127981;</div>
+        <h4>Local Manufacturing = Local Moat</h4>
+        <p>We manufacture in Malaysia. Same-week fitting. 48-hour parts replacement. Customs-free. Any international competitor must ship from Germany or the UK. We are always faster and always cheaper to service.</p>
+      </div>
+      <div class="adv-card">
+        <div class="icon">&#128196;</div>
+        <h4>Regulatory Insider Advantage</h4>
+        <p>Joonmin specialises in MDA Class C registration and CE Mark pathways. We know the submissions, the ethics boards, and the evaluators. Foreign companies spend 2&ndash;3 years figuring out what we already know.</p>
+      </div>
+      <div class="adv-card">
+        <div class="icon">&#127760;</div>
+        <h4>Government Channel Access</h4>
+        <p>SOCSO Employment Injury and OKU Malaysia programmes are closed to foreign manufacturers. As a registered Malaysian entity with MDA approval, we are the only supplier eligible for these procurement channels.</p>
+      </div>
+      <div class="adv-card">
+        <div class="icon">&#127482;&#127472;</div>
+        <h4>UCL Network &mdash; Both Markets</h4>
+        <p>Four UCL graduates. Martynas has European investor relationships and startup networks built before this company. When we enter the UK, we are not starting from zero &mdash; we walk into rooms with people who already know us.</p>
+      </div>
+      <div class="adv-card">
+        <div class="icon">&#128200;</div>
+        <h4>Price That Cannot Be Matched</h4>
+        <p>RM 5,500 vs RM 40,000&ndash;80,000 for imports. A Western manufacturer cannot sell at our price without losing money. We are not competing on features &mdash; we are structurally cheaper because we are structurally local.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">14 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 15 — ROADMAP
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Roadmap</div>
+    <h2 class="section-title">From prototype to global<br/>in five years.</h2>
+    <div class="divider"></div>
+    <div style="margin-top:12px; display:flex; flex-direction:column; gap:0;">
+      <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:12px;">
+        <div class="card" style="padding:18px 14px; border-top:3px solid var(--teal);">
+          <div style="font-size:0.65rem; font-weight:800; letter-spacing:0.15em; color:var(--teal); margin-bottom:8px;">01</div>
+          <div style="font-size:0.88rem; font-weight:700; color:var(--text); margin-bottom:8px;">Validate</div>
+          <p style="font-size:0.75rem; color:var(--muted); line-height:1.5;">Conversations with neurosurgeon network. Identify 10 real patient cases. Confirm unmet need. Zero cost &mdash; pure discovery.</p>
+        </div>
+        <div class="card" style="padding:18px 14px; border-top:3px solid var(--teal);">
+          <div style="font-size:0.65rem; font-weight:800; letter-spacing:0.15em; color:var(--teal); margin-bottom:8px;">02</div>
+          <div style="font-size:0.88rem; font-weight:700; color:var(--text); margin-bottom:8px;">Fund</div>
+          <p style="font-size:0.75rem; color:var(--muted); line-height:1.5;">Cradle Fund CIP 500, MRANTI Deep Tech, NIH Malaysia. Parallel applications &mdash; not sequential. RM 500K target.</p>
+        </div>
+        <div class="card" style="padding:18px 14px; border-top:3px solid var(--teal);">
+          <div style="font-size:0.65rem; font-weight:800; letter-spacing:0.15em; color:var(--teal); margin-bottom:8px;">03</div>
+          <div style="font-size:0.88rem; font-weight:700; color:var(--text); margin-bottom:8px;">Build</div>
+          <p style="font-size:0.75rem; color:var(--muted); line-height:1.5;">First functional prototype. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system.</p>
+        </div>
+        <div class="card" style="padding:18px 14px; border-top:3px solid var(--teal);">
+          <div style="font-size:0.65rem; font-weight:800; letter-spacing:0.15em; color:var(--teal); margin-bottom:8px;">04</div>
+          <div style="font-size:0.88rem; font-weight:700; color:var(--text); margin-bottom:8px;">Prove</div>
+          <p style="font-size:0.75rem; color:var(--muted); line-height:1.5;">Formal clinical trial. Ethics board approval. MDA Class C registration pathway. CE Mark preparation for Singapore access.</p>
+        </div>
+        <div class="card" style="padding:18px 14px; border-top:3px solid var(--teal);">
+          <div style="font-size:0.65rem; font-weight:800; letter-spacing:0.15em; color:var(--teal); margin-bottom:8px;">05</div>
+          <div style="font-size:0.88rem; font-weight:700; color:var(--text); margin-bottom:8px;">Scale</div>
+          <p style="font-size:0.75rem; color:var(--muted); line-height:1.5;">First hospital sales in Malaysia. SOCSO/OKU subsidy application. Singapore expansion. Series A for regional scale.</p>
+        </div>
+        <div class="card-teal" style="padding:18px 14px; border-top:3px solid var(--teal-light);">
+          <div style="font-size:0.65rem; font-weight:800; letter-spacing:0.15em; color:var(--teal-light); margin-bottom:8px;">06</div>
+          <div style="font-size:0.88rem; font-weight:700; color:var(--text); margin-bottom:8px;">Global</div>
+          <p style="font-size:0.75rem; color:var(--muted); line-height:1.5;">UCL clinical partnerships and NHS pilot. CE Mark opens UK, EU and Australia. Martynas leads European investor network. London HQ. The device built for the hardest market conquers every other one.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; margin-top:16px; gap:0;">
+        <div style="flex:1; height:2px; background:linear-gradient(to right, var(--teal), var(--teal-light));"></div>
+        <div style="padding:0 12px; font-size:0.7rem; color:var(--muted); white-space:nowrap;">Year 1 &rarr;&rarr;&rarr;&rarr;&rarr;&rarr;&rarr;&rarr;&rarr;&rarr; Year 5+</div>
+      </div>
+    </div>
+    <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+      <div class="stat-chip">
+        <div class="val">RM 500K</div>
+        <div class="lbl">Seed Ask (this round)</div>
+      </div>
+      <div class="stat-chip">
+        <div class="val">RM 10M+</div>
+        <div class="lbl">Series A target (Year 2&ndash;3)</div>
+      </div>
+      <div class="stat-chip">
+        <div class="val">RM 55M</div>
+        <div class="lbl">Revenue target Year 5</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">15 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 16 — THE ASK
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">The Ask</div>
+    <h2 class="section-title">RM 500K seed.<br/>Prototype to clinical validation.</h2>
+    <div class="divider"></div>
+    <div class="col-split" style="gap:60px; margin-top:10px;">
+      <div>
+        <div class="card-teal" style="padding:28px; margin-bottom:20px;">
+          <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--teal-light); margin-bottom:8px;">Raising</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:3.2rem; color:#fff; line-height:1; margin-bottom:8px;">RM 500,000</div>
+          <div style="font-size:0.85rem; color:var(--muted);">Pre-prototype seed round. Convertible note or equity. 18-month runway to clinical validation and grant eligibility.</div>
+        </div>
+        <div class="card" style="padding:22px;">
+          <h3 class="card-title">What We Need Beyond Capital</h3>
+          <ul class="bullet" style="margin-top:10px;">
+            <li><strong>Healthcare network:</strong> Introductions to hospital procurement leads and rehabilitation department heads</li>
+            <li><strong>Grant navigation:</strong> Experience with Cradle, MRANTI, NIH Malaysia processes</li>
+            <li><strong>Regulatory guidance:</strong> MDA registration and ISO 13485 quality system setup</li>
+            <li><strong>Manufacturing:</strong> Introduction to biomedical supply chain and contract manufacturer network</li>
+            <li><strong>Series A preparation:</strong> Investor introductions for RM 10M+ round in 18&ndash;24 months</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3 class="card-title" style="margin-bottom:16px;">Use of Funds</h3>
+        <div class="fund-bar-wrap">
+          <div class="fund-bar-label"><span>Prototype Development (components, printing, assembly)</span><span>40% / RM 200K</span></div>
+          <div class="fund-bar-track"><div class="fund-bar-fill" style="width:40%"></div></div>
+          <div class="fund-bar-label"><span>Clinical Pilot (10 patients, ethics, consumables)</span><span>25% / RM 125K</span></div>
+          <div class="fund-bar-track"><div class="fund-bar-fill" style="width:25%"></div></div>
+          <div class="fund-bar-label"><span>Regulatory (MDA Class C, IP legal)</span><span>15% / RM 75K</span></div>
+          <div class="fund-bar-track"><div class="fund-bar-fill" style="width:15%"></div></div>
+          <div class="fund-bar-label"><span>Team Salaries (18 months, 2 FTE)</span><span>15% / RM 75K</span></div>
+          <div class="fund-bar-track"><div class="fund-bar-fill" style="width:15%"></div></div>
+          <div class="fund-bar-label"><span>Operations, Equipment, Contingency</span><span>5% / RM 25K</span></div>
+          <div class="fund-bar-track"><div class="fund-bar-fill" style="width:5%"></div></div>
+        </div>
+        <div class="card" style="margin-top:18px; padding:20px; background:var(--teal-dim);">
+          <h3 class="card-title">Milestones This Funding Achieves</h3>
+          <ul class="bullet" style="margin-top:10px;">
+            <li>Working myoelectric arm fitted to first patient</li>
+            <li>10 pilot patients with outcome data published</li>
+            <li>MDA Class C registration application submitted</li>
+            <li>Provisional patent filed on control system</li>
+            <li>RM 500K grant applications de-risked and submitted</li>
+            <li>Series A readiness: clinical evidence + revenue + regulatory status</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">16 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 17 — APPENDIX: KEY RISKS
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Appendix &mdash; Risk Register</div>
+    <h2 class="section-title">Known risks.<br/>Planned mitigations.</h2>
+    <div class="divider"></div>
+    <div style="margin-top:14px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:200px;">Risk</th>
+            <th>Description</th>
+            <th style="width:90px;">Severity</th>
+            <th>Mitigation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Regulatory delay</strong></td>
+            <td>MDA Class C registration takes longer than projected (12&ndash;18 months)</td>
+            <td style="color:var(--accent); font-weight:600;">Medium</td>
+            <td>Compassionate use pathway for first 10 patients. Joonmin leads submission. Legal counsel engaged.</td>
+          </tr>
+          <tr>
+            <td><strong>Technical failure</strong></td>
+            <td>EMG signal quality insufficient for reliable gesture classification in field conditions</td>
+            <td style="color:var(--accent); font-weight:600;">Medium</td>
+            <td>94% accuracy demonstrated at component level. Iterative prototyping with clinical feedback. Fallback to proportional control (simpler, proven).</td>
+          </tr>
+          <tr>
+            <td><strong>Manufacturing quality</strong></td>
+            <td>FDM print quality varies. Biocompatibility testing required.</td>
+            <td style="color:var(--red); font-weight:600;">High</td>
+            <td>ISO 10993 biocompatibility testing planned. Ronit leads materials selection. Contract with certified lab.</td>
+          </tr>
+          <tr>
+            <td><strong>Grant dependency</strong></td>
+            <td>Non-dilutive grant applications may be rejected or delayed</td>
+            <td style="color:var(--accent); font-weight:600;">Medium</td>
+            <td>Parallel applications to 3+ funds. Seed round is standalone (grant-independent). Prototype data improves grant success rate.</td>
+          </tr>
+          <tr>
+            <td><strong>Competition from China</strong></td>
+            <td>Chinese manufacturers producing low-cost prosthetics at scale</td>
+            <td style="color:var(--accent); font-weight:600;">Medium</td>
+            <td>MDA registration required for SOCSO reimbursement. Chinese imports not reimbursable. Local clinical support is key differentiator.</td>
+          </tr>
+          <tr>
+            <td><strong>Team bandwidth</strong></td>
+            <td>4-person founding team with no additional engineering staff</td>
+            <td style="color:var(--accent); font-weight:600;">Medium</td>
+            <td>Seed funding includes 2 FTE salaries. UCL intern and co-op programme access. Advisors for specialist gaps.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">17 / 18</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 18 — VISION / CLOSING
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="cover-bg"></div>
+  <div class="cover-grid-lines"></div>
+  <div class="slide-inner" style="justify-content:center; align-items:center; text-align:center;">
+    <div style="max-width:780px;">
+      <div class="logo-mark" style="margin:0 auto 40px;">B</div>
+      <div class="eyebrow" style="text-align:center;">Vision</div>
+      <div style="margin-top:16px; margin-bottom:32px;">
+        <p style="font-family:'DM Serif Display',serif; font-size:1.9rem; color:#fff; line-height:1.4; margin-bottom:20px;">
+          Prosthetics is the beachhead.
+        </p>
+        <p style="font-size:1rem; color:var(--muted); line-height:1.8; margin-bottom:16px;">
+          Rehabilitation robotics, exoskeletons, diagnostic AI, surgical tools &mdash; the entire landscape of medical devices globally is waiting to be reimagined.
+        </p>
+        <p style="font-size:1rem; color:var(--muted); line-height:1.8; margin-bottom:16px;">
+          We started in Southeast Asia because that is where the need is greatest and the market is most open.
+        </p>
+        <p style="font-size:1rem; color:var(--muted); line-height:1.8; margin-bottom:16px;">
+          We are going global because a device built to survive the hardest conditions at the lowest price beats everything else everywhere else.
+        </p>
+        <p style="font-size:1rem; color:var(--muted); line-height:1.8; margin-bottom:28px;">
+          We are starting with one product that changes one life at a time.<br/>
+          <strong style="color:var(--text);">Until we have changed all of them.</strong>
+        </p>
+      </div>
+      <div style="display:flex; gap:32px; justify-content:center; align-items:center; flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted); margin-bottom:4px;">Contact</div>
+          <div style="font-size:0.9rem; color:var(--text); font-weight:600;">founders@bangkitbionics.com</div>
+        </div>
+        <div style="width:1px; height:32px; background:var(--border);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted); margin-bottom:4px;">Location</div>
+          <div style="font-size:0.9rem; color:var(--text); font-weight:600;">Kuala Lumpur, Malaysia</div>
+        </div>
+        <div style="width:1px; height:32px; background:var(--border);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted); margin-bottom:4px;">Raising</div>
+          <div style="font-size:0.9rem; color:var(--teal-light); font-weight:700;">RM 500,000 Seed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">18 / 18</div>
+</div>
+
+</body>
+</html>
