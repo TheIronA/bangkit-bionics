@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0A2540;
+  --navy-light: #0f2e4e;
+  --navy-card: #0d2d47;
+  --teal: #028090;
+  --teal-light: #03a0b4;
+  --white: #ffffff;
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-10: rgba(255, 255, 255, 0.1);
+  --grey: rgba(255, 255, 255, 0.55);
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--navy);
+  --color-foreground: var(--white);
+  --font-sans: var(--font-inter);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Fade-in animation for scroll reveal */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Orb animation */
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-25px, 20px) scale(1.08); }
+  66% { transform: translate(20px, -15px) scale(0.92); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Section label */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.25rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--white-10); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
