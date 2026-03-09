@@ -93,7 +93,7 @@ function StatCounter({
 function ArmSVG() {
   return (
     <svg viewBox="0 0 280 420" fill="none" xmlns="http://www.w3.org/2000/svg"
-      style={{ width: "100%", maxWidth: 420, margin: "0 auto", display: "block" }}>
+      style={{ width: "100%", maxWidth: 560, margin: "0 auto", display: "block" }}>
       <ellipse cx="140" cy="38" rx="44" ry="18" stroke="#028090" strokeWidth="1.5" fill="none" />
       <ellipse cx="140" cy="38" rx="30" ry="10" stroke="#028090" strokeWidth="1" fill="rgba(2,128,144,0.07)" />
       <rect x="122" y="54" width="36" height="100" rx="4" stroke="#028090" strokeWidth="1.5" fill="rgba(2,128,144,0.06)" />
@@ -347,12 +347,12 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             {[
-              { name: "Neural-Pattern Control", desc: "EMG sensors read muscle patterns from the residual limb and classify intended grips. The target is intuitive grip selection, not simple open-close threshold switching." },
-              { name: "Digital-Twin Socket Fit", desc: "3D scanning and patient-specific printing create a more adaptive socket: softer where comfort matters, stiffer where structure matters, faster to refit as the user changes." },
-              { name: "Biocompatible Materials", desc: "ISO 10993-compliant skin-contact components. Safe, durable, lightweight — and selected with biocompatibility compliance in mind from the first prototype, not retrofitted later." },
-              { name: "Motorized Grip Switching", desc: "The roadmap is automatic grip and thumb-state switching from intent classification, so the user does not need to stop and manually reposition the hand between use cases." },
-              { name: "RM 4,500\u201314,500 Pricing", desc: "Priced well below imported alternatives, but high enough to preserve healthy hardware margin for regulatory work, ongoing development, and service." },
-              { name: "Malaysia-Native Delivery", desc: "Clinical access, fitting, service, and NTIS-enabled validation are built around the Malaysian system. We are not shipping into the market as a foreign importer." },
+              { name: "Non-Invasive Neural Sensing", desc: "High-fidelity surface electrodes capture motor neuron action potentials directly through the skin — reading the electrical signatures of neural intent without any invasive surgery." },
+              { name: "AI Intent Decoding", desc: "Our onboard ML pipeline moves beyond clunky threshold triggers. It decodes neural firing patterns in real-time, learning the user's specific biological signals and translating subconscious thought into natural movement." },
+              { name: "Auto-Articulating Bionics", desc: "Fully motorized independent actuation drives both fingers and thumb. The bionic thumb transitions between pinch and grasp automatically based on neural intent — no manual repositioning by the other hand." },
+              { name: "Digital-Twin Socket Generation", desc: "Smartphone LiDAR generates a precise digital twin of the residual limb, driving a 3D-printed patient-specific socket with variable density — rigid for load-bearing, flexible for skin comfort — reducing rejection rates to near zero." },
+              { name: "Integrated Power Architecture", desc: "All control logic, motor drivers, and high-density Li-ion power systems are housed entirely within the forearm unit. USB-C rapid charging ensures all-day autonomy." },
+              { name: "Malaysia-Native Delivery", desc: "Clinical access, fitting, service, and regulatory validation are built around the Malaysian system. We are not shipping into the market as a foreign importer." },
             ].map((feat) => (
               <div key={feat.name} style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
                 <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--teal)", marginTop: "0.45rem", flexShrink: 0 }} />
