@@ -423,7 +423,8 @@ export default function Home() {
                 { year: "Year 1", label: "Malaysia" },
                 { year: "Year 2", label: "Singapore" },
                 { year: "Year 3", label: "Indonesia + Thailand" },
-                { year: "Year 5", label: "SEA-wide" },
+                { year: "Year 4", label: "SEA-wide + UK pilot" },
+                { year: "Year 5", label: "Europe + Australia" },
               ].map((step, i, arr) => (
                 <div key={step.year} style={{ display: "flex", alignItems: "center", flex: i < arr.length - 1 ? "1" : "0 0 auto" }}>
                   <div style={{ textAlign: "center", minWidth: 110 }}>
@@ -447,7 +448,7 @@ export default function Home() {
             We are not trying to be the cheapest bionic hand.<br />We are building the performance tier above low-end imports.
           </h2>
           <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, maxWidth: 760, marginBottom: "3rem" }}>
-            Vulcan and similar challengers prove there is demand for affordable myoelectric hardware. BANGKIT's wedge is different: neural-pattern control, motorized grip switching, better socket comfort, and native Malaysian clinical deployment.
+            The market is splitting into two tiers: low-cost imported hands with constrained functionality, and premium imported systems priced out of Southeast Asia. BANGKIT sits in the gap between them: materially better control and fit than the value tier, delivered through a local Malaysian clinical and regulatory stack.
           </p>
           <div className="fade-up" style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", minWidth: 640 }}>
@@ -668,17 +669,17 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">Unfair Advantages</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
-            What cannot be easily<br />replicated by a competitor.
+            Why a Vulcan-style importer<br />should lose this market.
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}>
             {[
-              { title: "Clinical access nobody can buy", desc: "Our CEO's father is a practising neurosurgeon with an established hospital network in Malaysia. Direct access to patients and clinicians from day one. No 18-month procurement cycles to get started." },
-              { title: "Biomaterials expertise in-house", desc: "Post-graduation industry experience in biomaterials is rare. Having it on the founding team — not as a consultant — means device compliance is built correctly from the first prototype, not expensively corrected later." },
-              { title: "Genuine local advantage", desc: "We are Malaysian. We understand the healthcare system, the B40/M40 purchasing reality, the government grant landscape, and the MDA regulatory pathway. Foreign competitors simply cannot replicate this." },
-              { title: "UCL Biomedical Engineering pedigree", desc: "Two MEng graduates from one of the world's top biomedical engineering programmes. We studied medical device regulation, clinical trial design, and biomechanics as examined curriculum — not background reading." },
-              { title: "Startup DNA in the team", desc: "Our COO has founded and operated multiple startups. Our CEO has built import businesses and software contracts under real market pressure. This is not a team of academics who have never shipped." },
-              { title: "Regulatory-first by design", desc: "Most hardware startups retrofit compliance. We are building for MDA registration from day one. Our clinical co-founder owns this pathway. We reach commercialisation faster and with fewer expensive pivots." },
-              { title: "Malaysia's BME talent pipeline", desc: "Malaysia's universities produce hundreds of biomedical engineering graduates annually with nowhere to go. Most leave the country or move into unrelated fields. BANGKIT is the first serious destination for that talent — giving us first pick of the best graduates before anyone else knows they exist." },
+              { title: "Native clinical distribution", desc: "Vulcan enters Malaysia through partner clinics. We are being built inside the Malaysian care pathway from day one: referral access, fitting workflow, follow-up, and clinician feedback all live locally." },
+              { title: "Higher performance wedge", desc: "The product thesis is not low-cost open-close control. It is better control architecture, motorized grip switching, and a more useful day-to-day hand at a price still far below premium imports." },
+              { title: "Socket comfort as moat", desc: "Users do not abandon prosthetic hands because of marketing. They abandon them because the socket is uncomfortable. A better 3D-scanned socket workflow is a retention moat, not a cosmetic feature." },
+              { title: "NTIS + MDA velocity", desc: "Foreign hardware vendors still face importer constraints. We can use NTIS and a Malaysia-native regulatory pathway to validate, iterate, and compile evidence inside the system we plan to sell into." },
+              { title: "Local service wins the account", desc: "In this category, 48-hour repairs and refits matter as much as grip specs. A faster service loop is a real commercial advantage against imported devices with longer support chains." },
+              { title: "Procurement fit", desc: "Malaysia does not buy medical devices like Europe or the US. We understand the subsidy, hospital, and public-support logic locally, which makes us easier to procure and easier to reimburse." },
+              { title: "Data and talent compounding", desc: "Each local patient fit, repair, and retraining cycle builds a proprietary operating dataset. Combined with Malaysia's underused biomedical engineering talent base, that compounds into a harder-to-copy company." },
             ].map((adv, i, arr) => (
               <div key={adv.title} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms", ...(i === arr.length - 1 ? { gridColumn: "2" } : {}) }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
