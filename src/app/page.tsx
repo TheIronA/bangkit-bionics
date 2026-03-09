@@ -671,7 +671,7 @@ export default function Home() {
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
             Why a Vulcan-style importer<br />should lose this market.
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
             {[
               { title: "Native clinical distribution", desc: "Vulcan enters Malaysia through partner clinics. We are being built inside the Malaysian care pathway from day one: referral access, fitting workflow, follow-up, and clinician feedback all live locally." },
               { title: "Higher performance wedge", desc: "The product thesis is not low-cost open-close control. It is better control architecture, motorized grip switching, and a more useful day-to-day hand at a price still far below premium imports." },
@@ -680,8 +680,8 @@ export default function Home() {
               { title: "Local service wins the account", desc: "In this category, 48-hour repairs and refits matter as much as grip specs. A faster service loop is a real commercial advantage against imported devices with longer support chains." },
               { title: "Procurement fit", desc: "Malaysia does not buy medical devices like Europe or the US. We understand the subsidy, hospital, and public-support logic locally, which makes us easier to procure and easier to reimburse." },
               { title: "Data and talent compounding", desc: "Each local patient fit, repair, and retraining cycle builds a proprietary operating dataset. Combined with Malaysia's underused biomedical engineering talent base, that compounds into a harder-to-copy company." },
-            ].map((adv, i, arr) => (
-              <div key={adv.title} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms", ...(i === arr.length - 1 ? { gridColumn: "2" } : {}) }}
+            ].map((adv) => (
+              <div key={adv.title} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >

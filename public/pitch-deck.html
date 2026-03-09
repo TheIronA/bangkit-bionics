@@ -124,7 +124,7 @@
 
   /* ── GRID UTILITIES ── */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
   .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
   .col-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
   .col-split-3 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
@@ -535,6 +535,28 @@
 
   @media screen {
     body { padding: 20px 0; }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .grid-2,
+    .col-split,
+    .col-split-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 760px) {
+    .grid-4 {
+      grid-template-columns: 1fr;
+    }
+
+    .adv-card[style*="grid-column: 2"] {
+      grid-column: auto !important;
+    }
   }
 </style>
 </head>
