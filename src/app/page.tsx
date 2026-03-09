@@ -822,19 +822,6 @@ export default function Home() {
               <span style={{ color: "#fff", fontFamily: "var(--font-heading)", fontWeight: 700 }}>Until we have changed all of them.</span>
             </p>
           </div>
-
-          <div className="fade-up" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem", alignItems: "stretch" }}>
-            {[
-              { label: "Contact", value: "hello@bangkitbionics.com", tone: "#fff" },
-              { label: "Location", value: "Kuala Lumpur, Malaysia", tone: "#fff" },
-              { label: "First Stage Goal", value: "RM 250,000 NTIS Single-Site Sandbox", tone: "var(--teal-light)" },
-            ].map((item) => (
-              <div key={item.label} style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 14, padding: "1.35rem 1.25rem" }}>
-                <div style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(255,255,255,0.45)", marginBottom: "0.45rem" }}>{item.label}</div>
-                <div style={{ fontSize: "0.95rem", fontWeight: 700, color: item.tone, lineHeight: 1.5 }}>{item.value}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
