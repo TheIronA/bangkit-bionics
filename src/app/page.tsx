@@ -797,6 +797,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CLOSING */}
+      <section style={{ padding: "7rem clamp(1.25rem, 6vw, 5rem)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ maxWidth: 980, margin: "0 auto", textAlign: "center" }}>
+          <p className="section-label fade-up" style={{ textAlign: "center" }}>What Comes After</p>
+          <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(2rem, 4.4vw, 3.5rem)", color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.08, marginBottom: "1.5rem" }}>
+            This starts with one prosthetic hand.
+            <br />
+            It does not end there.
+          </h2>
+          <div className="fade-up" style={{ maxWidth: 760, margin: "0 auto 3rem" }}>
+            {[
+              "Rehabilitation robotics, exoskeletons, diagnostic AI, surgical tools. The entire medical-device landscape is waiting to be rebuilt.",
+              "We started in Southeast Asia because that is where the need is greatest and the market is most open.",
+              "We are going global because a device built to survive the hardest conditions at the right price should outperform imported alternatives everywhere else.",
+            ].map((paragraph) => (
+              <p key={paragraph} style={{ fontSize: "1rem", color: "var(--grey)", lineHeight: 1.9, marginBottom: "1rem" }}>
+                {paragraph}
+              </p>
+            ))}
+            <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.82)", lineHeight: 1.9, marginTop: "1.75rem" }}>
+              We are starting with one product that changes one life at a time.
+              <br />
+              <span style={{ color: "#fff", fontFamily: "var(--font-heading)", fontWeight: 700 }}>Until we have changed all of them.</span>
+            </p>
+          </div>
+
+          <div className="fade-up" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem", alignItems: "stretch" }}>
+            {[
+              { label: "Contact", value: "hello@bangkitbionics.com", tone: "#fff" },
+              { label: "Location", value: "Kuala Lumpur, Malaysia", tone: "#fff" },
+              { label: "First Stage Goal", value: "RM 250,000 NTIS Single-Site Sandbox", tone: "var(--teal-light)" },
+            ].map((item) => (
+              <div key={item.label} style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 14, padding: "1.35rem 1.25rem" }}>
+                <div style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(255,255,255,0.45)", marginBottom: "0.45rem" }}>{item.label}</div>
+                <div style={{ fontSize: "0.95rem", fontWeight: 700, color: item.tone, lineHeight: 1.5 }}>{item.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section id="contact" style={{ padding: "7rem clamp(1.25rem, 6vw, 5rem)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
