@@ -347,12 +347,12 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             {[
-              { name: "Myoelectric Control", desc: "EMG sensors read muscle signals from the residual limb. Natural, intuitive movement — multi-grip capability including pinch, grasp, and point." },
-              { name: "3D Printed & Custom Fit", desc: "Every device printed to exact patient dimensions. No expensive moulds or long lead times. Iteration in days, not months." },
+              { name: "Neural-Pattern Control", desc: "EMG sensors read muscle patterns from the residual limb and classify intended grips. The target is intuitive grip selection, not simple open-close threshold switching." },
+              { name: "Digital-Twin Socket Fit", desc: "3D scanning and patient-specific printing create a more adaptive socket: softer where comfort matters, stiffer where structure matters, faster to refit as the user changes." },
               { name: "Biocompatible Materials", desc: "ISO 10993-compliant skin-contact components selected by our biomaterials co-founder. Safe, durable, lightweight." },
-              { name: "Repairable & Upgradeable", desc: "Modular design means components replace individually. No need to replace the whole arm if a single motor fails. Maintenance accessible locally." },
-              { name: "RM 4,000\u20138,000 Target Price", desc: "Intended to sit materially below imported alternatives and closer to what Malaysian hospitals, prosthetists, and families may be able to support." },
-              { name: "Tiered Product Range", desc: "From passive 3D-printed devices at RM 500 to full myoelectric arms at RM 8,000. Every patient. Every budget. One platform." },
+              { name: "Motorized Grip Switching", desc: "The roadmap is automatic grip and thumb-state switching from intent classification, so the user does not need to stop and manually reposition the hand between use cases." },
+              { name: "RM 4,500\u201314,500 Pricing", desc: "Priced well below imported alternatives, but high enough to preserve healthy hardware margin for regulatory work, ongoing development, and service." },
+              { name: "Malaysia-Native Delivery", desc: "Clinical access, fitting, service, and NTIS-enabled validation are built around the Malaysian system. We are not shipping into the market as a foreign importer." },
             ].map((feat) => (
               <div key={feat.name} style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
                 <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--teal)", marginTop: "0.45rem", flexShrink: 0 }} />
@@ -376,9 +376,9 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1rem" }}>
             {[
               { n: "01", title: "EMG Sensing", desc: "Surface electrodes detect micro-volt muscle contractions from the residual limb." },
-              { n: "02", title: "Signal Processing", desc: "Onboard microcontroller filters noise and classifies grip intent in real time." },
-              { n: "03", title: "Motor Actuation", desc: "Servo motors drive individual finger tendons. Multiple independent grip patterns." },
-              { n: "04", title: "Structural Shell", desc: "3D-printed outer shell custom fit per patient. Biocompatible TPU inner socket." },
+              { n: "02", title: "Pattern Recognition", desc: "Onboard processing filters noise and classifies intended grips in real time, targeting more natural control than threshold-only systems." },
+              { n: "03", title: "Motorized Thumb + Fingers", desc: "Actuation drives both finger motion and grip-state changes, so pinch and grasp modes do not require manual repositioning by the other hand." },
+              { n: "04", title: "Digital-Twin Socket", desc: "3D-scanned geometry drives a patient-specific shell and socket, designed for comfort, support, and rapid re-printing." },
               { n: "05", title: "Power System", desc: "Rechargeable Li-ion battery. USB-C charging. Battery indicator on wrist unit." },
             ].map((step) => (
               <div key={step.n} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "10px", padding: "1.5rem 1.25rem" }}>
@@ -444,34 +444,35 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">Competitive Landscape</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "1rem" }}>
-            We are not competing with Open Bionics.<br />We are filling the gap they cannot fill.
+            We are not trying to be the cheapest bionic hand.<br />We are building the performance tier above low-end imports.
           </h2>
-          <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, maxWidth: 680, marginBottom: "3rem" }}>
-            Our position combines local manufacturing, custom fit, clinical collaboration, and lower target pricing for the Malaysian market.
+          <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, maxWidth: 760, marginBottom: "3rem" }}>
+            Vulcan and similar challengers prove there is demand for affordable myoelectric hardware. BANGKIT's wedge is different: neural-pattern control, motorized grip switching, better socket comfort, and native Malaysian clinical deployment.
           </p>
           <div className="fade-up" style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", minWidth: 640 }}>
               <thead>
                 <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-                  {["Company", "Price", "Local Support", "Custom Fit", "SEA Focused", "Regulatory"].map((h) => (
+                  {["Company", "Price", "Control", "Thumb", "Socket", "Malaysia Model", "Regulatory"].map((h) => (
                     <th key={h} style={{ padding: "0.75rem 1rem", textAlign: "left", fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "0.78rem", color: "var(--teal)", letterSpacing: "0.05em", textTransform: "uppercase", whiteSpace: "nowrap" }}>{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { company: "BANGKIT Bionics", highlight: true, price: "RM 4K\u20138K (flagship RM 5,500)", local: "Malaysia-based", fit: "3D custom", sea: "Built for SEA", reg: "MDA pathway planned" },
-                  { company: "Open Bionics", highlight: false, price: "Quote-based", local: "Imported", fit: "Partial", sea: "Selective distributor markets", reg: "CE Mark / FDA" },
-                  { company: "Ottobock", highlight: false, price: "USD 20K\u201380K", local: "Distributor only", fit: "Limited", sea: "Premium only", reg: "CE Mark / FDA" },
-                  { company: "Glomas (MY)", highlight: false, price: "Undisclosed", local: "Malaysia", fit: "Basic passive", sea: "Local", reg: "Limited" },
-                  { company: "e-NABLE / DIY", highlight: false, price: "<USD 100", local: "Community", fit: "Basic", sea: "Partial", reg: "None" },
+                  { company: "BANGKIT Bionics", highlight: true, price: "RM 4.5K\u201314.5K", control: "Neural pattern target", thumb: "Motorized target", socket: "3D-scanned digital twin", model: "Malaysia-native clinical service", reg: "NTIS + MDA pathway" },
+                  { company: "Vulcan Augmetics", highlight: false, price: "~RM 5K", control: "Threshold-based", thumb: "Manual reposition", socket: "Standard clinical fit", model: "Imported via partners", reg: "Importer pathway" },
+                  { company: "Open Bionics", highlight: false, price: "Quote-based", control: "Myoelectric", thumb: "Limited preset modes", socket: "Partial custom", model: "Imported", reg: "CE Mark / FDA" },
+                  { company: "Ottobock", highlight: false, price: "USD 20K\u201380K", control: "Premium myoelectric", thumb: "Motorized", socket: "Clinical custom", model: "Distributor only", reg: "CE Mark / FDA" },
+                  { company: "Body-powered / passive", highlight: false, price: "Low-cost", control: "Mechanical only", thumb: "Manual", socket: "Basic", model: "Local / mixed", reg: "Varies" },
                 ].map((row) => (
                   <tr key={row.company} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: row.highlight ? "rgba(2,128,144,0.07)" : "transparent" }}>
                     <td style={{ padding: "1rem", fontFamily: "var(--font-heading)", fontWeight: row.highlight ? 700 : 500, color: row.highlight ? "var(--teal)" : "#fff", whiteSpace: "nowrap" }}>{row.company}</td>
                     <td style={{ padding: "1rem", color: "var(--grey)", whiteSpace: "nowrap" }}>{row.price}</td>
-                    <td style={{ padding: "1rem", color: "var(--grey)" }}>{row.local}</td>
-                    <td style={{ padding: "1rem", color: "var(--grey)" }}>{row.fit}</td>
-                    <td style={{ padding: "1rem", color: "var(--grey)" }}>{row.sea}</td>
+                    <td style={{ padding: "1rem", color: "var(--grey)" }}>{row.control}</td>
+                    <td style={{ padding: "1rem", color: "var(--grey)" }}>{row.thumb}</td>
+                    <td style={{ padding: "1rem", color: "var(--grey)" }}>{row.socket}</td>
+                    <td style={{ padding: "1rem", color: "var(--grey)" }}>{row.model}</td>
                     <td style={{ padding: "1rem", color: "var(--grey)", whiteSpace: "nowrap" }}>{row.reg}</td>
                   </tr>
                 ))}
@@ -506,9 +507,9 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1rem" }}>
             {[
-              { label: "COGS per unit", value: "RM 2,000\u20133,000", sub: "Materials, print, electronics, labour at prototype scale" },
-              { label: "Target selling price", value: "RM 5,500", sub: "Myoelectric flagship ASP. Range RM 4,000\u20138,000 across product tiers. 100% markup on COGS." },
-              { label: "Gross margin", value: "~50%", sub: "Improving to 60%+ as volume scale reduces COGS" },
+              { label: "Fully loaded pilot COGS", value: "RM 2,500\u20133,500", sub: "Direct BOM plus fitting, QA, clinician support, warranty reserve, and pilot-stage labour" },
+              { label: "Target selling price", value: "RM 9,500", sub: "Flagship ASP. Commercial range RM 4,500\u201314,500. Research units priced separately to preserve development margin." },
+              { label: "Gross margin", value: "75%+", sub: "Targeting 80%+ at volume as manufacturing and service delivery become more efficient" },
               { label: "Imported equivalent", value: "RM 20K\u201380K", sub: "Current market price for comparable Western devices" },
             ].map((stat) => (
               <div key={stat.label} style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "10px", padding: "1.25rem 1.5rem", textAlign: "center" }}>
@@ -526,7 +527,7 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">Financial Projections</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
-            Illustrative path to RM 55M revenue by Year 5.<br />Break-even case from Year 2.
+            Illustrative path to RM 95M revenue by Year 5.<br />Break-even case from Year 2.
           </h2>
           <div className="fade-up" style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", minWidth: 700 }}>
@@ -539,11 +540,11 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  { year: "Year 1", units: "50", rev: "RM 275K", gp: "RM 137K", margin: "50%", market: "Malaysia", milestone: "Pilot, clinical validation patients", highlight: false },
-                  { year: "Year 2", units: "300", rev: "RM 1.65M", gp: "RM 825K", margin: "50%", market: "Malaysia + Singapore", milestone: "First hospital contracts", highlight: false },
-                  { year: "Year 3", units: "1,000", rev: "RM 5.5M", gp: "RM 2.75M", margin: "50%", market: "+ Indonesia + Thailand", milestone: "Regional expansion", highlight: true },
-                  { year: "Year 4", units: "3,500", rev: "RM 19.25M", gp: "RM 9.6M", margin: "50%+", market: "SEA-wide + UK pilot", milestone: "Series B, UK pilot begins", highlight: true },
-                  { year: "Year 5", units: "10,000", rev: "RM 55M", gp: "RM 27.5M", margin: "50%+", market: "SEA + UK + Europe", milestone: "Regional scale, global optionality", highlight: true },
+                  { year: "Year 1", units: "50", rev: "RM 475K", gp: "RM 356K", margin: "75%", market: "Malaysia", milestone: "Pilot, clinical validation patients", highlight: false },
+                  { year: "Year 2", units: "300", rev: "RM 2.85M", gp: "RM 2.14M", margin: "75%", market: "Malaysia + Singapore", milestone: "First hospital contracts", highlight: false },
+                  { year: "Year 3", units: "1,000", rev: "RM 9.5M", gp: "RM 7.13M", margin: "75%", market: "+ Indonesia + Thailand", milestone: "Regional expansion", highlight: true },
+                  { year: "Year 4", units: "3,500", rev: "RM 33.25M", gp: "RM 25.94M", margin: "78%", market: "SEA-wide + UK pilot", milestone: "Series B, UK pilot begins", highlight: true },
+                  { year: "Year 5", units: "10,000", rev: "RM 95M", gp: "RM 76M", margin: "80%", market: "SEA + UK + Europe", milestone: "Regional scale, global optionality", highlight: true },
                 ].map((row) => (
                   <tr key={row.year} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: row.highlight ? "rgba(2,128,144,0.06)" : "transparent" }}>
                     <td style={{ padding: "1rem", fontFamily: "var(--font-heading)", fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>{row.year}</td>
@@ -560,10 +561,10 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem", marginTop: "2.5rem" }}>
             {[
-              { val: "RM 5,500", lbl: "Flagship ASP", sub: "Range RM 4K\u20138K across tiers" },
-              { val: "~50%", lbl: "Gross margin", sub: "Scaling to 60%+ at volume" },
-              { val: "Year 2", lbl: "Break-even", sub: "At 300 units / RM 1.65M revenue" },
-              { val: "RM 55M", lbl: "Year 5 revenue target", sub: "10,000 units, SEA + UK + Europe" },
+              { val: "RM 9,500", lbl: "Flagship ASP", sub: "Range RM 4.5K\u201314.5K across commercial tiers" },
+              { val: "75%+", lbl: "Gross margin", sub: "Scaling to 80%+ at volume" },
+              { val: "Year 2", lbl: "Break-even", sub: "At 300 units / RM 2.85M revenue" },
+              { val: "RM 95M", lbl: "Year 5 revenue target", sub: "10,000 units, SEA + UK + Europe" },
             ].map((s) => (
               <div key={s.lbl} style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "10px", padding: "1.25rem 1.5rem", textAlign: "center" }}>
                 <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.1rem, 2vw, 1.4rem)", color: "var(--teal)", marginBottom: "0.3rem" }}>{s.val}</div>
@@ -600,8 +601,8 @@ export default function Home() {
                 desc: "The Malaysian regulatory pathway is being mapped against MDA requirements, while ethics-board preparation and ISO 13485 planning are being scoped in parallel.",
               },
               {
-                label: "04", title: "Grant Pipeline Active",
-                desc: "The team is evaluating Malaysian grant and deep-tech funding pathways, with RM 500K as the current non-dilutive funding target.",
+                label: "04", title: "NTIS Pathway Identified",
+                desc: "The immediate first-stage objective is NTIS acceptance, followed by the Single Site Sandbox: 100% grant funding for eligible costs up to RM 250K over 6 months.",
               },
             ].map((item) => (
               <div key={item.label} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
@@ -616,7 +617,7 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "12px", padding: "2rem 2.5rem", marginTop: "2rem" }}>
             <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.75, maxWidth: 820 }}>
-              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This seed round is not starting from a blank page.</span>{" "}Clinical access, regulatory planning, and early technical work are already underway. The capital funds the next stage of product development.
+              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This NTIS stage is not starting from a blank page.</span>{" "}Clinical access, regulatory planning, and early technical work are already underway. The sandbox funds the next stage of product validation.
             </p>
           </div>
         </div>
@@ -704,9 +705,9 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
               { n: "01", year: "Year 1", title: "Validate", desc: "Conversations with neurosurgeon network. Identify 10 real patient cases. Confirm unmet need. Zero cost — pure discovery." },
-              { n: "02", year: "Year 1", title: "Fund", desc: "Grant and seed-funding outreach in parallel. Cradle Fund CIP 500, MRANTI Deep Tech, NIH Malaysia. RM 500K prototype-round target." },
-              { n: "03", year: "Year 1–2", title: "Build", desc: "First functional prototype. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
-              { n: "04", year: "Year 2", title: "Prove", desc: "Clinical feasibility work. Ethics board approval. Malaysian regulatory submission planning. Singapore market-entry preparation." },
+              { n: "02", year: "Year 1", title: "Enter NTIS", desc: "Secure NTIS acceptance, then apply for the Single Site Sandbox: 100% grant funding up to RM 250K for 6 months of technology, market, and regulatory validation." },
+              { n: "03", year: "Year 1–2", title: "Build", desc: "First functional prototype built and deployed into a single-site sandbox environment. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
+              { n: "04", year: "Year 2", title: "Prove", desc: "Single-site validation complete. MDA classification review, submission planning, and multi-site expansion preparation in parallel." },
               { n: "05", year: "Year 2–3", title: "Scale SEA", desc: "First hospital sales in Malaysia. Public-support and procurement applications where applicable. Singapore and Indonesia expansion. Series A for regional scale." },
               { n: "06", year: "Year 4", title: "Enter UK", desc: "UCL clinical partnerships and NHS pilot programme in London. CE Mark submission initiated. Martynas Pocius activates European investor relationships and startup networks built pre-BANGKIT. London established as western base." },
               { n: "07", year: "Year 5+", title: "Europe & Beyond", desc: "CE Mark approval opens UK, EU and Australia in parallel. SEA revenue funds European expansion without dilution. The device built for the hardest market at the lowest price out-competes incumbents everywhere else." },
@@ -730,22 +731,22 @@ export default function Home() {
       {/* THE ASK */}
       <section id="ask" style={{ padding: "7rem clamp(1.25rem, 6vw, 5rem)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <p className="section-label fade-up" style={{ textAlign: "center" }}>Prototype Round</p>
+          <p className="section-label fade-up" style={{ textAlign: "center" }}>First-Stage Goal</p>
           <div className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(2.4rem, 6vw, 4.5rem)", color: "#fff", letterSpacing: "-0.02em", marginBottom: "0.5rem", textAlign: "center" }}>
-            RM 500,000
+            RM 250,000
           </div>
           <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, marginBottom: "3.5rem", textAlign: "center" }}>
-            Non-dilutive grant funding via Cradle Fund CIP 500, MRANTI Deep Tech, and NIH Malaysia.
+            NTIS Single Site Sandbox target. 100% grant funding for eligible costs, contingent on NTIS acceptance.
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2rem", marginBottom: "3rem" }}>
             <div className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem" }}>
-              <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "0.8rem", color: "var(--teal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1.25rem" }}>What this round delivers</div>
+              <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "0.8rem", color: "var(--teal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1.25rem" }}>What this stage delivers</div>
               {[
-                "Working myoelectric prototype — biocompatible, 3D printed, EMG controlled",
-                "Clinical feasibility study with 3\u20135 amputee patients",
-                "MDA pre-submission engagement and device classification review initiated",
-                "12 months of runway to Series A readiness",
+                "Working myoelectric prototype deployed in one live sandbox environment",
+                "Technology and market validation with clinicians and users at a single site",
+                "MDA registration planning and regulatory compliance work funded inside scope",
+                "IP, outsourcing, and operating expenditure aligned to NTIS-eligible cost buckets",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", marginBottom: "0.8rem" }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", marginTop: "0.4rem", flexShrink: 0 }} />
@@ -756,10 +757,10 @@ export default function Home() {
             <div className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem" }}>
               <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "0.8rem", color: "var(--teal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1.25rem" }}>What it unlocks next</div>
               {[
-                "Series A raise — RM 3M+ from Cradle LCCM and impact investors",
-                "First hospital pilot sales and prosthetist channel launch",
-                "Full Malaysian regulatory submission and CE Mark planning pathway",
-                "Expansion into Singapore and Indonesia markets",
+                "NTIS Multiple Site Sandbox or first hospital pilot expansion",
+                "Commercialisation Sandbox readiness for validated product rollout",
+                "First paid units and prosthetist / hospital channel preparation",
+                "Stronger case for private capital once live validation is complete",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", marginBottom: "0.8rem" }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", marginTop: "0.4rem", flexShrink: 0 }} />
@@ -771,18 +772,18 @@ export default function Home() {
 
           <div className="fade-up" style={{ marginBottom: "1.5rem" }}>
             <div style={{ display: "flex", height: 12, borderRadius: 8, overflow: "hidden", width: "100%" }}>
-              {[{ pct: 40, opacity: 1 }, { pct: 20, opacity: 0.75 }, { pct: 20, opacity: 0.55 }, { pct: 15, opacity: 0.38 }, { pct: 5, opacity: 0.22 }].map((seg, i) => (
+              {[{ pct: 40, opacity: 1 }, { pct: 20, opacity: 0.75 }, { pct: 20, opacity: 0.55 }, { pct: 10, opacity: 0.38 }, { pct: 10, opacity: 0.22 }].map((seg, i) => (
                 <div key={i} style={{ flex: `0 0 ${seg.pct}%`, background: `rgba(2,128,144,${seg.opacity})`, borderRight: i < 4 ? "2px solid var(--navy)" : "none" }} />
               ))}
             </div>
           </div>
           <div className="fade-up" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem 2rem" }}>
             {[
-              { label: "R&D & Prototyping", pct: "40%" },
-              { label: "Regulatory & Compliance", pct: "20%" },
-              { label: "Clinical Trial", pct: "20%" },
-              { label: "Team & Operations", pct: "15%" },
-              { label: "Contingency", pct: "5%" },
+              { label: "Sandbox product production", pct: "40%" },
+              { label: "Validation activities", pct: "20%" },
+              { label: "Regulatory & registration", pct: "20%" },
+              { label: "Outsourcing & consultation", pct: "10%" },
+              { label: "IP & OPEX", pct: "10%" },
             ].map((item) => (
               <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
                 <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--teal)", flexShrink: 0 }} />
@@ -799,11 +800,11 @@ export default function Home() {
       <section id="contact" style={{ padding: "7rem clamp(1.25rem, 6vw, 5rem)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.6rem, 3vw, 2.4rem)", letterSpacing: "-0.015em", textAlign: "center", marginBottom: "3.5rem", lineHeight: 1.2 }}>
-            We are looking for clinical partners,<br />investors, and patients.
+            We are looking for clinical partners,<br />funding partners, and patients.
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem", marginBottom: "3.5rem" }}>
             {[
-              { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 14h-2V8h2v8zm0-10h-2V4h2v2z" fill="#028090" /></svg>, title: "Investors", desc: "We are raising RM 500K seed. Reach out to discuss the opportunity." },
+              { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 14h-2V8h2v8zm0-10h-2V4h2v2z" fill="#028090" /></svg>, title: "Funding Partners", desc: "We are targeting RM 250K via the NTIS Single Site Sandbox and follow-on support. Reach out to discuss the pathway." },
               { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="#028090" strokeWidth="1.5" fill="none" /><path d="M9 12l2 2 4-4" stroke="#028090" strokeWidth="1.5" strokeLinecap="round" /></svg>, title: "Clinical Partners", desc: "Orthopaedic surgeons, rehabilitation physicians, and prosthetists — we want to hear from you." },
               { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#028090" strokeWidth="1.5" /><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="#028090" strokeWidth="1.5" strokeLinecap="round" /></svg>, title: "Patients", desc: "If you or someone you know needs a prosthetic and cannot afford existing options, contact us." },
             ].map((card) => (
