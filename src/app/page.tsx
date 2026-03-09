@@ -349,7 +349,7 @@ export default function Home() {
             {[
               { name: "Neural-Pattern Control", desc: "EMG sensors read muscle patterns from the residual limb and classify intended grips. The target is intuitive grip selection, not simple open-close threshold switching." },
               { name: "Digital-Twin Socket Fit", desc: "3D scanning and patient-specific printing create a more adaptive socket: softer where comfort matters, stiffer where structure matters, faster to refit as the user changes." },
-              { name: "Biocompatible Materials", desc: "ISO 10993-compliant skin-contact components selected by our biomaterials co-founder. Safe, durable, lightweight." },
+              { name: "Biocompatible Materials", desc: "ISO 10993-compliant skin-contact components. Safe, durable, lightweight — and selected with biocompatibility compliance in mind from the first prototype, not retrofitted later." },
               { name: "Motorized Grip Switching", desc: "The roadmap is automatic grip and thumb-state switching from intent classification, so the user does not need to stop and manually reposition the hand between use cases." },
               { name: "RM 4,500\u201314,500 Pricing", desc: "Priced well below imported alternatives, but high enough to preserve healthy hardware margin for regulatory work, ongoing development, and service." },
               { name: "Malaysia-Native Delivery", desc: "Clinical access, fitting, service, and NTIS-enabled validation are built around the Malaysian system. We are not shipping into the market as a foreign importer." },
@@ -375,11 +375,11 @@ export default function Home() {
           <h3 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.2rem, 2vw, 1.6rem)", letterSpacing: "-0.01em", marginBottom: "2.5rem", color: "#fff" }}>How it works</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1rem" }}>
             {[
-              { n: "01", title: "EMG Sensing", desc: "Surface electrodes detect micro-volt muscle contractions from the residual limb." },
-              { n: "02", title: "Pattern Recognition", desc: "Onboard processing filters noise and classifies intended grips in real time, targeting more natural control than threshold-only systems." },
-              { n: "03", title: "Motorized Thumb + Fingers", desc: "Actuation drives both finger motion and grip-state changes, so pinch and grasp modes do not require manual repositioning by the other hand." },
-              { n: "04", title: "Digital-Twin Socket", desc: "3D-scanned geometry drives a patient-specific shell and socket, designed for comfort, support, and rapid re-printing." },
-              { n: "05", title: "Power System", desc: "Rechargeable Li-ion battery. USB-C charging. Battery indicator on wrist unit." },
+              { n: "01", title: "Non-Invasive Neural Sensing", desc: "High-fidelity surface electrodes capture motor neuron action potentials directly through the skin. We read the complex electrical signatures of neural intent, completely bypassing the need for invasive surgery." },
+              { n: "02", title: "AI Intent Decoding", desc: "Moving beyond clunky threshold triggers, our onboard machine learning pipeline decodes neural firing patterns in real-time. The system learns the user's specific biological signals, translating subconscious thought into fluid, natural movement." },
+              { n: "03", title: "Auto-Articulating Bionics", desc: "Fully motorized independent actuation drives both the fingers and the thumb. Unlike low-cost competitors that require manual adjustment by the other hand, our bionic thumb transitions between pinch and grasp modes automatically based on neural intent." },
+              { n: "04", title: "Digital-Twin Socket Generation", desc: "Using smartphone LiDAR, we generate a highly accurate digital twin of the residual limb. This drives a rapidly 3D-printed, patient-specific socket with variable density — rigid for load-bearing, flexible for skin comfort — reducing rejection rates to near zero." },
+              { n: "05", title: "Integrated Power Architecture", desc: "All control logic, motor drivers, and high-density rechargeable Li-ion power systems are housed entirely within the forearm unit. USB-C rapid charging ensures all-day autonomy." },
             ].map((step) => (
               <div key={step.n} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "10px", padding: "1.5rem 1.25rem" }}>
                 <div style={{ fontFamily: "var(--font-heading)", fontSize: "0.7rem", fontWeight: 700, color: "var(--teal)", letterSpacing: "0.1em", marginBottom: "0.6rem" }}>{step.n}</div>
@@ -591,7 +591,7 @@ export default function Home() {
             {[
               {
                 label: "01", title: "Clinical Network — Day Zero",
-                desc: "Direct access to neurosurgery via our CEO\u2019s father, a practising consultant neurosurgeon. Orthopaedic referral conversations are underway, with early pilot-patient outreach in progress.",
+                desc: "Direct access to neurosurgery via co-founder Alwi\u2019s father, a practising consultant neurosurgeon. Orthopaedic referral conversations are underway, with early pilot-patient outreach in progress.",
               },
               {
                 label: "02", title: "Technology Validated at Component Level",
