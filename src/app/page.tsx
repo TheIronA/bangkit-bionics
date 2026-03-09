@@ -217,7 +217,7 @@ export default function Home() {
             Giving Southeast Asia<br />its movement back.
           </h1>
           <p className="fade-up" style={{ fontFamily: "var(--font-body)", fontSize: "clamp(1rem, 1.8vw, 1.2rem)", color: "var(--white-60)", lineHeight: 1.65, maxWidth: 620, margin: "0 auto 2.5rem" }}>
-            Four UCL Biomedical Engineers. One mission. Affordable robotic prosthetics for Southeast Asia.
+            Two UCL Biomedical Engineers. One mission. Affordable robotic prosthetics for Southeast Asia.
           </p>
           <div className="fade-up" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "4rem" }}>
             <a href="/pitch-deck.html" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", background: "var(--teal)", color: "#fff", fontWeight: 600, fontSize: "0.95rem", padding: "0.85rem 2rem", borderRadius: "8px", letterSpacing: "0.02em", transition: "background 200ms, transform 200ms", display: "inline-block" }}
@@ -627,14 +627,16 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">The Team</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
-            Four UCL MEng Biomedical Engineers.<br />Built for this.
+            Two UCL MEng Biomedical Engineers.<br />Built for this.
           </h2>
           <div className="team-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5rem" }}>
             {[
               { image: "/images/alwi-alhaddad.jpg", name: "Alwi Al-Haddad", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — deep learning research for early NEC diagnosis in neonates (87.5% accuracy, SE-ResNet50, published dissertation)", "Built and shipped Gunung (e-commerce), SAPOT (healthcare), and MIDPOINT (consumer tech) solo, from zero to live users", "Clinical access via consultant neurosurgeon father and orthopaedic family network in Malaysia", "Malaysian — deep market knowledge, government relationships, and local clinical infrastructure"] },
-              { image: "/images/ronit-sarna.jpg", name: "Ronit Sarna", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — co-developed AI-powered assistive smart glasses through full design cycle including prototyping and regulatory research", "Software Development Engineer at Materialise — global leader in 3D printing software for medical devices and prosthetics; Malaysian, based in Kuala Lumpur", "Research and Innovation Intern at Royal National Orthopaedic Hospital — AI for patient-specific surgical guides in live scoliosis procedures", "Research Intern at STMicroelectronics — built stroke detection hardware integrated into an eyeglasses frame"] },
+              // RONIT SARNA — commented out temporarily
+              // { image: "/images/ronit-sarna.jpg", name: "Ronit Sarna", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — co-developed AI-powered assistive smart glasses through full design cycle including prototyping and regulatory research", "Software Development Engineer at Materialise — global leader in 3D printing software for medical devices and prosthetics; Malaysian, based in Kuala Lumpur", "Research and Innovation Intern at Royal National Orthopaedic Hospital — AI for patient-specific surgical guides in live scoliosis procedures", "Research Intern at STMicroelectronics — built stroke detection hardware integrated into an eyeglasses frame"] },
               { image: "/images/martynas-pocius.jpg", name: "Martynas Pocius", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — first-author publication at IEEE ISBI 2024 on reinforcement learning in medical imaging", "Founding Engineer at Drafted.ai (San Francisco); previously Senior ML Engineer at Autodesk Research", "Co-founded UCL AI Foundry — cohort produced Audiogen (seed funding via Entrepreneur First, SF) and other funded AI startups", "Founder in Residence at The Residency (Chapter 3, backed by Sam Altman) and Founders, Inc., San Francisco"] },
-              { image: "/images/joonmin-han.jpg", name: "Joonin Han", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — Master's thesis on wheelchair sports accessibility; medical device design, CAD, FEA, and prototyping", "Clinical Data Analyst at Blatchford — inside-industry knowledge from one of the world's leading prosthetics and orthotics manufacturers", "Clinical Trial Assistant at PANORAMIC DIGITAL HEALTH — GCP certified, wearable sensor data analysis, trial management", "Bachelor's research on digital measures of fatigue — wearable sensor analysis and technical data communication"] },
+              // JOONMIN HAN — commented out temporarily
+              // { image: "/images/joonmin-han.jpg", name: "Joonin Han", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — Master's thesis on wheelchair sports accessibility; medical device design, CAD, FEA, and prototyping", "Clinical Data Analyst at Blatchford — inside-industry knowledge from one of the world's leading prosthetics and orthotics manufacturers", "Clinical Trial Assistant at PANORAMIC DIGITAL HEALTH — GCP certified, wearable sensor data analysis, trial management", "Bachelor's research on digital measures of fatigue — wearable sensor analysis and technical data communication"] },
             ].map((member) => (
               <div key={member.name} className="fade-up" style={{ background: "rgba(6,22,34,0.85)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
@@ -667,16 +669,17 @@ export default function Home() {
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
             What cannot be easily<br />replicated by a competitor.
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}>
             {[
               { title: "Clinical access nobody can buy", desc: "Our CEO's father is a practising neurosurgeon with an established hospital network in Malaysia. Direct access to patients and clinicians from day one. No 18-month procurement cycles to get started." },
               { title: "Biomaterials expertise in-house", desc: "Post-graduation industry experience in biomaterials is rare. Having it on the founding team — not as a consultant — means device compliance is built correctly from the first prototype, not expensively corrected later." },
               { title: "Genuine local advantage", desc: "We are Malaysian. We understand the healthcare system, the B40/M40 purchasing reality, the government grant landscape, and the MDA regulatory pathway. Foreign competitors simply cannot replicate this." },
-              { title: "UCL Biomedical Engineering pedigree", desc: "Four MEng graduates from one of the world's top biomedical engineering programmes. We studied medical device regulation, clinical trial design, and biomechanics as examined curriculum — not background reading." },
+              { title: "UCL Biomedical Engineering pedigree", desc: "Two MEng graduates from one of the world's top biomedical engineering programmes. We studied medical device regulation, clinical trial design, and biomechanics as examined curriculum — not background reading." },
               { title: "Startup DNA in the team", desc: "Our COO has founded and operated multiple startups. Our CEO has built import businesses and software contracts under real market pressure. This is not a team of academics who have never shipped." },
               { title: "Regulatory-first by design", desc: "Most hardware startups retrofit compliance. We are building for MDA registration from day one. Our clinical co-founder owns this pathway. We reach commercialisation faster and with fewer expensive pivots." },
-            ].map((adv) => (
-              <div key={adv.title} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
+              { title: "Malaysia's BME talent pipeline", desc: "Malaysia's universities produce hundreds of biomedical engineering graduates annually with nowhere to go. Most leave the country or move into unrelated fields. BANGKIT is the first serious destination for that talent — giving us first pick of the best graduates before anyone else knows they exist." },
+            ].map((adv, i, arr) => (
+              <div key={adv.title} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms", ...(i === arr.length - 1 ? { gridColumn: "2" } : {}) }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
@@ -700,12 +703,13 @@ export default function Home() {
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
-              { n: "01", title: "Validate", desc: "Conversations with neurosurgeon network. Identify 10 real patient cases. Confirm unmet need. Zero cost — pure discovery." },
-              { n: "02", title: "Fund", desc: "Grant and seed-funding outreach in parallel. RM 500K prototype-round target." },
-              { n: "03", title: "Build", desc: "First functional prototype. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
-              { n: "04", title: "Prove", desc: "Clinical feasibility work. Ethics board approval. Malaysian regulatory submission planning. Singapore market-entry preparation." },
-              { n: "05", title: "Scale", desc: "First hospital sales in Malaysia. Public-support and procurement applications where applicable. Singapore expansion. Series A for regional scale." },
-              { n: "06", title: "Global", desc: "UCL clinical partnerships and NHS pilot programme in London. CE Mark conversion opens UK, EU and Australia. Martynas Pocius leads European investor relationships and startup network. London as western headquarters. The device built for the hardest market conquers every other one." },
+              { n: "01", year: "Year 1", title: "Validate", desc: "Conversations with neurosurgeon network. Identify 10 real patient cases. Confirm unmet need. Zero cost — pure discovery." },
+              { n: "02", year: "Year 1", title: "Fund", desc: "Grant and seed-funding outreach in parallel. Cradle Fund CIP 500, MRANTI Deep Tech, NIH Malaysia. RM 500K prototype-round target." },
+              { n: "03", year: "Year 1–2", title: "Build", desc: "First functional prototype. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
+              { n: "04", year: "Year 2", title: "Prove", desc: "Clinical feasibility work. Ethics board approval. Malaysian regulatory submission planning. Singapore market-entry preparation." },
+              { n: "05", year: "Year 2–3", title: "Scale SEA", desc: "First hospital sales in Malaysia. Public-support and procurement applications where applicable. Singapore and Indonesia expansion. Series A for regional scale." },
+              { n: "06", year: "Year 4", title: "Enter UK", desc: "UCL clinical partnerships and NHS pilot programme in London. CE Mark submission initiated. Martynas Pocius activates European investor relationships and startup networks built pre-BANGKIT. London established as western base." },
+              { n: "07", year: "Year 5+", title: "Europe & Beyond", desc: "CE Mark approval opens UK, EU and Australia in parallel. SEA revenue funds European expansion without dilution. The device built for the hardest market at the lowest price out-competes incumbents everywhere else." },
             ].map((step, i, arr) => (
               <div key={step.n} className="fade-up" style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
@@ -713,6 +717,7 @@ export default function Home() {
                   {i < arr.length - 1 && <div style={{ width: 1, height: 52, background: "linear-gradient(to bottom, rgba(2,128,144,0.5), rgba(2,128,144,0.1))" }} />}
                 </div>
                 <div style={{ paddingTop: "0.4rem", paddingBottom: i < arr.length - 1 ? "1.5rem" : 0 }}>
+                  <div style={{ fontSize: "0.7rem", fontWeight: 700, color: "var(--teal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "0.15rem" }}>{step.year}</div>
                   <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "1.1rem", color: "#fff", marginBottom: "0.3rem" }}>{step.title}</div>
                   <p style={{ fontSize: "0.875rem", color: "var(--grey)", lineHeight: 1.7 }}>{step.desc}</p>
                 </div>
