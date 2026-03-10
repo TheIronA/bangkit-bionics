@@ -233,8 +233,8 @@ export default function Home() {
             <StatCounter value={695} suffix="M" label="People across Southeast Asia" started={statsStarted} />
             <StatCounter value={2500} displayValue="2.5B+" label="Need assistive products globally" started={statsStarted} />
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--teal)", lineHeight: 1.1 }}>3%-90%</div>
-              <div style={{ fontSize: "0.85rem", color: "var(--white-60)", marginTop: "0.35rem" }}>Assistive-product access range by income level</div>
+              <div style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--teal)", lineHeight: 1.1 }}>RM 80,000</div>
+              <div style={{ fontSize: "0.85rem", color: "var(--white-60)", marginTop: "0.35rem" }}>Cost of an imported bionic arm in Malaysia</div>
             </div>
           </div>
         </div>
@@ -593,8 +593,8 @@ export default function Home() {
                 desc: "Direct access to neurosurgery via co-founder Alwi\u2019s father, a practising consultant neurosurgeon. Orthopaedic referral conversations are underway, with early pilot-patient outreach in progress.",
               },
               {
-                label: "02", title: "Technology Validated at Component Level",
-                desc: "Bench testing is underway on EMG signal capture, filtering, and printed structural parts. The goal is to de-risk core subsystems before full-device prototyping.",
+                label: "02", title: "Component-Level Testing Scoped",
+                desc: "Bench testing of EMG signal capture, filtering, and printed structural parts is planned as the first technical milestone. The goal is to de-risk core subsystems before full-device prototyping.",
               },
               {
                 label: "03", title: "Regulatory Pathway Mapped",
@@ -617,7 +617,7 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "12px", padding: "2rem 2.5rem", marginTop: "2rem" }}>
             <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.75, maxWidth: 820 }}>
-              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This NTIS stage is not starting from a blank page.</span>{" "}Clinical access, regulatory planning, and early technical work are already underway. The sandbox funds the next stage of product validation.
+              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This NTIS stage is not starting from a blank page.</span>{" "}Clinical access and regulatory planning are already in place. The sandbox funds the first stage of technical validation.
             </p>
           </div>
         </div>
