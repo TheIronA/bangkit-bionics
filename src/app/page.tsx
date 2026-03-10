@@ -421,10 +421,9 @@ export default function Home() {
             <div style={{ display: "flex", alignItems: "center", overflowX: "auto", paddingBottom: "0.5rem" }}>
               {[
                 { year: "Year 1", label: "Malaysia" },
-                { year: "Year 2", label: "Singapore" },
-                { year: "Year 3", label: "Indonesia + Thailand" },
-                { year: "Year 4", label: "SEA-wide + UK pilot" },
-                { year: "Year 5", label: "Europe + Australia" },
+                { year: "Year 2", label: "UK" },
+                { year: "Year 3", label: "SEA-wide" },
+                { year: "Year 5", label: "EU → US" },
               ].map((step, i, arr) => (
                 <div key={step.year} style={{ display: "flex", alignItems: "center", flex: i < arr.length - 1 ? "1" : "0 0 auto" }}>
                   <div style={{ textAlign: "center", minWidth: 110 }}>
@@ -542,10 +541,10 @@ export default function Home() {
               <tbody>
                 {[
                   { year: "Year 1", units: "50", rev: "RM 475K", gp: "RM 356K", margin: "75%", market: "Malaysia", milestone: "Pilot, clinical validation patients", highlight: false },
-                  { year: "Year 2", units: "300", rev: "RM 2.85M", gp: "RM 2.14M", margin: "75%", market: "Malaysia + Singapore", milestone: "First hospital contracts", highlight: false },
-                  { year: "Year 3", units: "1,000", rev: "RM 9.5M", gp: "RM 7.13M", margin: "75%", market: "+ Indonesia + Thailand", milestone: "Regional expansion", highlight: true },
-                  { year: "Year 4", units: "3,500", rev: "RM 33.25M", gp: "RM 25.94M", margin: "78%", market: "SEA-wide + UK pilot", milestone: "Series B, UK pilot begins", highlight: true },
-                  { year: "Year 5", units: "10,000", rev: "RM 95M", gp: "RM 76M", margin: "80%", market: "SEA + UK + Europe", milestone: "Regional scale, global optionality", highlight: true },
+                  { year: "Year 2", units: "300", rev: "RM 2.85M", gp: "RM 2.14M", margin: "75%", market: "Malaysia + UK", milestone: "First hospital contracts, CE Mark process begins", highlight: false },
+                  { year: "Year 3", units: "1,000", rev: "RM 9.5M", gp: "RM 7.13M", margin: "75%", market: "SEA-wide", milestone: "Regional volume expansion", highlight: true },
+                  { year: "Year 4", units: "3,500", rev: "RM 33.25M", gp: "RM 25.94M", margin: "78%", market: "SEA-wide + EU", milestone: "Series B, EU premium market entry", highlight: true },
+                  { year: "Year 5", units: "10,000", rev: "RM 95M", gp: "RM 76M", margin: "80%", market: "SEA + EU + US", milestone: "US entry, global scale", highlight: true },
                 ].map((row) => (
                   <tr key={row.year} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: row.highlight ? "rgba(2,128,144,0.06)" : "transparent" }}>
                     <td style={{ padding: "1rem", fontFamily: "var(--font-heading)", fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>{row.year}</td>
@@ -565,7 +564,7 @@ export default function Home() {
               { val: "RM 9,500", lbl: "Flagship ASP", sub: "Range RM 4.5K\u201314.5K across commercial tiers" },
               { val: "75%+", lbl: "Gross margin", sub: "Scaling to 80%+ at volume" },
               { val: "Year 2", lbl: "Break-even", sub: "At 300 units / RM 2.85M revenue" },
-              { val: "RM 95M", lbl: "Year 5 revenue target", sub: "10,000 units, SEA + UK + Europe" },
+              { val: "RM 95M", lbl: "Year 5 revenue target", sub: "10,000 units, SEA + EU + US entry" },
             ].map((s) => (
               <div key={s.lbl} style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "10px", padding: "1.25rem 1.5rem", textAlign: "center" }}>
                 <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.1rem, 2vw, 1.4rem)", color: "var(--teal)", marginBottom: "0.3rem" }}>{s.val}</div>
@@ -638,7 +637,7 @@ export default function Home() {
               // { image: "/images/ronit-sarna.jpg", name: "Ronit Sarna", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — co-developed AI-powered assistive smart glasses through full design cycle including prototyping and regulatory research", "Software Development Engineer at Materialise — global leader in 3D printing software for medical devices and prosthetics; Malaysian, based in Kuala Lumpur", "Research and Innovation Intern at Royal National Orthopaedic Hospital — AI for patient-specific surgical guides in live scoliosis procedures", "Research Intern at STMicroelectronics — built stroke detection hardware integrated into an eyeglasses frame"] },
               { image: "/images/martynas-pocius.jpg", name: "Martynas Pocius", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — first-author publication at IEEE ISBI 2024 on reinforcement learning in medical imaging", "Founding Engineer at Drafted.ai (San Francisco); previously Senior ML Engineer at Autodesk Research", "Co-founded UCL AI Foundry — cohort produced Audiogen (seed funding via Entrepreneur First, SF) and other funded AI startups", "Founder in Residence at The Residency (Chapter 3, backed by Sam Altman) and Founders, Inc., San Francisco"] },
               // JOONMIN HAN — commented out temporarily
-              // { image: "/images/joonmin-han.jpg", name: "Joonin Han", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — Master's thesis on wheelchair sports accessibility; medical device design, CAD, FEA, and prototyping", "Clinical Data Analyst at Blatchford — inside-industry knowledge from one of the world's leading prosthetics and orthotics manufacturers", "Clinical Trial Assistant at PANORAMIC DIGITAL HEALTH — GCP certified, wearable sensor data analysis, trial management", "Bachelor's research on digital measures of fatigue — wearable sensor analysis and technical data communication"] },
+              // { image: "/images/joonmin-han.jpg", name: "Joonmin Han", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering", "Clinical Data Analyst at Blatchford — inside knowledge from one of the world's leading prosthetics manufacturers", "GCP certified clinical trial experience", "MDA Malaysia and CE Mark regulatory pathway", "UK-based — leads London clinical operations and NHS partnerships"] },
             ].map((member) => (
               <div key={member.name} className="fade-up" style={{ background: "rgba(6,22,34,0.85)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
@@ -677,6 +676,7 @@ export default function Home() {
               { title: "Higher performance wedge", desc: "The product thesis is not low-cost open-close control. It is better control architecture, motorized grip switching, and a more useful day-to-day hand at a price still far below premium imports." },
               { title: "Socket comfort as moat", desc: "Users do not abandon prosthetic hands because of marketing. They abandon them because the socket is uncomfortable. A better 3D-scanned socket workflow is a retention moat, not a cosmetic feature." },
               { title: "NTIS + MDA velocity", desc: "Foreign hardware vendors still face importer constraints. We can use NTIS and a Malaysia-native regulatory pathway to validate, iterate, and compile evidence inside the system we plan to sell into." },
+              { title: "Dual-country infrastructure", desc: "Manufacturing in Malaysia. Clinical validation in the UK. Cost arbitrage at scale — components sourced from China, assembled in KL, tested against NHS and RNOH standards in London. One company operating across two of the world's most strategic medtech ecosystems simultaneously." },
               { title: "Local service wins the account", desc: "In this category, 48-hour repairs and refits matter as much as grip specs. A faster service loop is a real commercial advantage against imported devices with longer support chains." },
               { title: "Procurement fit", desc: "Malaysia does not buy medical devices like Europe or the US. We understand the subsidy, hospital, and public-support logic locally, which makes us easier to procure and easier to reimburse." },
               { title: "Data and talent compounding", desc: "Each local patient fit, repair, and retraining cycle builds a proprietary operating dataset. Combined with Malaysia's underused biomedical engineering talent base, that compounds into a harder-to-copy company." },
@@ -700,18 +700,35 @@ export default function Home() {
       <section id="roadmap" style={{ padding: "7rem clamp(1.25rem, 6vw, 5rem)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <p className="section-label fade-up">Roadmap</p>
-          <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3.5rem" }}>
+          <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "2.5rem" }}>
             From Malaysia to the world.
           </h2>
+          <div className="fade-up" style={{ display: "flex", alignItems: "center", overflowX: "auto", paddingBottom: "0.5rem", marginBottom: "3rem" }}>
+            {[
+              { year: "Year 1", label: "Malaysia" },
+              { year: "Year 2", label: "UK" },
+              { year: "Year 3", label: "SEA-wide" },
+              { year: "Year 5", label: "EU → US" },
+            ].map((step, i, arr) => (
+              <div key={step.year} style={{ display: "flex", alignItems: "center", flex: i < arr.length - 1 ? "1" : "0 0 auto" }}>
+                <div style={{ textAlign: "center", minWidth: 110 }}>
+                  <div style={{ width: 12, height: 12, borderRadius: "50%", background: "var(--teal)", margin: "0 auto 0.6rem" }} />
+                  <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "0.9rem", color: "var(--teal)", marginBottom: "0.2rem" }}>{step.year}</div>
+                  <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.65)" }}>{step.label}</div>
+                </div>
+                {i < arr.length - 1 && <div style={{ flex: 1, height: 1, background: "var(--teal)", opacity: 0.4, marginBottom: "1.8rem" }} />}
+              </div>
+            ))}
+          </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
               { n: "01", year: "Year 1", title: "Validate", desc: "Conversations with neurosurgeon network. Identify 10 real patient cases. Confirm unmet need. Zero cost — pure discovery." },
               { n: "02", year: "Year 1", title: "Enter NTIS", desc: "Secure NTIS acceptance, then apply for the Single Site Sandbox: 100% grant funding up to RM 250K for 6 months of technology, market, and regulatory validation." },
               { n: "03", year: "Year 1–2", title: "Build", desc: "First functional prototype built and deployed into a single-site sandbox environment. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
               { n: "04", year: "Year 2", title: "Prove", desc: "Single-site validation complete. MDA classification review, submission planning, and multi-site expansion preparation in parallel." },
-              { n: "05", year: "Year 2–3", title: "Scale SEA", desc: "First hospital sales in Malaysia. Public-support and procurement applications where applicable. Singapore and Indonesia expansion. Series A for regional scale." },
-              { n: "06", year: "Year 4", title: "Enter UK", desc: "UCL clinical partnerships and NHS pilot programme in London. CE Mark submission initiated. Martynas Pocius activates European investor relationships and startup networks built pre-BANGKIT. London established as western base." },
-              { n: "07", year: "Year 5+", title: "Europe & Beyond", desc: "CE Mark approval opens UK, EU and Australia in parallel. SEA revenue funds European expansion without dilution. The device built for the hardest market at the lowest price out-competes incumbents everywhere else." },
+              { n: "05", year: "Year 2", title: "Enter UK", desc: "CE Mark process initiated alongside MDA registration. UCL research partnerships and NHS pilot programme. RNOH and Imperial College Healthcare clinical collaboration. Martynas leads UK investor relationships from London. UK proves global credibility — the device built for the hardest market enters the world's most credible one." },
+              { n: "06", year: "Year 3", title: "Scale SEA", desc: "First hospital sales across Southeast Asia. Singapore, Indonesia, and Thailand expansion. Public-support and procurement applications where applicable. Series A for regional scale. SEA captures the volume." },
+              { n: "07", year: "Year 4–5+", title: "EU → US", desc: "CE Mark approval opens EU and Australia. SEA revenue funds European expansion without dilution. EU captures the premium tier — a device built for the hardest market at the lowest price out-competes incumbents everywhere. US entry follows as the endgame: the world's largest medtech market, entered from a position of clinical credibility and proven unit economics." },
             ].map((step, i, arr) => (
               <div key={step.n} className="fade-up" style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
@@ -860,7 +877,7 @@ export default function Home() {
       <footer style={{ borderTop: "1px solid rgba(255,255,255,0.08)", padding: "2rem clamp(1.25rem, 6vw, 5rem)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
           <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "0.9rem", color: "rgba(255,255,255,0.7)" }}>BANGKIT Bionics</span>
-          <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textAlign: "center" }}>Kuala Lumpur, Malaysia &middot; hello@bangkitbionics.com</span>
+          <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textAlign: "center" }}>Kuala Lumpur, Malaysia &middot; London, United Kingdom &middot; hello@bangkitbionics.com</span>
           <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", textAlign: "right" }}>UCL MEng Biomedical Engineering &middot; Founded 2025</span>
         </div>
       </footer>
