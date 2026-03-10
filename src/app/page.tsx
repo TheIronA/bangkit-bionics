@@ -527,7 +527,7 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">Financial Projections</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
-            Illustrative path to RM 95M revenue by Year 5.<br />Break-even case from Year 2.
+            Illustrative path to RM 23.75M revenue by Year 5.<br />Commercial sales begin Year 2 post-NTIS validation.
           </h2>
           <div className="fade-up" style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", minWidth: 700 }}>
@@ -540,11 +540,11 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  { year: "Year 1", units: "50", rev: "RM 475K", gp: "RM 356K", margin: "75%", market: "Malaysia", milestone: "Pilot, clinical validation patients", highlight: false },
-                  { year: "Year 2", units: "300", rev: "RM 2.85M", gp: "RM 2.14M", margin: "75%", market: "Malaysia + UK", milestone: "First hospital contracts, CE Mark process begins", highlight: false },
-                  { year: "Year 3", units: "1,000", rev: "RM 9.5M", gp: "RM 7.13M", margin: "75%", market: "SEA-wide", milestone: "Regional volume expansion", highlight: true },
-                  { year: "Year 4", units: "3,500", rev: "RM 33.25M", gp: "RM 25.94M", margin: "78%", market: "SEA-wide + EU", milestone: "Series B, EU premium market entry", highlight: true },
-                  { year: "Year 5", units: "10,000", rev: "RM 95M", gp: "RM 76M", margin: "80%", market: "SEA + EU + US", milestone: "US entry, global scale", highlight: true },
+                  { year: "Year 1", units: "~8 (pilot)", rev: "RM 76K", gp: "Grant-funded", margin: "—", market: "Malaysia", milestone: "CIP Spark stage — prototype build and pilot patient validation. No commercial sales.", highlight: false },
+                  { year: "Year 2", units: "30", rev: "RM 285K", gp: "RM 214K", margin: "75%", market: "Malaysia", milestone: "NTIS validation complete — first commercial placements with early hospital and prosthetist partners", highlight: false },
+                  { year: "Year 3", units: "150", rev: "RM 1.43M", gp: "RM 1.07M", margin: "75%", market: "Malaysia + UK", milestone: "Hospital contracts begin, CE Mark process, break-even", highlight: true },
+                  { year: "Year 4", units: "600", rev: "RM 5.7M", gp: "RM 4.56M", margin: "80%", market: "SEA-wide", milestone: "SEA expansion, Series A", highlight: true },
+                  { year: "Year 5", units: "2,500", rev: "RM 23.75M", gp: "RM 19M", margin: "80%", market: "SEA + EU", milestone: "EU entry begins, US pipeline established", highlight: true },
                 ].map((row) => (
                   <tr key={row.year} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: row.highlight ? "rgba(2,128,144,0.06)" : "transparent" }}>
                     <td style={{ padding: "1rem", fontFamily: "var(--font-heading)", fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>{row.year}</td>
@@ -563,8 +563,8 @@ export default function Home() {
             {[
               { val: "RM 9,500", lbl: "Flagship ASP", sub: "Range RM 4.5K\u201314.5K across commercial tiers" },
               { val: "75%+", lbl: "Gross margin", sub: "Scaling to 80%+ at volume" },
-              { val: "Year 2", lbl: "Break-even", sub: "At 300 units / RM 2.85M revenue" },
-              { val: "RM 95M", lbl: "Year 5 revenue target", sub: "10,000 units, SEA + EU + US entry" },
+              { val: "Year 3", lbl: "Break-even", sub: "150 units, RM 1.43M — hospital contracts begin" },
+              { val: "RM 23.75M", lbl: "Year 5 revenue target", sub: "2,500 units, SEA + EU entry" },
             ].map((s) => (
               <div key={s.lbl} style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "10px", padding: "1.25rem 1.5rem", textAlign: "center" }}>
                 <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.1rem, 2vw, 1.4rem)", color: "var(--teal)", marginBottom: "0.3rem" }}>{s.val}</div>
@@ -584,7 +584,7 @@ export default function Home() {
             The signal pipeline works. Now we build the product.
           </h2>
           <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, maxWidth: 640, marginBottom: "3rem" }}>
-            EMG signal acquisition and processing has been demonstrated through UCL embedded systems research — the same signal pipeline that underpins our prosthetic control system. The clinical, regulatory, and commercial foundation is in place. The NTIS sandbox funds the step to hardware.
+            EMG signal acquisition and processing has been demonstrated through UCL embedded systems research — the same signal pipeline that underpins our prosthetic control system. The clinical, regulatory, and commercial foundation is in place. CIP Spark funds the prototype. NTIS validates it.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
             {[
@@ -601,8 +601,8 @@ export default function Home() {
                 desc: "The Malaysian regulatory pathway is being mapped against MDA requirements, while ethics-board preparation and ISO 13485 planning are being scoped in parallel.",
               },
               {
-                label: "04", title: "NTIS Sandbox 1 — Build the Hardware",
-                desc: "The sandbox funds what we don\u2019t yet have: the integrated physical device. 100% grant funding up to RM 250K for 6 months to build and trial the first prosthetic prototype at a real clinical site.",
+                label: "04", title: "CIP Spark — RM 150K to Build It",
+                desc: "Cradle\u2019s CIP Spark grant funds pre-prototype development. Up to RM 150K over 18 months, no prototype required to apply, rolling admissions. This is the immediate next step — it builds the device that NTIS will validate.",
               },
             ].map((item) => (
               <div key={item.label} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
@@ -617,7 +617,7 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "12px", padding: "2rem 2.5rem", marginTop: "2rem" }}>
             <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.75, maxWidth: 820 }}>
-              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This NTIS application is not starting from a blank page.</span>{" "}The core EMG signal pipeline has been demonstrated. Clinical access, regulatory planning, and neurosurgeon network are already in place. The sandbox funds the one thing we don&rsquo;t yet have: the physical device.
+              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>Two grants. Two stages. One clear path.</span>{" "}CIP Spark (Cradle, RM 150K) funds the prototype — no prototype required to apply, rolling admissions. NTIS Sandbox 1 (RM 250K) follows once the device exists, funding the first clinical trial. Clinical access, regulatory planning, and neurosurgeon network are already in place for both.
             </p>
           </div>
         </div>
@@ -632,7 +632,7 @@ export default function Home() {
           </h2>
           <div className="team-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5rem" }}>
             {[
-              { image: "/images/alwi-alhaddad.jpg", name: "Alwi Al-Haddad", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — deep learning research for early NEC diagnosis in neonates (87.5% accuracy, SE-ResNet50, published dissertation)", "Built and shipped Gunung (e-commerce), SAPOT (healthcare), and MIDPOINT (consumer tech) solo, from zero to live users", "Clinical access via consultant neurosurgeon father and orthopaedic family network in Malaysia", "Malaysian — deep market knowledge, government relationships, and local clinical infrastructure"] },
+              { image: "/images/alwi-alhaddad.jpg", name: "Alwi Al-Haddad", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — deep learning research for early NEC diagnosis in neonates (87.5% accuracy, SE-ResNet50, published dissertation)", "Fullstack software engineer — built and shipped Gunung (e-commerce), SAPOT (healthcare), and MIDPOINT (consumer tech) solo, from zero to live users", "Clinical access via consultant neurosurgeon father and orthopaedic family network in Malaysia", "Malaysian — deep market knowledge, government relationships, and local clinical infrastructure"] },
               // RONIT SARNA — commented out temporarily
               // { image: "/images/ronit-sarna.jpg", name: "Ronit Sarna", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — co-developed AI-powered assistive smart glasses through full design cycle including prototyping and regulatory research", "Software Development Engineer at Materialise — global leader in 3D printing software for medical devices and prosthetics; Malaysian, based in Kuala Lumpur", "Research and Innovation Intern at Royal National Orthopaedic Hospital — AI for patient-specific surgical guides in live scoliosis procedures", "Research Intern at STMicroelectronics — built stroke detection hardware integrated into an eyeglasses frame"] },
               { image: "/images/martynas-pocius.jpg", name: "Martynas Pocius", title: "Co-Founder", bullets: ["UCL MEng Biomedical Engineering — first-author publication at IEEE ISBI 2024 on reinforcement learning in medical imaging", "Founding Engineer at Drafted.ai (San Francisco); previously Senior ML Engineer at Autodesk Research", "Co-founded UCL AI Foundry — cohort produced Audiogen (seed funding via Entrepreneur First, SF) and other funded AI startups", "Founder in Residence at The Residency (Chapter 3, backed by Sam Altman) and Founders, Inc., San Francisco"] },
@@ -722,9 +722,9 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
-              { n: "01", year: "Year 1", title: "Validate", desc: "EMG signal pipeline demonstrated through UCL research. Conversations with neurosurgeon network underway. Identify 10 real patient cases. Confirm unmet need." },
-              { n: "02", year: "Year 1", title: "Enter NTIS Sandbox 1", desc: "Apply for NTIS Sandbox 1. Secure acceptance and 100% grant funding up to RM 250K to build and trial an integrated prosthetic prototype in a Malaysian clinical setting." },
-              { n: "03", year: "Year 1–2", title: "Build", desc: "First functional prototype built and deployed into a single-site sandbox environment. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
+              { n: "01", year: "Now", title: "Apply: CIP Spark", desc: "Apply for Cradle\u2019s CIP Spark grant — rolling admissions, no prototype required. RM 150K over 18 months to fund prototype development. Simultaneously: neurosurgeon network conversations, identify 10 real patient cases." },
+              { n: "02", year: "Year 1–2", title: "Build", desc: "CIP Spark funds the first functional prosthetic prototype. Myoelectric. Biocompatible. 3D printed. Signal pipeline from UCL research integrated into hardware. Provisional patent filed on control system." },
+              { n: "03", year: "Year 2", title: "Enter NTIS Sandbox 1", desc: "Prototype in hand, apply for NTIS Sandbox 1. RM 250K, 6 months, 100% grant funding for a single-site clinical trial. NTIS validates the device that CIP Spark built." },
               { n: "04", year: "Year 2", title: "Prove", desc: "Single-site validation complete. MDA classification review, submission planning, and multi-site expansion preparation in parallel." },
               { n: "05", year: "Year 2", title: "Enter UK", desc: "CE Mark process initiated alongside MDA registration. UCL research partnerships and NHS pilot programme. RNOH and Imperial College Healthcare clinical collaboration. Martynas leads UK investor relationships from London. UK proves global credibility — the device built for the hardest market enters the world's most credible one." },
               { n: "06", year: "Year 3", title: "Scale SEA", desc: "First hospital sales across Southeast Asia. Singapore, Indonesia, and Thailand expansion. Public-support and procurement applications where applicable. Series A for regional scale. SEA captures the volume." },
@@ -751,20 +751,21 @@ export default function Home() {
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <p className="section-label fade-up" style={{ textAlign: "center" }}>First-Stage Goal</p>
           <div className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(2.4rem, 6vw, 4.5rem)", color: "#fff", letterSpacing: "-0.02em", marginBottom: "0.5rem", textAlign: "center" }}>
-            RM 250,000
+            RM 150,000
           </div>
           <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, marginBottom: "3.5rem", textAlign: "center" }}>
-            NTIS Single Site Sandbox target. 100% grant funding for eligible costs, contingent on NTIS acceptance.
+            Cradle Fund CIP Spark — prototype development grant. Up to RM 150K over 18 months. Rolling admissions. No prototype required to apply.
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2rem", marginBottom: "3rem" }}>
             <div className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem" }}>
               <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "0.8rem", color: "var(--teal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1.25rem" }}>What this stage delivers</div>
               {[
-                "Working myoelectric prototype deployed in one live sandbox environment",
-                "Technology and market validation with clinicians and users at a single site",
-                "MDA registration planning and regulatory compliance work funded inside scope",
-                "IP, outsourcing, and operating expenditure aligned to NTIS-eligible cost buckets",
+                "First functional myoelectric prototype — EMG controlled, 3D printed, biocompatible",
+                "Signal pipeline integrated from UCL research into working hardware",
+                "Provisional patent filed on control system",
+                "Single pilot patient validation to confirm device function",
+                "MDA pre-submission engagement initiated",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", marginBottom: "0.8rem" }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", marginTop: "0.4rem", flexShrink: 0 }} />
@@ -775,10 +776,10 @@ export default function Home() {
             <div className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem" }}>
               <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "0.8rem", color: "var(--teal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1.25rem" }}>What it unlocks next</div>
               {[
-                "NTIS Multiple Site Sandbox or first hospital pilot expansion",
-                "Commercialisation Sandbox readiness for validated product rollout",
-                "First paid units and prosthetist / hospital channel preparation",
-                "Stronger case for private capital once live validation is complete",
+                "NTIS Single Site Sandbox — RM 250K, 6 months, 100% grant funding for clinical trial",
+                "Ethics board approval and formal clinical feasibility study",
+                "MDA Class C registration pathway initiated",
+                "Stronger case for private capital with working device and pilot data",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", marginBottom: "0.8rem" }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", marginTop: "0.4rem", flexShrink: 0 }} />
@@ -790,18 +791,20 @@ export default function Home() {
 
           <div className="fade-up" style={{ marginBottom: "1.5rem" }}>
             <div style={{ display: "flex", height: 12, borderRadius: 8, overflow: "hidden", width: "100%" }}>
-              {[{ pct: 40, opacity: 1 }, { pct: 20, opacity: 0.75 }, { pct: 20, opacity: 0.55 }, { pct: 10, opacity: 0.38 }, { pct: 10, opacity: 0.22 }].map((seg, i) => (
-                <div key={i} style={{ flex: `0 0 ${seg.pct}%`, background: `rgba(2,128,144,${seg.opacity})`, borderRight: i < 4 ? "2px solid var(--navy)" : "none" }} />
+              {[{ pct: 25, opacity: 1 }, { pct: 15, opacity: 0.85 }, { pct: 10, opacity: 0.72 }, { pct: 20, opacity: 0.58 }, { pct: 10, opacity: 0.44 }, { pct: 13, opacity: 0.30 }, { pct: 7, opacity: 0.18 }].map((seg, i) => (
+                <div key={i} style={{ flex: `0 0 ${seg.pct}%`, background: `rgba(2,128,144,${seg.opacity})`, borderRight: i < 6 ? "2px solid var(--navy)" : "none" }} />
               ))}
             </div>
           </div>
           <div className="fade-up" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem 2rem" }}>
             {[
-              { label: "Sandbox product production", pct: "40%" },
-              { label: "Validation activities", pct: "20%" },
-              { label: "Regulatory & registration", pct: "20%" },
-              { label: "Outsourcing & consultation", pct: "10%" },
-              { label: "IP & OPEX", pct: "10%" },
+              { label: "Hardware components", pct: "25%" },
+              { label: "3D printing & materials", pct: "15%" },
+              { label: "Software development", pct: "10%" },
+              { label: "Clinical feasibility", pct: "20%" },
+              { label: "IP", pct: "10%" },
+              { label: "Regulatory consultation", pct: "13%" },
+              { label: "Operational expenditure", pct: "7%" },
             ].map((item) => (
               <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
                 <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--teal)", flexShrink: 0 }} />
@@ -850,7 +853,7 @@ export default function Home() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem", marginBottom: "3.5rem" }}>
             {[
-              { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 14h-2V8h2v8zm0-10h-2V4h2v2z" fill="#028090" /></svg>, title: "Funding Partners", desc: "We are targeting RM 250K via the NTIS Single Site Sandbox and follow-on support. Reach out to discuss the pathway." },
+              { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 14h-2V8h2v8zm0-10h-2V4h2v2z" fill="#028090" /></svg>, title: "Funding Partners", desc: "We are targeting RM 150K via Cradle Fund CIP Spark to build the prototype, followed by RM 250K via NTIS Sandbox for clinical validation." },
               { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="#028090" strokeWidth="1.5" fill="none" /><path d="M9 12l2 2 4-4" stroke="#028090" strokeWidth="1.5" strokeLinecap="round" /></svg>, title: "Clinical Partners", desc: "Orthopaedic surgeons, rehabilitation physicians, and prosthetists — we want to hear from you." },
               { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#028090" strokeWidth="1.5" /><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="#028090" strokeWidth="1.5" strokeLinecap="round" /></svg>, title: "Patients", desc: "If you or someone you know needs a prosthetic and cannot afford existing options, contact us." },
             ].map((card) => (
