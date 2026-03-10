@@ -581,10 +581,10 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">Early Validation</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "1rem" }}>
-            Proof before prototype.
+            The signal pipeline works. Now we build the product.
           </h2>
           <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, maxWidth: 640, marginBottom: "3rem" }}>
-            We have not yet built the physical product. What we have built is the clinical, regulatory, and commercial foundation that makes the product viable at scale.
+            EMG signal acquisition and processing has been demonstrated through UCL embedded systems research — the same signal pipeline that underpins our prosthetic control system. The clinical, regulatory, and commercial foundation is in place. The NTIS sandbox funds the step to hardware.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
             {[
@@ -593,16 +593,16 @@ export default function Home() {
                 desc: "Direct access to neurosurgery via co-founder Alwi\u2019s father, a practising consultant neurosurgeon. Orthopaedic referral conversations are underway, with early pilot-patient outreach in progress.",
               },
               {
-                label: "02", title: "Component-Level Testing Scoped",
-                desc: "Bench testing of EMG signal capture, filtering, and printed structural parts is planned as the first technical milestone. The goal is to de-risk core subsystems before full-device prototyping.",
+                label: "02", title: "EMG Signal Pipeline Demonstrated",
+                desc: "EMG signal acquisition, filtering, and threshold-based control demonstrated through UCL embedded systems research. The same signal pipeline underpins our prosthetic control system design.",
               },
               {
                 label: "03", title: "Regulatory Pathway Mapped",
                 desc: "The Malaysian regulatory pathway is being mapped against MDA requirements, while ethics-board preparation and ISO 13485 planning are being scoped in parallel.",
               },
               {
-                label: "04", title: "NTIS Pathway Identified",
-                desc: "The immediate first-stage objective is NTIS acceptance, followed by the Single Site Sandbox: 100% grant funding for eligible costs up to RM 250K over 6 months.",
+                label: "04", title: "NTIS Sandbox 1 — Build the Hardware",
+                desc: "The sandbox funds what we don\u2019t yet have: the integrated physical device. 100% grant funding up to RM 250K for 6 months to build and trial the first prosthetic prototype at a real clinical site.",
               },
             ].map((item) => (
               <div key={item.label} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
@@ -617,7 +617,7 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "12px", padding: "2rem 2.5rem", marginTop: "2rem" }}>
             <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.75, maxWidth: 820 }}>
-              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This NTIS stage is not starting from a blank page.</span>{" "}Clinical access and regulatory planning are already in place. The sandbox funds the first stage of technical validation.
+              <span style={{ fontFamily: "var(--font-heading)", color: "var(--teal)", fontWeight: 600 }}>This NTIS application is not starting from a blank page.</span>{" "}The core EMG signal pipeline has been demonstrated. Clinical access, regulatory planning, and neurosurgeon network are already in place. The sandbox funds the one thing we don&rsquo;t yet have: the physical device.
             </p>
           </div>
         </div>
@@ -722,8 +722,8 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
-              { n: "01", year: "Year 1", title: "Validate", desc: "Conversations with neurosurgeon network. Identify 10 real patient cases. Confirm unmet need. Zero cost — pure discovery." },
-              { n: "02", year: "Year 1", title: "Enter NTIS", desc: "Secure NTIS acceptance, then apply for the Single Site Sandbox: 100% grant funding up to RM 250K for 6 months of technology, market, and regulatory validation." },
+              { n: "01", year: "Year 1", title: "Validate", desc: "EMG signal pipeline demonstrated through UCL research. Conversations with neurosurgeon network underway. Identify 10 real patient cases. Confirm unmet need." },
+              { n: "02", year: "Year 1", title: "Enter NTIS Sandbox 1", desc: "Apply for NTIS Sandbox 1. Secure acceptance and 100% grant funding up to RM 250K to build and trial an integrated prosthetic prototype in a Malaysian clinical setting." },
               { n: "03", year: "Year 1–2", title: "Build", desc: "First functional prototype built and deployed into a single-site sandbox environment. Biocompatible. Myoelectric. 3D printed. Provisional patent filed on control system." },
               { n: "04", year: "Year 2", title: "Prove", desc: "Single-site validation complete. MDA classification review, submission planning, and multi-site expansion preparation in parallel." },
               { n: "05", year: "Year 2", title: "Enter UK", desc: "CE Mark process initiated alongside MDA registration. UCL research partnerships and NHS pilot programme. RNOH and Imperial College Healthcare clinical collaboration. Martynas leads UK investor relationships from London. UK proves global credibility — the device built for the hardest market enters the world's most credible one." },
