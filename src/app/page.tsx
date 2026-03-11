@@ -217,7 +217,7 @@ export default function Home() {
             Giving Southeast Asia<br />its movement back.
           </h1>
           <p className="fade-up" style={{ fontFamily: "var(--font-body)", fontSize: "clamp(1rem, 1.8vw, 1.2rem)", color: "var(--white-60)", lineHeight: 1.65, maxWidth: 620, margin: "0 auto 2.5rem" }}>
-            Two UCL Biomedical Engineers. One mission. Affordable robotic prosthetics for Southeast Asia.
+            Two UCL Biomedical Engineers. Built in Malaysia. Entering Singapore first, then the UK.
           </p>
           <div className="fade-up" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "4rem" }}>
             <a href="/pitch-deck.html" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", background: "var(--teal)", color: "#fff", fontWeight: 600, fontSize: "0.95rem", padding: "0.85rem 2rem", borderRadius: "8px", letterSpacing: "0.02em", transition: "background 200ms, transform 200ms", display: "inline-block" }}
@@ -233,8 +233,8 @@ export default function Home() {
             <StatCounter value={695} suffix="M" label="People across Southeast Asia" started={statsStarted} />
             <StatCounter value={2500} displayValue="2.5B+" label="Need assistive products globally" started={statsStarted} />
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--teal)", lineHeight: 1.1 }}>RM 80,000</div>
-              <div style={{ fontSize: "0.85rem", color: "var(--white-60)", marginTop: "0.35rem" }}>Cost of an imported bionic arm in Malaysia</div>
+              <div style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--teal)", lineHeight: 1.1 }}>SGD 50,000</div>
+              <div style={{ fontSize: "0.85rem", color: "var(--white-60)", marginTop: "0.35rem" }}>Top of market for myoelectric arm in Singapore. We enter at SGD 3,000.</div>
             </div>
           </div>
         </div>
@@ -250,7 +250,7 @@ export default function Home() {
           {[
             { number: "2.5B+", title: "People who need assistive products", desc: "WHO estimates more than 2.5 billion people globally need one or more assistive products." },
             { number: "3%-90%", title: "Access range across countries", desc: "WHO reports access can be as low as 3% in some low-income countries versus 90% in some high-income countries." },
-            { number: "830M", title: "People living with diabetes in 2022", desc: "WHO lists diabetes as a major cause of lower-limb amputation alongside kidney failure, stroke, and cardiovascular disease." },
+            { number: "Upper-limb", title: "Loss is trauma-driven, not disease-driven", desc: "Upper-limb amputations in SEA are primarily caused by industrial accidents and road injuries — not diabetes, which is a lower-limb issue. Our patient is a young working-age adult priced out of a RM 20K–80K import." },
           ].map((item) => (
             <div key={item.number} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
@@ -263,7 +263,7 @@ export default function Home() {
           ))}
         </div>
         <p className="fade-up" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.45)", marginBottom: "2rem", letterSpacing: "0.02em" }}>
-          Selected figures: UN World Population Prospects 2024 Revision; WHO Assistive Technology fact sheet (2024); WHO Diabetes fact sheet (2024).
+          Selected figures: UN World Population Prospects 2024 Revision; WHO Assistive Technology fact sheet (2024); WHO Global Report on Assistive Technology (2022).
         </p>
         <div className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem 2.5rem", marginBottom: "4rem" }}>
           <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.75, maxWidth: 820 }}>
@@ -283,12 +283,12 @@ export default function Home() {
               story: "Factory worker. Lost his right arm below the elbow in an industrial accident. His SOCSO claim covered a basic cosmetic prosthetic — non-functional, non-robotic. He earns RM 2,200/month. An imported myoelectric arm would cost him 3 years of total savings.",
             },
             {
-              initial: "N", name: "Nurul, 28", location: "Kota Bharu, Kelantan",
-              story: "Born with a congenital upper limb difference. Has used a basic hook prosthetic her whole life. She has never typed on a keyboard or held her niece's hand properly. A robotic hand would cost her family RM 40,000. Her father is a farmer.",
+              initial: "F", name: "Farid, 29", location: "Petaling Jaya, Selangor",
+              story: "Motorcycle dispatch rider. Right arm crushed in a road collision in 2022. SOCSO paid hospitalisation and a cosmetic shell — no grip function. He hasn't done a full day of physical work since. The cheapest functional myoelectric arm he was quoted: RM 55,000.",
             },
             {
-              initial: "R", name: "Encik Rajan, 61", location: "Ipoh, Perak",
-              story: "Diabetic amputation in 2023. Was an active grandfather — now dependent on a wheelchair because a powered prosthetic is RM 60,000 and his pension is RM 900/month. He will never walk again unless something changes.",
+              initial: "R", name: "Reza, 31", location: "Shah Alam, Selangor",
+              story: "Construction site accident in 2022. Lost his right hand below the elbow. Was a site foreman supporting three children. SOCSO covered hospitalisation and a cosmetic shell — non-functional. He cannot drive, cannot operate machinery, cannot return to skilled work. A myoelectric arm quotes at RM 60,000. His monthly take-home was RM 3,800.",
             },
           ].map((p) => (
             <div key={p.name} className="fade-up" style={{ background: "rgba(6,22,34,0.75)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
@@ -317,7 +317,7 @@ export default function Home() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
             {[
-              { n: "01", title: "Growing chronic-disease burden", desc: "WHO reports 830 million people were living with diabetes in 2022, and diabetes remains a major driver of amputation risk." },
+              { n: "01", title: "Industrial trauma, unmet need", desc: "Upper-limb loss in SEA is driven by industrial accidents and road injuries, not diabetes. The patient is a young working-age adult who cannot afford a RM 20K–80K imported device and has no functional alternative." },
               { n: "02", title: "3D printing cost collapse", desc: "Industrial FDM hardware costs have fallen over 70% in five years. Small-batch, custom-fit manufacturing is now economically viable at our price point." },
               { n: "03", title: "Defined regulatory pathway", desc: "Malaysia has an established medical-device approval framework, giving the team a concrete route to plan around while final device classification is confirmed with MDA." },
               { n: "04", title: "Regional scale is undeniable", desc: "Southeast Asia is home to roughly 695 million people, yet access to advanced assistive technology remains deeply uneven." },
@@ -339,7 +339,7 @@ export default function Home() {
       <section id="solution" style={{ padding: "7rem clamp(1.25rem, 6vw, 5rem)", maxWidth: 1200, margin: "0 auto" }}>
         <p className="section-label fade-up">The Solution</p>
         <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3.5rem" }}>
-          Built in Malaysia. Built for Malaysia.
+          Engineered in Malaysia. Entering Singapore and the UK.
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem", alignItems: "stretch" }}>
           <div className="fade-up" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -347,12 +347,12 @@ export default function Home() {
           </div>
           <div className="fade-up" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             {[
-              { name: "Non-Invasive Neural Sensing", desc: "High-fidelity surface electrodes capture motor neuron action potentials directly through the skin — reading the electrical signatures of neural intent without any invasive surgery." },
-              { name: "AI Intent Decoding", desc: "Our onboard ML pipeline moves beyond clunky threshold triggers. It decodes neural firing patterns in real-time, learning the user's specific biological signals and translating subconscious thought into natural movement." },
-              { name: "Auto-Articulating Bionics", desc: "Fully motorized independent actuation drives both fingers and thumb. The bionic thumb transitions between pinch and grasp automatically based on neural intent — no manual repositioning by the other hand." },
-              { name: "Digital-Twin Socket Generation", desc: "Smartphone LiDAR generates a precise digital twin of the residual limb, driving a 3D-printed patient-specific socket with variable density — rigid for load-bearing, flexible for skin comfort — reducing rejection rates to near zero." },
-              { name: "Integrated Power Architecture", desc: "All control logic, motor drivers, and high-density Li-ion power systems are housed entirely within the forearm unit. USB-C rapid charging ensures all-day autonomy." },
-              { name: "Malaysia-Native Delivery", desc: "Clinical access, fitting, service, and regulatory validation are built around the Malaysian system. We are not shipping into the market as a foreign importer." },
+              { name: "Surface EMG Signal Acquisition", desc: "Non-invasive surface electrodes capture multi-channel electromyography signals from the residual limb. EMG signal acquisition and threshold-based control has been demonstrated through UCL embedded systems research — this is the signal pipeline the device is built on." },
+              { name: "Multi-Grip EMG Classification", desc: "The current pipeline uses threshold-based control: demonstrated and working. The next stage is a patient-specific multi-grip pattern classifier trained on EMG data to replace binary triggers with intent-based grip selection. We are not claiming to solve what Ottobock hasn't — we are building a classifier that covers the 4–6 grips most users actually need, at a BOM that makes the device commercially viable." },
+              { name: "Motorized Thumb Architecture", desc: "Target prototype design uses a 5-servo coupled layout covering the three grip states used in 80%+ of daily tasks — power grasp, pinch, open. Motor switching is driven by classified EMG intent, not manual repositioning by the other hand. Full per-finger independent actuation is a post-prototype iteration target, not Year-1 scope." },
+              { name: "Digital-Twin Socket Fitting", desc: "Smartphone LiDAR generates a digital model of the residual limb geometry to drive a 3D-printed patient-specific socket. Variable-density printing — rigid load-bearing shell, flexible skin-contact surfaces — targets better comfort and lower rejection rates than standard measurement-based fitting." },
+              { name: "Self-Contained Power Architecture", desc: "All control logic, motor drivers, and rechargeable Li-ion power are designed to sit within the forearm unit. USB-C charging. Day-long battery target based on current consumption modelling; will be validated in prototype testing." },
+              { name: "Built Inside the Clinical Pathway", desc: "We are not designing a device and then figuring out how to sell it in Southeast Asia. The regulatory pathway (MDA), clinical access (Alwi's neurosurgeon network), and commercial entry point (Singapore) are defined from day one. That structural advantage is independent of how the hardware performs." },
             ].map((feat) => (
               <div key={feat.name} style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
                 <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--teal)", marginTop: "0.45rem", flexShrink: 0 }} />
@@ -375,10 +375,10 @@ export default function Home() {
           <h3 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.2rem, 2vw, 1.6rem)", letterSpacing: "-0.01em", marginBottom: "2.5rem", color: "#fff" }}>How it works</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1rem" }}>
             {[
-              { n: "01", title: "Non-Invasive Neural Sensing", desc: "High-fidelity surface electrodes capture motor neuron action potentials directly through the skin. We read the complex electrical signatures of neural intent, completely bypassing the need for invasive surgery." },
-              { n: "02", title: "AI Intent Decoding", desc: "Moving beyond clunky threshold triggers, our onboard machine learning pipeline decodes neural firing patterns in real-time. The system learns the user's specific biological signals, translating subconscious thought into fluid, natural movement." },
-              { n: "03", title: "Auto-Articulating Bionics", desc: "Fully motorized independent actuation drives both the fingers and the thumb. Unlike low-cost competitors that require manual adjustment by the other hand, our bionic thumb transitions between pinch and grasp modes automatically based on neural intent." },
-              { n: "04", title: "Digital-Twin Socket Generation", desc: "Using smartphone LiDAR, we generate a highly accurate digital twin of the residual limb. This drives a rapidly 3D-printed, patient-specific socket with variable density — rigid for load-bearing, flexible for skin comfort — reducing rejection rates to near zero." },
+              { n: "01", title: "Surface EMG Acquisition", desc: "Non-invasive surface electrodes capture multi-channel EMG signals from the residual limb skin. Signal acquisition and threshold-based control has been demonstrated through UCL embedded systems research — the same pipeline the prosthetic is built on." },
+              { n: "02", title: "EMG Pattern Classification", desc: "Stage one uses threshold-based control: demonstrated and proven. Stage two — in development — replaces binary triggers with a patient-specific multi-grip classifier. Target is 4–6 grip patterns. This is not novel academic research; it is applied engineering on a validated pipeline." },
+              { n: "03", title: "Motorized Grip Architecture", desc: "Target prototype design: 5-servo coupled layout covering power grasp, pinch, and open — the three grip states used in 80%+ of daily tasks. Automatic switching driven by classified EMG intent, not manual repositioning. Full independent per-finger actuation is a post-prototype target." },
+              { n: "04", title: "Digital-Twin Socket Generation", desc: "Using smartphone LiDAR, we generate an accurate digital model of the residual limb. This drives a 3D-printed patient-specific socket with variable density — rigid for load-bearing, flexible for skin comfort. The goal is a more comfortable, lower-rejection fit than standard measurement-based casting. This will be validated in prototype trials." },
               { n: "05", title: "Integrated Power Architecture", desc: "All control logic, motor drivers, and high-density rechargeable Li-ion power systems are housed entirely within the forearm unit. USB-C rapid charging ensures all-day autonomy." },
             ].map((step) => (
               <div key={step.n} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "10px", padding: "1.5rem 1.25rem" }}>
@@ -402,7 +402,7 @@ export default function Home() {
             {[
               { value: "USD 6.56B", label: "Global prosthetics & orthotics market", sub: "Grand View Research estimate for 2024" },
               { value: "695M", label: "Southeast Asia population", sub: "UN-backed regional estimate for 2024" },
-              { value: "USD 80M", label: "Year 1\u20133 beachhead model", sub: "Internal estimate for Malaysia + Singapore" },
+              { value: "USD 80M", label: "Year 1\u20133 beachhead model", sub: "Internal estimate: Singapore + UK + SEA" },
             ].map((m) => (
               <div key={m.label} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", textAlign: "center", transition: "border-color 200ms, transform 200ms" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(2,128,144,0.4)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
@@ -420,9 +420,9 @@ export default function Home() {
           <div className="fade-up">
             <div style={{ display: "flex", alignItems: "center", overflowX: "auto", paddingBottom: "0.5rem" }}>
               {[
-                { year: "Year 1", label: "Malaysia" },
-                { year: "Year 2", label: "UK" },
-                { year: "Year 3", label: "SEA-wide" },
+                { year: "Year 1", label: "Malaysia (build)" },
+                { year: "Year 2", label: "Singapore" },
+                { year: "Year 3–4", label: "UK + SEA" },
                 { year: "Year 5", label: "EU → US" },
               ].map((step, i, arr) => (
                 <div key={step.year} style={{ display: "flex", alignItems: "center", flex: i < arr.length - 1 ? "1" : "0 0 auto" }}>
@@ -447,7 +447,7 @@ export default function Home() {
             We are not trying to be the cheapest bionic hand.<br />We are building the performance tier above low-end imports.
           </h2>
           <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, maxWidth: 760, marginBottom: "3rem" }}>
-            The market is splitting into two tiers: low-cost imported hands with constrained functionality, and premium imported systems priced out of Southeast Asia. BANGKIT sits in the gap between them: materially better control and fit than the value tier, delivered through a local Malaysian clinical and regulatory stack.
+            The positioning is precise: not the cheapest device, not the most sophisticated. Better than Vulcan ($120K raised, threshold control only, manual thumb, no clinical infrastructure) — not competing with Ottobock. In Singapore, myoelectric prosthetics cost SGD 15,000–50,000. We enter at SGD 3,000. In the UK, the i-limb runs £70,000+. We enter at approximately £1,700. We cover the grip patterns 80% of users actually need, at 5% of the cost of premium imports. That's a different product category — one that currently doesn't exist at this price point with this level of local clinical support.
           </p>
           <div className="fade-up" style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", minWidth: 640 }}>
@@ -460,8 +460,8 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  { company: "BANGKIT Bionics", highlight: true, price: "RM 4.5K\u201314.5K", control: "Neural pattern target", thumb: "Motorized target", socket: "3D-scanned digital twin", model: "Malaysia-native clinical service", reg: "NTIS + MDA pathway" },
-                  { company: "Vulcan Augmetics", highlight: false, price: "~RM 5K", control: "Threshold-based", thumb: "Manual reposition", socket: "Standard clinical fit", model: "Imported via partners", reg: "Importer pathway" },
+                  { company: "BANGKIT Bionics", highlight: true, price: "RM 4.5K\u201314.5K", control: "Multi-grip EMG classifier", thumb: "Motorized (prototype target)", socket: "LiDAR digital twin", model: "KL build, SG/UK sales", reg: "NTIS + MDA → CE Mark" },
+                  { company: "Vulcan Augmetics", highlight: false, price: "~RM 5K", control: "Threshold-based only", thumb: "Manual reposition", socket: "Standard clinical fit", model: "Importer. $120K / 7 yrs.", reg: "Importer pathway" },
                   { company: "Open Bionics", highlight: false, price: "Quote-based", control: "Myoelectric", thumb: "Limited preset modes", socket: "Partial custom", model: "Imported", reg: "CE Mark / FDA" },
                   { company: "Ottobock", highlight: false, price: "USD 20K\u201380K", control: "Premium myoelectric", thumb: "Motorized", socket: "Clinical custom", model: "Distributor only", reg: "CE Mark / FDA" },
                   { company: "Body-powered / passive", highlight: false, price: "Low-cost", control: "Mechanical only", thumb: "Manual", socket: "Basic", model: "Local / mixed", reg: "Varies" },
@@ -540,9 +540,9 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  { year: "Year 1", units: "~8 (pilot)", rev: "RM 76K", gp: "Grant-funded", margin: "—", market: "Malaysia", milestone: "CIP Spark stage — prototype build and pilot patient validation. No commercial sales.", highlight: false },
-                  { year: "Year 2", units: "30", rev: "RM 285K", gp: "RM 214K", margin: "75%", market: "Malaysia", milestone: "NTIS validation complete — first commercial placements with early hospital and prosthetist partners", highlight: false },
-                  { year: "Year 3", units: "150", rev: "RM 1.43M", gp: "RM 1.07M", margin: "75%", market: "Malaysia + UK", milestone: "Hospital contracts begin, CE Mark process, break-even", highlight: true },
+                  { year: "Year 1", units: "5–10 (R&D)", rev: "RM 76K", gp: "Grant-funded", margin: "—", market: "Malaysia (ops)", milestone: "CIP Spark + NTIS — prototype and clinical validation phase. Grant-funded, not commercial.", highlight: false },
+                  { year: "Year 2", units: "30", rev: "RM 285K", gp: "RM 214K", margin: "75%", market: "Singapore", milestone: "First commercial launch in Singapore. MediShield Life and shield plan coverage pathway. Prosthetist channel.", highlight: false },
+                  { year: "Year 3", units: "150", rev: "RM 1.43M", gp: "RM 1.07M", margin: "75%", market: "Singapore + UK", milestone: "UK hospital partners via Blatchford/RNOH. CE Mark process. Break-even.", highlight: true },
                   { year: "Year 4", units: "600", rev: "RM 5.7M", gp: "RM 4.56M", margin: "80%", market: "SEA-wide", milestone: "SEA expansion, Series A", highlight: true },
                   { year: "Year 5", units: "2,500", rev: "RM 23.75M", gp: "RM 19M", margin: "80%", market: "SEA + EU", milestone: "EU entry begins, US pipeline established", highlight: true },
                 ].map((row) => (
@@ -563,7 +563,7 @@ export default function Home() {
             {[
               { val: "RM 9,500", lbl: "Flagship ASP", sub: "Range RM 4.5K\u201314.5K across commercial tiers" },
               { val: "75%+", lbl: "Gross margin", sub: "Scaling to 80%+ at volume" },
-              { val: "Year 3", lbl: "Break-even", sub: "150 units, RM 1.43M — hospital contracts begin" },
+              { val: "Year 3", lbl: "Break-even", sub: "150 units, RM 1.43M — Singapore + UK hospital contracts" },
               { val: "RM 23.75M", lbl: "Year 5 revenue target", sub: "2,500 units, SEA + EU entry" },
             ].map((s) => (
               <div key={s.lbl} style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "10px", padding: "1.25rem 1.5rem", textAlign: "center" }}>
@@ -668,17 +668,17 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className="section-label fade-up">Unfair Advantages</p>
           <h2 className="fade-up" style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em", marginBottom: "3rem" }}>
-            Why a Vulcan-style importer<br />should lose this market.
+            Why a Vulcan-style importer<br />cannot win this market.
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
             {[
-              { title: "Native clinical distribution", desc: "Vulcan enters Malaysia through partner clinics. We are being built inside the Malaysian care pathway from day one: referral access, fitting workflow, follow-up, and clinician feedback all live locally." },
-              { title: "Higher performance wedge", desc: "The product thesis is not low-cost open-close control. It is better control architecture, motorized grip switching, and a more useful day-to-day hand at a price still far below premium imports." },
+              { title: "Day-zero clinical feedback loop", desc: "Alwi's father is a consultant neurosurgeon. That is an unusually direct link to clinical feedback and patient access at a stage when most hardware founders have zero clinical contact. It's a warm introduction to a referral network — not a distribution operation. That is what it is. But it compresses the prototype feedback loop in a way that matters." },
+              { title: "Honest performance wedge", desc: "We are not claiming to beat Ottobock. We are claiming to build a device that covers the grip patterns 80% of users actually need, routes around the manual thumb repositioning that makes Vulcan frustrating, and delivers it with a local clinical service model that importers can't replicate. That's a real gap. It doesn't require solving unsolved problems in neuroscience." },
               { title: "Socket comfort as moat", desc: "Users do not abandon prosthetic hands because of marketing. They abandon them because the socket is uncomfortable. A better 3D-scanned socket workflow is a retention moat, not a cosmetic feature." },
-              { title: "NTIS + MDA velocity", desc: "Foreign hardware vendors still face importer constraints. We can use NTIS and a Malaysia-native regulatory pathway to validate, iterate, and compile evidence inside the system we plan to sell into." },
-              { title: "Dual-country infrastructure", desc: "Manufacturing in Malaysia. Clinical validation in the UK. Cost arbitrage at scale — components sourced from China, assembled in KL, tested against NHS and RNOH standards in London. One company operating across two of the world's most strategic medtech ecosystems simultaneously." },
+              { title: "Singapore: insurance-backed first market", desc: "MediShield Life and integrated shield plans cover prosthetic devices. Functioning prosthetist infrastructure. High GDP per capita. 45 minutes from our KL manufacturing base. We price at SGD 3,000 in a market where myoelectric prosthetics cost SGD 15,000–50,000. Singapore is the commercial launch — not a charity market." },
+              { title: "Three-country architecture", desc: "Build in Malaysia (low-cost, grant-funded). Sell first in Singapore (insurance-covered, 45 min from KL). Scale in the UK via clinical network at Blatchford and RNOH — NHS, CE Mark, and a market where the i-limb costs £70,000+. Cost arbitrage at every stage." },
               { title: "Local service wins the account", desc: "In this category, 48-hour repairs and refits matter as much as grip specs. A faster service loop is a real commercial advantage against imported devices with longer support chains." },
-              { title: "Procurement fit", desc: "Malaysia does not buy medical devices like Europe or the US. We understand the subsidy, hospital, and public-support logic locally, which makes us easier to procure and easier to reimburse." },
+              { title: "Two forms of procurement fit", desc: "In Malaysia, we understand the SOCSO, MDA, and hospital procurement logic. In Singapore, we operate within an established insurance reimbursement framework. In the UK, we target NHS procurement and private insurers. Three different systems — all understood from the inside." },
               { title: "Data and talent compounding", desc: "Each local patient fit, repair, and retraining cycle builds a proprietary operating dataset. Combined with Malaysia's underused biomedical engineering talent base, that compounds into a harder-to-copy company." },
             ].map((adv) => (
               <div key={adv.title} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem", transition: "border-color 200ms, transform 200ms" }}
@@ -705,10 +705,10 @@ export default function Home() {
           </h2>
           <div className="fade-up" style={{ display: "flex", alignItems: "center", overflowX: "auto", paddingBottom: "0.5rem", marginBottom: "3rem" }}>
             {[
-              { year: "Year 1", label: "Malaysia" },
-              { year: "Year 2", label: "UK" },
-              { year: "Year 3", label: "SEA-wide" },
-              { year: "Year 5", label: "EU → US" },
+              { year: "Year 1", label: "Malaysia (build)" },
+            { year: "Year 2", label: "Singapore" },
+            { year: "Year 3–4", label: "UK pilot + CE Mark" },
+            { year: "Year 5", label: "UK commercial + EU" },
             ].map((step, i, arr) => (
               <div key={step.year} style={{ display: "flex", alignItems: "center", flex: i < arr.length - 1 ? "1" : "0 0 auto" }}>
                 <div style={{ textAlign: "center", minWidth: 110 }}>
@@ -723,12 +723,12 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
               { n: "01", year: "Now", title: "Apply: CIP Spark", desc: "Apply for Cradle\u2019s CIP Spark grant — rolling admissions, no prototype required. RM 150K over 18 months to fund prototype development. Simultaneously: neurosurgeon network conversations, identify 10 real patient cases." },
-              { n: "02", year: "Year 1–2", title: "Build", desc: "CIP Spark funds the first functional prosthetic prototype. Myoelectric. Biocompatible. 3D printed. Signal pipeline from UCL research integrated into hardware. Provisional patent filed on control system." },
+              { n: "02", year: "Year 1–2", title: "Build", desc: "CIP Spark funds the first functional prosthetic prototype. Myoelectric. Biocompatible. 3D printed. Signal pipeline from UCL research integrated into hardware. Provisional patent application on control system submitted." },
               { n: "03", year: "Year 2", title: "Enter NTIS Sandbox 1", desc: "Prototype in hand, apply for NTIS Sandbox 1. RM 250K, 6 months, 100% grant funding for a single-site clinical trial. NTIS validates the device that CIP Spark built." },
               { n: "04", year: "Year 2", title: "Prove", desc: "Single-site validation complete. MDA classification review, submission planning, and multi-site expansion preparation in parallel." },
-              { n: "05", year: "Year 2", title: "Enter UK", desc: "CE Mark process initiated alongside MDA registration. UCL research partnerships and NHS pilot programme. RNOH and Imperial College Healthcare clinical collaboration. Martynas leads UK investor relationships from London. UK proves global credibility — the device built for the hardest market enters the world's most credible one." },
-              { n: "06", year: "Year 3", title: "Scale SEA", desc: "First hospital sales across Southeast Asia. Singapore, Indonesia, and Thailand expansion. Public-support and procurement applications where applicable. Series A for regional scale. SEA captures the volume." },
-              { n: "07", year: "Year 4–5+", title: "EU → US", desc: "CE Mark approval opens EU and Australia. SEA revenue funds European expansion without dilution. EU captures the premium tier — a device built for the hardest market at the lowest price out-competes incumbents everywhere. US entry follows as the endgame: the world's largest medtech market, entered from a position of clinical credibility and proven unit economics." },
+              { n: "05", year: "Year 2", title: "Enter Singapore", desc: "Singapore commercial launch. MediShield Life and integrated shield plans cover device costs for patients. Existing prosthetist infrastructure drives short sales cycles — 45 minutes from our KL base. We enter at SGD 3,000 where the market prices myoelectric prosthetics at SGD 15,000–50,000." },
+              { n: "06", year: "Year 3", title: "UK clinical pilot", desc: "CE Mark process for a Class IIb active device takes 2–4 years minimum. We are not entering the UK commercially in Year 2. What Year 3 looks like: CE Mark process formally initiated, Blatchford and RNOH clinical relationships active, NHS pilot conversations underway. Joonmin's Blatchford network is the inside track — not a shortcut, but a real structural advantage." },
+              { n: "07", year: "Year 4\u20135", title: "UK commercial + EU → US", desc: "CE Mark completion enables full UK commercial launch and EU market access. By this point Singapore is generating revenue, clinical data exists from Malaysia and UK pilots, and the Series A case is evidence-based rather than projection-based. The i-limb costs £70,000+. We enter at approximately £1,700. US entry follows as the endgame." },
             ].map((step, i, arr) => (
               <div key={step.n} className="fade-up" style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
@@ -763,7 +763,7 @@ export default function Home() {
               {[
                 "First functional myoelectric prototype — EMG controlled, 3D printed, biocompatible",
                 "Signal pipeline integrated from UCL research into working hardware",
-                "Provisional patent filed on control system",
+                "Provisional patent application on control system submitted",
                 "Single pilot patient validation to confirm device function",
                 "MDA pre-submission engagement initiated",
               ].map((item) => (
@@ -829,8 +829,9 @@ export default function Home() {
           <div className="fade-up" style={{ maxWidth: 760, margin: "0 auto 3rem" }}>
             {[
               "Rehabilitation robotics, exoskeletons, diagnostic AI, surgical tools. The entire medical-device landscape is waiting to be rebuilt.",
-              "We started in Southeast Asia because that is where the need is greatest and the market is most open.",
-              "We are going global because a device built to survive the hardest conditions at the right price should outperform imported alternatives everywhere else.",
+              "We build in Malaysia: low-cost operations, grant funding through Cradle and NTIS, clinical network access, MDA regulatory pathway. That is not the sales market.",
+              "We sell first in Singapore because the insurance ecosystem works, the prosthetist infrastructure exists, and it is 45 minutes from our manufacturing base. We sell in the UK because Joonmin sits inside Blatchford, because CE Mark is achievable, and because the i-limb costs £70,000.",
+              "The mission is real. The business is viable on its own terms — not dependent on charity economics or government subsidy to survive.",
             ].map((paragraph) => (
               <p key={paragraph} style={{ fontSize: "1rem", color: "var(--grey)", lineHeight: 1.9, marginBottom: "1rem" }}>
                 {paragraph}
