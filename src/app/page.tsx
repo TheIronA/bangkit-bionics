@@ -763,9 +763,8 @@ export default function Home() {
               {[
                 "First functional myoelectric prototype — EMG controlled, 3D printed, biocompatible",
                 "Signal pipeline integrated from UCL research into working hardware",
-                "Provisional patent application on control system submitted",
-                "Single pilot patient validation to confirm device function",
-                "MDA pre-submission engagement initiated",
+                "1-patient \"Usability Pilot\" to validate the Minimum Viable Product (MVP)",
+                "MDA pre-submission engagement initiated and Quality System scoped",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", marginBottom: "0.8rem" }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", marginTop: "0.4rem", flexShrink: 0 }} />
@@ -776,10 +775,10 @@ export default function Home() {
             <div className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "12px", padding: "2rem" }}>
               <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "0.8rem", color: "var(--teal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1.25rem" }}>What it unlocks next</div>
               {[
-                "NTIS Single Site Sandbox — RM 250K, 6 months, 100% grant funding for clinical trial",
-                "Ethics board approval and formal clinical feasibility study",
+                "NTIS Sandbox 1 — RM 250K, 6 months, 100% grant funding for multi-site clinical trials",
+                "Formal ethics board approval and expanded clinical feasibility study",
                 "MDA Class C registration pathway initiated",
-                "Stronger case for private capital with working device and pilot data",
+                "Stronger case for private capital with working MVP and pilot data",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", marginBottom: "0.8rem" }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", marginTop: "0.4rem", flexShrink: 0 }} />
@@ -791,20 +790,18 @@ export default function Home() {
 
           <div className="fade-up" style={{ marginBottom: "1.5rem" }}>
             <div style={{ display: "flex", height: 12, borderRadius: 8, overflow: "hidden", width: "100%" }}>
-              {[{ pct: 25, opacity: 1 }, { pct: 15, opacity: 0.85 }, { pct: 10, opacity: 0.72 }, { pct: 20, opacity: 0.58 }, { pct: 10, opacity: 0.44 }, { pct: 13, opacity: 0.30 }, { pct: 7, opacity: 0.18 }].map((seg, i) => (
-                <div key={i} style={{ flex: `0 0 ${seg.pct}%`, background: `rgba(2,128,144,${seg.opacity})`, borderRight: i < 6 ? "2px solid var(--navy)" : "none" }} />
+              {[{ pct: 39, opacity: 1 }, { pct: 26, opacity: 0.85 }, { pct: 15, opacity: 0.72 }, { pct: 13, opacity: 0.58 }, { pct: 7, opacity: 0.44 }].map((seg, i) => (
+                <div key={i} style={{ flex: `0 0 ${seg.pct}%`, background: `rgba(2,128,144,${seg.opacity})`, borderRight: i < 4 ? "2px solid var(--navy)" : "none" }} />
               ))}
             </div>
           </div>
           <div className="fade-up" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem 2rem" }}>
             {[
-              { label: "Hardware components", pct: "25%" },
-              { label: "3D printing & materials", pct: "15%" },
-              { label: "Software development", pct: "10%" },
-              { label: "Clinical feasibility", pct: "20%" },
-              { label: "IP", pct: "10%" },
-              { label: "Regulatory consultation", pct: "13%" },
-              { label: "Operational expenditure", pct: "7%" },
+              { label: "Talent & Engineering Stipends (Hardware + ML)", pct: "39%" },
+              { label: "Prototyping Lab Rent & Hardware R&D (Sensors, PCB)", pct: "26%" },
+              { label: "3D Printing (P1S Combo, PA12, TPU)", pct: "15%" },
+              { label: "1-Patient Usability Pilot & Regulatory", pct: "13%" },
+              { label: "Testing Ops, Software & Contingency", pct: "7%" },
             ].map((item) => (
               <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
                 <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--teal)", flexShrink: 0 }} />

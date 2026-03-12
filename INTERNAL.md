@@ -42,7 +42,9 @@ Do not design a PCB yet. Validate the signal pipeline first.
 | Adafruit Feather nRF52840 | MCU. Cortex-M4F, hardware float, BLE, TFLite Micro compatible. Runs Martynas's classifier. | ~$25 |
 | 5× micro servo (e.g. SG90 or MG90S) | Finger/thumb actuation. 3 grip states minimum. | ~$3 each |
 | Li-Po 3.7V 1000–2000 mAh | Battery. Target 6–8hr use. | ~$10 |
+| 3D Printer (Bambu Lab P1S Combo) | **CRITICAL UPGRADE:** Do not use the A1. PA12 Nylon requires a fully enclosed chamber to prevent warping, and the AMS drybox is vital for hygroscopic filaments. The A1 will fail here. | RM ~4,000 |
 | 3D printer filament (PA12 nylon + TPU) | Socket shell + flexible skin layer | RM ~200/arm |
+https://shopee.com.my/product/992967691/43009973474?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVEdTU3BlMW9zMXB6bGYrZ0J1VEdQdmlZOTlBMkd5bjJkc2F0Tlp2RXhwcVN6Qi8yeDYyd0VJNlJXNWVQVHNTVjBsRm95YnNiVVA4VUt6OUtzVHpUMUplbGx6ZXVOZXRPbW5IL254L2E1cGhXOTh6ekVEa3YxSEI2bUZsNDZiaStRPT0
 
 **Total BOM estimate (prototype):** ~RM 600–800 all-in.
 
@@ -158,6 +160,18 @@ The CE Mark process alone takes 18–24 months minimum with a Notified Body. Do 
 | **SOCSO/PERKESO**           | National Social Security Organisation          | Potential reimbursement pathway _for patients_, not direct funding — but a conversation with them now builds the commercial case |
 | **UCL networks**            | Alumni, Hatchery, UCL Business grant schemes   | Martynas + Alwi both eligible                                                                                                    |
 | **Angels (Southeast Asia)** | Once prototype exists                          | Don't raise equity until you have hardware in hand                                                                               |
+| **Venture Capital**         | Post-NTIS Sandbox                              | Targeting Series A once clinical data is validated and Singapore revenue is scaling.                                              |
+
+---
+
+## Company Incorporation & Out-of-Pocket Costs
+
+**IMPORTANT: Cradle CIP Spark funds cannot be used for incorporation.**
+
+- **Timing:** Apply for the grant as a team of individuals. Only incorporate (Sdn Bhd) **after** receiving the "Letter of Offer" from Cradle. 
+- **Cost:** Budget ~RM 1,500 for incorporation fees + digital company secretary setup.
+- **Pay-out:** This is a 50/50 out-of-pocket split between Alwi and Martynas. It is the skin in the game required to unlock the RM 150,000.
+- **Paid-up Capital:** Usually RM 1,000 minimum is fine for the grant requirement.
 
 ---
 
@@ -184,6 +198,7 @@ The website is appropriately hedged throughout ("prototype target", "to be valid
 ### Alwi
 
 - [ ] Order MyoWare 2.0 × 4, FSR 400 × 8, Adafruit nRF52840 Feather, servos × 5
+- [ ] Buy Bambu Lab P1S Combo (not A1) for reliable enclosed PA12 Nylon structural printing
 - [ ] Design first 3D-printed hand mechanism (start with a known open-source design like e-NABLE or Dextrus as base)
 - [ ] Contact father's hospital: start ethics conversation
 - [ ] Book pre-submission meeting with MDA (can be informal at this stage)
