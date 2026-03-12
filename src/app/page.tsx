@@ -279,8 +279,8 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
           {[
             {
-              initial: "A", name: "Ahmad, 44", location: "Seremban, Negeri Sembilan",
-              story: "Factory worker. Lost his right arm below the elbow in an industrial accident. His SOCSO claim covered a basic cosmetic prosthetic — non-functional, non-robotic. He earns RM 2,200/month. An imported myoelectric arm would cost him 3 years of total savings.",
+              initial: "A", name: "Ahmad, 24", location: "Selangor, Malaysia",
+              story: "Factory accident at 19. SOCSO covered a hook — non-functional, non-myoelectric. He has not been able to return to skilled work in 5 years. A functional arm costs more than his father earns in two years.",
             },
             {
               initial: "F", name: "Farid, 29", location: "Petaling Jaya, Selangor",
@@ -350,7 +350,7 @@ export default function Home() {
               { name: "Surface EMG Signal Acquisition", desc: "Non-invasive surface electrodes capture multi-channel electromyography signals from the residual limb. EMG signal acquisition and threshold-based control has been demonstrated through UCL embedded systems research — this is the signal pipeline the device is built on." },
               { name: "Multi-Grip EMG Classification", desc: "The current pipeline uses threshold-based control: demonstrated and working. The next stage is a patient-specific multi-grip pattern classifier trained on EMG data to replace binary triggers with intent-based grip selection. We are not claiming to solve what Ottobock hasn't — we are building a classifier that covers the 4–6 grips most users actually need, at a BOM that makes the device commercially viable." },
               { name: "Motorized Thumb Architecture", desc: "Target prototype design uses a 5-servo coupled layout covering the three grip states used in 80%+ of daily tasks — power grasp, pinch, open. Motor switching is driven by classified EMG intent, not manual repositioning by the other hand. Full per-finger independent actuation is a post-prototype iteration target, not Year-1 scope." },
-              { name: "Digital-Twin Socket Fitting", desc: "Smartphone LiDAR generates a digital model of the residual limb geometry to drive a 3D-printed patient-specific socket. Variable-density printing — rigid load-bearing shell, flexible skin-contact surfaces — targets better comfort and lower rejection rates than standard measurement-based fitting." },
+              { name: "Custom 3D-Printed Socket Fitting", desc: "At the fitting appointment, our clinical team performs 3D scanning of the residual limb geometry to generate a precise digital model, which drives a patient-specific 3D-printed socket. Variable-density printing — rigid load-bearing shell, flexible skin-contact surfaces — targets better comfort and lower rejection rates than standard measurement-based casting. The patient needs no special hardware; socket fitting is a clinical service delivered by our team." },
               { name: "Self-Contained Power Architecture", desc: "All control logic, motor drivers, and rechargeable Li-ion power are designed to sit within the forearm unit. USB-C charging. Day-long battery target based on current consumption modelling; will be validated in prototype testing." },
               { name: "Built Inside the Clinical Pathway", desc: "We are not designing a device and then figuring out how to sell it in Southeast Asia. The regulatory pathway (MDA), clinical access (Alwi's neurosurgeon network), and commercial entry point (Singapore) are defined from day one. That structural advantage is independent of how the hardware performs." },
             ].map((feat) => (
@@ -378,8 +378,8 @@ export default function Home() {
               { n: "01", title: "Surface EMG Acquisition", desc: "Non-invasive surface electrodes capture multi-channel EMG signals from the residual limb skin. Signal acquisition and threshold-based control has been demonstrated through UCL embedded systems research — the same pipeline the prosthetic is built on." },
               { n: "02", title: "EMG Pattern Classification", desc: "Stage one uses threshold-based control: demonstrated and proven. Stage two — in development — replaces binary triggers with a patient-specific multi-grip classifier. Target is 4–6 grip patterns. This is not novel academic research; it is applied engineering on a validated pipeline." },
               { n: "03", title: "Motorized Grip Architecture", desc: "Target prototype design: 5-servo coupled layout covering power grasp, pinch, and open — the three grip states used in 80%+ of daily tasks. Automatic switching driven by classified EMG intent, not manual repositioning. Full independent per-finger actuation is a post-prototype target." },
-              { n: "04", title: "Digital-Twin Socket Generation", desc: "Using smartphone LiDAR, we generate an accurate digital model of the residual limb. This drives a 3D-printed patient-specific socket with variable density — rigid for load-bearing, flexible for skin comfort. The goal is a more comfortable, lower-rejection fit than standard measurement-based casting. This will be validated in prototype trials." },
-              { n: "05", title: "Integrated Power Architecture", desc: "All control logic, motor drivers, and high-density rechargeable Li-ion power systems are housed entirely within the forearm unit. USB-C rapid charging ensures all-day autonomy." },
+              { n: "04", title: "Clinical Socket Fitting", desc: "At the fitting appointment, our clinical team performs 3D scanning to capture an accurate model of the residual limb geometry — no special hardware required from the patient. This drives a custom 3D-printed socket with variable density: rigid for load-bearing, flexible for skin comfort. A precisely fitted socket is one of the primary reasons patients keep wearing a prosthetic. Will be validated in prototype trials." },
+              { n: "05", title: "Integrated Power Architecture", desc: "All control logic, motor drivers, and rechargeable Li-ion power are housed entirely within the forearm unit. USB-C charging. Day-long battery runtime is a target based on current consumption modelling — will be validated in prototype testing." },
             ].map((step) => (
               <div key={step.n} className="fade-up" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "10px", padding: "1.5rem 1.25rem" }}>
                 <div style={{ fontFamily: "var(--font-heading)", fontSize: "0.7rem", fontWeight: 700, color: "var(--teal)", letterSpacing: "0.1em", marginBottom: "0.6rem" }}>{step.n}</div>
@@ -447,7 +447,7 @@ export default function Home() {
             We are not trying to be the cheapest bionic hand.<br />We are building the performance tier above low-end imports.
           </h2>
           <p className="fade-up" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "var(--white-60)", lineHeight: 1.7, maxWidth: 760, marginBottom: "3rem" }}>
-            The positioning is precise: not the cheapest device, not the most sophisticated. Better than Vulcan ($120K raised, threshold control only, manual thumb, no clinical infrastructure) — not competing with Ottobock. In Singapore, myoelectric prosthetics cost SGD 15,000–50,000. We enter at SGD 3,000. In the UK, the i-limb runs £70,000+. We enter at approximately £1,700. We cover the grip patterns 80% of users actually need, at 5% of the cost of premium imports. That's a different product category — one that currently doesn't exist at this price point with this level of local clinical support.
+            The positioning is precise: not the cheapest device, not the most sophisticated. Better than Vulcan (~$1M raised to date, threshold control only, manual thumb, no clinical infrastructure) — not competing with Ottobock. In Singapore, myoelectric prosthetics cost SGD 15,000–50,000. We enter at SGD 3,000. In the UK, the i-limb runs £70,000+. We enter at approximately £1,700. We cover the grip patterns 80% of users actually need, at 5% of the cost of premium imports. That's a different product category — one that currently doesn't exist at this price point with this level of local clinical support.
           </p>
           <div className="fade-up" style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", minWidth: 640 }}>
@@ -460,8 +460,8 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  { company: "BANGKIT Bionics", highlight: true, price: "RM 4.5K\u201314.5K", control: "Multi-grip EMG classifier", thumb: "Motorized (prototype target)", socket: "LiDAR digital twin", model: "KL build, SG/UK sales", reg: "NTIS + MDA → CE Mark" },
-                  { company: "Vulcan Augmetics", highlight: false, price: "~RM 5K", control: "Threshold-based only", thumb: "Manual reposition", socket: "Standard clinical fit", model: "Importer. $120K / 7 yrs.", reg: "Importer pathway" },
+                  { company: "BANGKIT Bionics", highlight: true, price: "RM 4.5K\u201314.5K", control: "Multi-grip EMG classifier", thumb: "Motorized (prototype target)", socket: "Custom 3D-printed socket", model: "KL build, SG/UK sales", reg: "NTIS + MDA → CE Mark" },
+                  { company: "Vulcan Augmetics", highlight: false, price: "~RM 5K", control: "Threshold-based only", thumb: "Manual reposition", socket: "Standard clinical fit", model: "Importer. ~$1M raised.", reg: "Importer pathway" },
                   { company: "Open Bionics", highlight: false, price: "Quote-based", control: "Myoelectric", thumb: "Limited preset modes", socket: "Partial custom", model: "Imported", reg: "CE Mark / FDA" },
                   { company: "Ottobock", highlight: false, price: "USD 20K\u201380K", control: "Premium myoelectric", thumb: "Motorized", socket: "Clinical custom", model: "Distributor only", reg: "CE Mark / FDA" },
                   { company: "Body-powered / passive", highlight: false, price: "Low-cost", control: "Mechanical only", thumb: "Manual", socket: "Basic", model: "Local / mixed", reg: "Varies" },
@@ -509,7 +509,7 @@ export default function Home() {
             {[
               { label: "Fully loaded pilot COGS", value: "RM 2,500\u20133,500", sub: "Direct BOM plus fitting, QA, clinician support, warranty reserve, and pilot-stage labour" },
               { label: "Target selling price", value: "RM 9,500", sub: "Flagship ASP. Commercial range RM 4,500\u201314,500. Research units priced separately to preserve development margin." },
-              { label: "Gross margin", value: "75%+", sub: "Targeting 80%+ at volume as manufacturing and service delivery become more efficient" },
+              { label: "Gross margin (pilot)", value: "63\u201374%", sub: "Pilot-stage range at RM 2,500\u20133,500 fully loaded COGS vs RM 9,500 ASP. Targeting 75%+ at volume as COGS reduce." },
               { label: "Imported equivalent", value: "RM 20K\u201380K", sub: "Current market price for comparable Western devices" },
             ].map((stat) => (
               <div key={stat.label} style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "10px", padding: "1.25rem 1.5rem", textAlign: "center" }}>
@@ -541,10 +541,10 @@ export default function Home() {
               <tbody>
                 {[
                   { year: "Year 1", units: "5–10 (R&D)", rev: "RM 76K", gp: "Grant-funded", margin: "—", market: "Malaysia (ops)", milestone: "CIP Spark + NTIS — prototype and clinical validation phase. Grant-funded, not commercial.", highlight: false },
-                  { year: "Year 2", units: "30", rev: "RM 285K", gp: "RM 214K", margin: "75%", market: "Singapore", milestone: "First commercial launch in Singapore. MediShield Life and shield plan coverage pathway. Prosthetist channel.", highlight: false },
-                  { year: "Year 3", units: "150", rev: "RM 1.43M", gp: "RM 1.07M", margin: "75%", market: "Singapore + UK", milestone: "UK hospital partners via Blatchford/RNOH. CE Mark process. Break-even.", highlight: true },
-                  { year: "Year 4", units: "600", rev: "RM 5.7M", gp: "RM 4.56M", margin: "80%", market: "SEA-wide", milestone: "SEA expansion, Series A", highlight: true },
-                  { year: "Year 5", units: "2,500", rev: "RM 23.75M", gp: "RM 19M", margin: "80%", market: "SEA + EU", milestone: "EU entry begins, US pipeline established", highlight: true },
+                  { year: "Year 2", units: "30", rev: "RM 285K", gp: "RM 200K", margin: "~70%", market: "Singapore", milestone: "First commercial launch in Singapore. HSA registration. Prosthetist channel.", highlight: false },
+                  { year: "Year 3", units: "150", rev: "RM 1.43M", gp: "RM 1.0M", margin: "~70%", market: "Singapore + UK", milestone: "CE Mark process underway. UK clinical pilot partnerships. Break-even.", highlight: true },
+                  { year: "Year 4", units: "600", rev: "RM 5.7M", gp: "RM 4.28M", margin: "75%", market: "SEA-wide", milestone: "SEA expansion, Series A", highlight: true },
+                  { year: "Year 5", units: "2,500", rev: "RM 23.75M", gp: "RM 17.8M", margin: "75%", market: "SEA + EU", milestone: "EU entry begins, US pipeline established", highlight: true },
                 ].map((row) => (
                   <tr key={row.year} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: row.highlight ? "rgba(2,128,144,0.06)" : "transparent" }}>
                     <td style={{ padding: "1rem", fontFamily: "var(--font-heading)", fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>{row.year}</td>
@@ -562,8 +562,8 @@ export default function Home() {
           <div className="fade-up" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem", marginTop: "2.5rem" }}>
             {[
               { val: "RM 9,500", lbl: "Flagship ASP", sub: "Range RM 4.5K\u201314.5K across commercial tiers" },
-              { val: "75%+", lbl: "Gross margin", sub: "Scaling to 80%+ at volume" },
-              { val: "Year 3", lbl: "Break-even", sub: "150 units, RM 1.43M — Singapore + UK hospital contracts" },
+              { val: "63\u201374%", lbl: "Gross margin (pilot)", sub: "Pilot-stage range. Targeting 75%+ at volume as COGS improve." },
+              { val: "Year 3", lbl: "Break-even", sub: "150 units, RM 1.43M — Singapore commercial + UK clinical pilot underway" },
               { val: "RM 23.75M", lbl: "Year 5 revenue target", sub: "2,500 units, SEA + EU entry" },
             ].map((s) => (
               <div key={s.lbl} style={{ background: "rgba(2,128,144,0.06)", border: "1px solid rgba(2,128,144,0.2)", borderRadius: "10px", padding: "1.25rem 1.5rem", textAlign: "center" }}>
@@ -673,10 +673,10 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
             {[
               { title: "Day-zero clinical feedback loop", desc: "Alwi's father is a consultant neurosurgeon. That is an unusually direct link to clinical feedback and patient access at a stage when most hardware founders have zero clinical contact. It's a warm introduction to a referral network — not a distribution operation. That is what it is. But it compresses the prototype feedback loop in a way that matters." },
-              { title: "Honest performance wedge", desc: "We are not claiming to beat Ottobock. We are claiming to build a device that covers the grip patterns 80% of users actually need, routes around the manual thumb repositioning that makes Vulcan frustrating, and delivers it with a local clinical service model that importers can't replicate. That's a real gap. It doesn't require solving unsolved problems in neuroscience." },
-              { title: "Socket comfort as moat", desc: "Users do not abandon prosthetic hands because of marketing. They abandon them because the socket is uncomfortable. A better 3D-scanned socket workflow is a retention moat, not a cosmetic feature." },
+              { title: "ML pattern classification at this price point", desc: "The primary technical moat: a patient-specific multi-grip EMG pattern classifier running on a RM 45 microcontroller, at a device price of RM 9,500. No competitor in this price bracket ships patient-specific ML grip classification — only binary threshold control or manual repositioning. We cover the 4–6 grip patterns 80% of users actually need, at a price 5–10× below the nearest credible alternative." },
+              { title: "Clinical socket fitting as retention moat", desc: "Users abandon prosthetic hands primarily because of socket discomfort and poor fit — not grip specs. Our clinical team uses 3D scanning at every fitting to produce a patient-specific socket. The patient needs no special hardware; socket fitting is a clinical service, not a consumer task. A better fit translates directly to lower abandonment rates and stronger recurring service revenue." },
               { title: "Singapore: insurance-backed first market", desc: "MediShield Life and integrated shield plans cover prosthetic devices. Functioning prosthetist infrastructure. High GDP per capita. 45 minutes from our KL manufacturing base. We price at SGD 3,000 in a market where myoelectric prosthetics cost SGD 15,000–50,000. Singapore is the commercial launch — not a charity market." },
-              { title: "Three-country architecture", desc: "Build in Malaysia (low-cost, grant-funded). Sell first in Singapore (insurance-covered, 45 min from KL). Scale in the UK via clinical network at Blatchford and RNOH — NHS, CE Mark, and a market where the i-limb costs £70,000+. Cost arbitrage at every stage." },
+              { title: "Three-country architecture", desc: "Build in Malaysia (low-cost, grant-funded). Sell first in Singapore (insurance-covered, 45 min from KL). Scale in the UK — NHS pathway, CE Mark, and a market where the i-limb costs \u00a370,000+. Cost arbitrage at every stage." },
               { title: "Local service wins the account", desc: "In this category, 48-hour repairs and refits matter as much as grip specs. A faster service loop is a real commercial advantage against imported devices with longer support chains." },
               { title: "Two forms of procurement fit", desc: "In Malaysia, we understand the SOCSO, MDA, and hospital procurement logic. In Singapore, we operate within an established insurance reimbursement framework. In the UK, we target NHS procurement and private insurers. Three different systems — all understood from the inside." },
               { title: "Data and talent compounding", desc: "Each local patient fit, repair, and retraining cycle builds a proprietary operating dataset. Combined with Malaysia's underused biomedical engineering talent base, that compounds into a harder-to-copy company." },
@@ -727,7 +727,7 @@ export default function Home() {
               { n: "03", year: "Year 2", title: "Enter NTIS Sandbox 1", desc: "Prototype in hand, apply for NTIS Sandbox 1. RM 250K, 6 months, 100% grant funding for a single-site clinical trial. NTIS validates the device that CIP Spark built." },
               { n: "04", year: "Year 2", title: "Prove", desc: "Single-site validation complete. MDA classification review, submission planning, and multi-site expansion preparation in parallel." },
               { n: "05", year: "Year 2", title: "Enter Singapore", desc: "Singapore commercial launch. MediShield Life and integrated shield plans cover device costs for patients. Existing prosthetist infrastructure drives short sales cycles — 45 minutes from our KL base. We enter at SGD 3,000 where the market prices myoelectric prosthetics at SGD 15,000–50,000." },
-              { n: "06", year: "Year 3", title: "UK clinical pilot", desc: "CE Mark process for a Class IIb active device takes 2–4 years minimum. We are not entering the UK commercially in Year 2. What Year 3 looks like: CE Mark process formally initiated, Blatchford and RNOH clinical relationships active, NHS pilot conversations underway. Joonmin's Blatchford network is the inside track — not a shortcut, but a real structural advantage." },
+              { n: "06", year: "Year 3", title: "UK clinical pilot", desc: "CE Mark process for a Class IIb active device takes 2–4 years minimum. We are not entering the UK commercially in Year 2. What Year 3 looks like: CE Mark process formally initiated, RNOH and NHS clinical pilot conversations underway, CE Mark technical documentation work begun." },
               { n: "07", year: "Year 4\u20135", title: "UK commercial + EU → US", desc: "CE Mark completion enables full UK commercial launch and EU market access. By this point Singapore is generating revenue, clinical data exists from Malaysia and UK pilots, and the Series A case is evidence-based rather than projection-based. The i-limb costs £70,000+. We enter at approximately £1,700. US entry follows as the endgame." },
             ].map((step, i, arr) => (
               <div key={step.n} className="fade-up" style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
@@ -830,7 +830,7 @@ export default function Home() {
             {[
               "Rehabilitation robotics, exoskeletons, diagnostic AI, surgical tools. The entire medical-device landscape is waiting to be rebuilt.",
               "We build in Malaysia: low-cost operations, grant funding through Cradle and NTIS, clinical network access, MDA regulatory pathway. That is not the sales market.",
-              "We sell first in Singapore because the insurance ecosystem works, the prosthetist infrastructure exists, and it is 45 minutes from our manufacturing base. We sell in the UK because Joonmin sits inside Blatchford, because CE Mark is achievable, and because the i-limb costs £70,000.",
+              "We sell first in Singapore because the insurance ecosystem works, the prosthetist infrastructure exists, and it is 45 minutes from our manufacturing base. We sell in the UK because CE Mark is achievable within a defined timeline, and because the i-limb costs £70,000.",
               "The mission is real. The business is viable on its own terms — not dependent on charity economics or government subsidy to survive.",
             ].map((paragraph) => (
               <p key={paragraph} style={{ fontSize: "1rem", color: "var(--grey)", lineHeight: 1.9, marginBottom: "1rem" }}>
