@@ -164,6 +164,17 @@ The CE Mark process alone takes 18–24 months minimum with a Notified Body. Do 
 
 ---
 
+## Plan B: The Bootstrapped Prototype
+
+If the CIP Spark application is rejected or delayed, **the objective stays exactly the same, but the burn rate drops to zero.**
+
+- **Hardware:** Alwi purchases the Bambu Lab P1S (RM 4,000) and the ~RM 800 BOM (MyoWare, FSRs, nRF52840, servos) out of pocket.
+- **Workspace:** No dedicated lab space. Prototyping happens in a bedroom or garage.
+- **Talent:** No stipends. Founders build on nights/weekends.
+- **Goal:** The goal remains reaching **Milestone 2 (V2 Wearable Prototype on able-bodied founders)**. Once you have a video of a functioning, wearable, EMG-controlled arm, you use *that* video to re-apply for CIP Spark (which accepts re-submissions) or pivot straight to regional Angel investors using the physical proof-of-concept. 
+
+---
+
 ## Company Incorporation & Out-of-Pocket Costs
 
 **IMPORTANT: Cradle CIP Spark funds cannot be used for incorporation.**
