@@ -787,7 +787,7 @@
         <div class="card" style="padding:22px; margin-bottom:16px;">
           <h3 class="card-title">Key Differentiators</h3>
           <ul class="bullet" style="margin-top:10px;">
-            <li><strong>Multi-grip EMG classification</strong> &mdash; we have demonstrated threshold-based control through UCL embedded systems research. The product build moves to a patient-specific multi-grip pattern classifier: 4&ndash;6 grip patterns, not a binary open&ndash;close trigger. We are not claiming to solve what Ottobock hasn&rsquo;t. We are claiming to cover the grips most users actually need at a BOM that makes the device viable.</li>
+            <li><strong>FMG + EMG sensor fusion with on-device ML</strong> &mdash; we capture both EMG (electrical muscle activity) and FMG (force myography &mdash; pressure as muscles contract) from the residual limb. Peer-reviewed research shows combined FMG+EMG achieves &gt;97% classification accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; directly relevant to tropical-climate wearability (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). A compact neural net classifier runs on the microcontroller; transfer learning adapts per patient and accommodates limb changes over time, reducing recalibration overhead at each fitting.</li>
             <li><strong>Motorized thumb architecture</strong> &mdash; target design eliminates manual thumb repositioning. This is the single most common complaint against Vulcan and similar low-cost devices. It is a hardware engineering problem, not a research problem.</li>
             <li><strong>Clinically-fitted custom 3D-printed socket</strong> &mdash; our clinical team uses 3D scanning to capture an accurate model of the residual limb geometry and produces a patient-specific socket. Variable density: rigid load-bearing shell, flexible skin-contact surfaces. The patient needs no special hardware; socket fitting is a clinical service delivered at each appointment. Will be validated in prototype trials.</li>
             <li><strong>Built in KL, sold in Singapore and the UK</strong> &mdash; Malaysia is the operations and clinical validation base. Singapore is the first commercial market (MediShield Life, functioning prosthetist infrastructure, 45 min from KL). UK is the scale market (NHS, private insurance, CE Mark pathway).</li>
@@ -819,22 +819,22 @@
         <div class="step">
           <div class="step-num">01</div>
           <div class="step-body">
-            <h4>Muscle Signal Capture</h4>
-            <p>Surface EMG electrodes rest against residual limb skin. When the patient intends to grip, forearm muscles produce millivolt-level electrical signals. No surgery. No skin penetration.</p>
+            <h4>FMG + EMG Sensor Fusion</h4>
+            <p>Two complementary sensor types capture muscle intent from the residual limb: EMG electrodes pick up millivolt-level electrical signals; FMG sensors read pressure changes as muscles contract. Peer-reviewed research shows combined FMG+EMG achieves &gt;97% classification accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; a meaningful gap for a device worn in tropical Southeast Asia (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). Both are non-invasive, wearable, and low-cost. No surgery. No skin penetration.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">02</div>
           <div class="step-body">
-            <h4>Amplification &amp; Filtering</h4>
-            <p>Custom analogue front-end amplifies the signal 1,000&times; and applies a bandpass filter (20&ndash;500 Hz) to extract clean myoelectric data. Hardware noise rejection ensures reliable outdoor use.</p>
+            <h4>Signal Conditioning</h4>
+            <p>Custom analogue front-end amplifies EMG 1,000&times; with bandpass filtering (20&ndash;500&thinsp;Hz). FMG channels are independently conditioned. Combined multi-modal signal processing extracts clean data reliable in outdoor and humid conditions.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <div class="step-body">
-            <h4>Multi-Grip EMG Classification</h4>
-            <p>Stage one uses threshold-based control: the signal pipeline is demonstrated. Stage two &mdash; in development &mdash; trains a patient-specific pattern classifier to map multi-channel EMG signals to 4&ndash;6 grip intentions. The claim is not that this matches Ottobock&rsquo;s decade-long R&amp;D. It is that this covers the grips most users need, runs on a RM 45 microcontroller, and works reliably in day-to-day use.</p>
+            <h4>On-Device Neural Net Classification</h4>
+            <p>Stage one uses threshold-based control: the signal pipeline is demonstrated. Stage two &mdash; in development &mdash; trains a compact neural network on the patient&rsquo;s own FMG+EMG data to classify 4&ndash;6 grip intentions directly on the microcontroller. No cloud dependency, no latency. Transfer learning adapts the model to new users and accommodates residual limb changes over time, reducing per-patient calibration overhead. The claim is not that this matches Ottobock&rsquo;s decade of R&amp;D. It is that it covers the grips most users need, runs on a RM&nbsp;45 MCU, and works reliably in day-to-day use.</p>
           </div>
         </div>
         <div class="step">
@@ -858,7 +858,7 @@
           <ul class="bullet" style="margin-top:8px;">
             <li><strong>Structure:</strong> FDM-printed biocompatible nylon (PA12) &mdash; RM 180</li>
             <li><strong>Actuators:</strong> 5&times; micro servo motors &mdash; RM 120 &mdash; <em>configured for 3 distinct grip states via coupled finger groups; independent per-finger actuation is a post-prototype target</em></li>
-            <li><strong>EMG front-end:</strong> Custom PCB + electrodes &mdash; RM 85</li>
+            <li><strong>FMG + EMG front-end:</strong> Custom PCB, FMG pressure sensors + EMG electrodes &mdash; RM 110</li>
             <li><strong>MCU + BLE:</strong> Nordic nRF52840 module &mdash; RM 45</li>
             <li><strong>Power:</strong> Li-ion 2000mAh + USB-C charge IC &mdash; RM 55</li>
             <li><strong>Cosmetic silicone glove:</strong> Custom moulded &mdash; RM 90</li>
@@ -866,7 +866,7 @@
           </ul>
           <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
             <span style="font-size:0.78rem; color:var(--muted);">Total prototype COGS: </span>
-            <span style="font-size:0.88rem; font-weight:700; color:var(--teal-light);">RM 775&ndash;975</span>
+            <span style="font-size:0.88rem; font-weight:700; color:var(--teal-light);">RM 800&ndash;1,000</span>
             <span style="font-size:0.72rem; color:var(--muted);"> direct BOM only; fully loaded pilot COGS lands at RM 2,500&ndash;3,500 once fitting, QA, clinician support, replacements, and warranty reserve are included.</span>
           </div>
         </div>
@@ -874,7 +874,8 @@
           <h3 class="card-title">IP &amp; Defensibility</h3>
           <ul class="bullet" style="margin-top:8px;">
             <li>Provisional patent application in preparation &mdash; EMG control system architecture</li>
-            <li>Patient-specific gesture training dataset &mdash; collection commences in NTIS clinical trial</li>
+            <li>Patient-specific FMG+EMG gesture dataset &mdash; collection commences in NTIS clinical trial; each patient adds to a proprietary multi-modal corpus competitors cannot replicate quickly</li>
+            <li>Transfer learning pipeline for per-patient model adaptation &mdash; reduces calibration time and enables model updates as residual limb changes over time</li>
             <li>Custom socket-interface connector (mechanical IP)</li>
             <li>MDA registration as regulatory moat in Malaysia</li>
           </ul>
@@ -978,7 +979,7 @@
           <tr class="our-row">
             <td>BANGKIT Bionics</td>
             <td>RM 4.5K&ndash;14.5K</td>
-            <td>Multi-grip EMG classifier</td>
+            <td>FMG+EMG fusion + ML classifier</td>
             <td>Motorized (prototype)</td>
             <td>Custom 3D-printed socket</td>
             <td>KL build / SG+UK sales</td>
@@ -1419,7 +1420,7 @@
       <div class="adv-card">
         <div class="icon">&#129504;</div>
         <h4>ML Pattern Classification at This Price Point</h4>
-        <p>The primary technical moat: a patient-specific multi-grip EMG pattern classifier running on a RM&nbsp;45 microcontroller, at a device price of RM&nbsp;9,500. No competitor in this price bracket ships patient-specific ML grip classification &mdash; only binary threshold control or manual repositioning. We cover the grips most users actually need, without solving unsolved neuroscience, at 5&ndash;10&times; less than the nearest credible alternative.</p>
+        <p>The primary technical moat: fused FMG+EMG sensors feeding a patient-specific neural net classifier, running on a RM&nbsp;45 microcontroller, at a device price of RM&nbsp;9,500. Peer-reviewed research shows FMG+EMG fusion achieves &gt;97% accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; directly relevant to tropical wearability (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). Transfer learning adapts the model per patient and accommodates limb changes over time. No competitor in this price bracket ships this sensor+ML combination &mdash; only binary threshold control or manual repositioning. To be validated in our clinical trial.</p>
       </div>
       <div class="adv-card">
         <div class="icon">&#128196;</div>

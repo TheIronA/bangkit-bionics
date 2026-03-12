@@ -1,0 +1,7 @@
+Tech stack - our moat 
+
+sensors - FMG + EMG 97% accuracy in humid environments compared to 83% for EMG alone 
+
+NN - SNN vs ANN - snn being better 
+
+Socket Comfort 
