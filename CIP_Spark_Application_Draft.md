@@ -2,10 +2,10 @@
 
 This document translates the Internal Strategy into a concrete, 18-month project plan required for the **Cradle CIP Spark (RM 150,000)** grant application. 
 
-**CRITICAL CLARIFICATION (SPARK vs NTIS):** Cradle CIP Spark requires a working "Minimum Viable Product" (MVP) by the end of the 18 months. For a prosthetic hand, an MVP means it must be successfully worn and actuated by **one single amputee pilot patient** (a usability pilot). It does *not* mean running a full-blown multi-site clinical trial. 
+**CRITICAL CLARIFICATION (SPARK vs NTIS):** Cradle CIP Spark requires a working "Minimum Viable Product" (MVP) by the end of the 18 months. For a prosthetic hand, an MVP means it must be successfully worn and actuated by **one single amputee pilot patient** (a technical usability validation). It does *not* mean running a full-blown multi-site clinical trial. 
 
 The strategy is: 
-1. **CIP Spark (18 months, RM 150K):** Build the prototype, prove FMG+EMG works on yourselves (able-bodied), and at the very end, run a **1-patient usability pilot** to prove the MVP works on an amputee. 
+1. **CIP Spark (18 months, RM 150K):** Build the prototype, prove FMG+EMG works on yourselves (able-bodied), and at the very end, run a **1-patient technical usability validation** to prove the MVP works on an amputee. 
 2. **NTIS Sandbox 1 (6 months, RM 250K):** Use that working Spark prototype and the 1-patient data to unlock the Sandbox 1 grant, which will fund the formal, multi-patient clinical trials required by regulators.
 
 ---
@@ -25,7 +25,7 @@ Cradle wants to see that RM 150K gets you to a commercially viable milestone. Fo
 | **2. Talent & Engineering Stipends (Non-Developmental)** | **RM 58,000** | **39%** |
 | ML & Firmware Development | Allocation for Martynas: dedicated ML pipeline optimization (transfer learning deployment) & embedded C++ on the Cortex-M4F processor. | RM 31,000 | |
 | Hardware Assembly & CAD | Allocation for Alwi: dedicated hours for hardware integration, iterative socket printing, and CAD redesigns. | RM 27,000 | |
-| **3. 1-Patient Usability Pilot & Regulatory** | **RM 20,000** | **13%** |
+| **3. 1-Patient Technical Usability Validation & Regulatory** | **RM 20,000** | **13%** |
 | MREC Application | Fees and administrative costs preparing for the Medical Research and Ethics Committee (MREC) submission for the single-patient pilot. | RM 5,000 | |
 | Pilot Patient Costs | Transport coverage, time compensation, and 3D scanning overhead for 1 amputee patient testing the final Spark MVP. | RM 5,000 | |
 | Regulatory Consultant | Fractional consultant to build initial Quality Management System (QMS) framework and guide MDA pre-submission meetings. | RM 10,000 | |
@@ -55,7 +55,7 @@ The timeline demonstrates rapid de-risking: proving the electronics work on a be
 * **Clinical/Reg:** Draft the formal MREC Ethics Application. Confirm clinical session protocols with Alwi's father's hospital affiliation. Engage MDA informally for pre-submission guidance on device classification.
 * **Milestone 3:** V3 "Pre-Clinical" hardware finalized. MREC Ethical Application submitted.
 
-### Phase 4: Single-Patient Usability Pilot (Months 16-18)
+### Phase 4: Single-Patient Technical Usability Validation (Months 16-18)
 * **Clinical:** With MREC approval secured, fit the V3 prototype to **1 pilot amputee patient**. 
 * **Validation:** Evaluate FMG+EMG fusion accuracy and socket comfort in a controlled clinical setting. Capture video evidence of the patient actuating the hand.
 * **Commercialization:** With working video evidence of an amputee using the MVP, finalize the formal application for **NTIS Sandbox 1 (RM 250K)**.
@@ -64,5 +64,5 @@ The timeline demonstrates rapid de-risking: proving the electronics work on a be
 ---
 
 ## 3. Recommended Additions for the Proposal
-1. **The "Two-Grant Strategy" Narrative:** Explicitly tell the Cradle panel: *"CIP Spark funds the engineering and MVP feasibility (culminating in a 1-patient usability pilot). We will use the resulting functional prototype to unlock our NTIS Sandbox 1 grant, which will fund our formal medical clinical trials."* Grant reviewers *love* a team that knows exactly how to chain funding together without asking for too much at once.
+1. **The "Two-Grant Strategy" Narrative:** Explicitly tell the Cradle panel: *"CIP Spark funds the engineering and MVP feasibility (culminating in a 1-patient technical usability validation). We will use the resulting functional prototype to unlock our NTIS Sandbox 1 grant, which will fund our formal medical clinical trials."* Grant reviewers *love* a team that knows exactly how to chain funding together without asking for too much at once.
 2. **System Architecture Diagram:** Put together a visual block diagram showing `[MyoWare/FSR] -> [nRF52840 (TFLite Micro)] -> [Servo Controller] -> [3D printed Hand]`. Granular system limits (e.g. 5Hz update rate, 20ms total latency) play very well to technical grant reviewers.
