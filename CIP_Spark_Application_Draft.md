@@ -84,69 +84,67 @@ UCL MEng Biomedical Engineering graduate with first-author IEEE ISBI 2024 public
 
 ### C1. Problem Statement
 
-In Malaysia, upper-limb amputation is driven primarily by industrial accidents and road trauma. SOCSO caps prosthetic reimbursement at RM 2,000. Government hospitals have no device budget. The patient is predominantly B40 — a young working-age adult who cannot afford the RM 20,000–80,000 imported myoelectric devices that exist, and has no functional alternative. Patients either go without, or take on debt for devices that arrive without local clinical support or follow-up fitting.
+In Malaysia, most upper-limb amputations result from industrial accidents and road trauma. SOCSO covers up to RM 2,000 for prosthetics. The imported myoelectric hands that actually restore hand function cost RM 20,000–80,000. Government hospital budgets don't cover devices. The result: most working-age amputees in the B40 bracket go without a functional hand, or take on debt for a device that arrives with no local clinical support and no follow-up care.
 
-This gap is not unique to Malaysia — it represents an estimated 180,000 new amputees annually across Southeast Asia with no affordable myoelectric solution. The problem is local. The opportunity is regional.
+This isn't unique to Malaysia. Across Southeast Asia there are an estimated 180,000 new upper-limb amputees each year, and no affordable myoelectric option for any of them. The manufacturing and clinical infrastructure to change that doesn't exist yet in this region. That's what we're building.
 
 ---
 
 ### C2. Solution and Innovation Value
 
-BANGKIT Bionics is developing a myoelectric prosthetic hand powered by FMG+EMG sensor fusion and an on-device neural network classifier. The device classifies 3 grip intentions (power grasp, pinch, open) directly on the microcontroller — no cloud, no latency, no recurring subscription. A custom 3D-printed socket, fitted using 3D scanning at each clinical appointment, provides patient-specific comfort and a lower abandonment rate.
+We're building a myoelectric prosthetic hand that reads muscle signals using EMG and force sensors. A neural network running on the device classifies the user’s intended grip (power, pinch, open) in under 5ms, without needing a phone or cloud connection.
 
-Target price: RM 4,500–14,500 — a fraction of any existing myoelectric device, with equivalent functional capability for the grip patterns covering 80%+ of daily tasks, per published activities-of-daily-living studies (Pylatiuk et al., *Prosthet. Orthot. Int.*, 2006).
+Each socket is 3D-scanned and printed for a patient-specific fit, addressing the leading cause of prosthetic abandonment: poor comfort.
 
-**Innovation:** No competitor at this price point combines FMG+EMG sensor fusion with on-device ML classification. Existing affordable devices use binary threshold control and fixed thumb positions — the leading cause of patient abandonment. Our motorized thumb architecture eliminates manual repositioning. Our transfer learning pipeline adapts the classifier per patient and accommodates residual limb changes over time, designed to significantly reduce recalibration burden at follow-up appointments.
+Target price: RM 4,500–14,500. Most devices at this price use simple logic and fixed thumbs, forcing users to manually reposition the thumb for different grips. Our motorised thumb automates this. The ML model also learns the user’s specific signal patterns over time, reducing the need for clinical recalibration. Our grip patterns cover 80%+ of daily tasks, based on published activities-of-daily-living (ADL) research. (132 words)
 
 ---
 
 ### C3. Technology Readiness Level (TRL)
 
-**TRL 3 — Experimental Proof of Concept**
+**TRL 3 — Experimental proof of concept**
 
-The EMG signal acquisition, analog filtering, and threshold-based control pipeline has been demonstrated through UCL embedded systems research (Arduino, MyoWare EMG sensors, C++). The same signal pipeline underpins BANGKIT's prosthetic control system design. FMG+EMG sensor fusion and on-device ML classification are validated at the research level by peer-reviewed literature (Ke et al., *Sensors*, 2020, doi:10.3390/s20174775), with >97% classification accuracy demonstrated under impeded-contact conditions.
+We've already demonstrated the core signal pipeline. During UCL embedded systems research, we built an EMG-controlled interface using Arduino, MyoWare sensors, and C++ firmware — reading muscle signals from the forearm, filtering them, and translating them into real-time output commands. That's the same signal pipeline the prosthetic hand will use.
 
-The integrated wearable prosthetic system — combining the sensor module, neural net classifier, servo actuation, and 3D-printed socket — has not yet been built as a complete working prototype. CIP Spark funds the build.
+The approach behind the sensor fusion and on-device classification is validated by peer-reviewed work: Ke et al. (*Sensors*, 2020, doi:10.3390/s20174775) demonstrated >97% accuracy using FMG+EMG fusion under realistic conditions. We're building toward that baseline.
+
+What hasn't been built yet is the complete wearable device — sensors, classifier, actuators, and socket — integrated into one working prototype worn by an amputee. CIP Spark funds that build.
 
 ---
 
 ### C4. What Has Been Developed So Far
 
-- **EMG signal pipeline demonstrated** through UCL embedded systems coursework: analog signal conditioning, threshold-based classification, and C++ firmware on Arduino controlling output actuators via muscle signals — the direct technical precursor to the prosthetic control architecture.
-- **Clinical network established:** Co-founder Alwi Al-Haddad has direct access to a consultant neurosurgeon (family network) and an orthopaedic referral network in Malaysia. Early pilot patient outreach is facilitated through existing local clinical contacts, enabling patient recruitment and ethics-board engagement prior to prototype completion.
-- **Regulatory pathway mapped:** MDA device classification and MREC ethics application process have been scoped. Pre-submission engagement with MDA is planned for Month 3 of the Spark period.
-- **Market research and competitive analysis completed:** Competitive benchmarking of Ottobock, Open Bionics, and Vulcan completed; BOM, pricing model, and gross margin projections estimated against published component costs.
+- **EMG signal pipeline:** EMG signal pipeline: We have hands-on experience building EMG-controlled systems — analog signal conditioning, threshold-based classification, and C++ firmware on Arduino translating live muscle signals into real-time output commands. This forms the direct technical foundation of BANGKIT's prosthetic control architecture.
+- **Clinical access:** One co-founder has a practising consultant neurosurgeon in the family, and orthopaedic referral contacts in Malaysia. Early conversations about pilot patient access are underway through local clinical relationships.
+- **Regulatory groundwork:** MDA device classification and the MREC ethics application process have both been scoped. We're planning to open a pre-submission conversation with MDA in Month 3.
+- **Market and competitive research:** We've benchmarked Ottobock, Open Bionics, and Vulcan. Component costs, BOM, and margin structure have been estimated against published data.
 
 ---
 
-### C5. Technical Modules to be Developed During CIP Funding (18 months)
+### C5. Technical Modules to be Developed (18 months)
 
-> *(~148 words)*
-
-1. **FMG+EMG sensor module** — MyoWare 2.0 EMG analog front-end + FSR 400 force myography sensors; analog filtering and signal conditioning circuit.
-2. **On-device gesture classifier** — TFLite Micro quantized neural net on nRF52840 (Cortex-M4F); MAV+RMS feature extraction; trained via SVM→MLP→int8 quantized pipeline. Target: <5ms inference, <100KB model.
-3. **Servo actuation system** — 5-servo coupled layout; 3 grip states (power grasp, pinch, open); motorized thumb to eliminate manual repositioning.
-4. **3D-printed prosthetic hand mechanism** — PA12 Nylon rigid shell; TPU flexible skin contact layer; enclosed FDM printing for structural integrity.
-5. **Patient-specific socket fitting workflow** — 3D scanning of residual limb; patient-specific STL → socket print iteration.
-6. **Transfer learning pipeline** — Base model pre-trained on able-bodied data; per-patient fine-tuning on 5–10 minutes of calibration data at fitting appointment.
-7. **Custom PCB (Phase 3)** — Consolidated single-board design replacing development modules for wearable form factor.
-8. **1-patient technical usability validation (Phase 4)** — MREC-approved clinical session; FMG+EMG accuracy and socket comfort evaluation on one amputee patient.
+1. **FMG+EMG sensor module** — MyoWare 2.0 analog front-end + FSR 400 sensors; signal conditioning circuit.
+2. **On-device classifier** — Quantized TFLite Micro model on nRF52840 (Cortex-M4F); MAV+RMS feature extraction. Target: <5ms inference, <100KB model.
+3. **Servo actuation** — 5-servo coupled layout; motorized thumb for automated repositioning. 
+4. **Prosthetic mechanism** — PA12 Nylon shell; TPU skin layer; structural FDM printing.
+5. **Patient-specific socket system** — 3D scanning of residual limb; patient-specific socket iteration.
+6. **Transfer learning** — Fine-tuning base model on patient-specific data during fitting.
+7. **Custom PCB** — Unified board design replacing development modules for wearable form factor.
+8. **Clinical usability validation** — MREC approved clinical session; accuracy and comfort evaluation on one pilot user.
 
 ---
 
 ### C6. Target Market and Go-to-Market Strategy
 
-> *(~148 words)*
+**Primary market: Singapore.** Private and employer insurance covers prosthetic devices, with prosthetist infrastructure and GDP per capita supporting out-of-pocket payment. Entry price SGD 3,000 into a market where comparable myoelectric devices cost SGD 15,000–50,000. Clinical partnerships established through direct prosthetist outreach prior to launch. Manufacturing base in Malaysia.
 
-**Primary market: Singapore.** Insurance reimbursement frameworks exist for prosthetic devices, with functioning prosthetist infrastructure and high GDP per capita supporting private pay. Entry price SGD 3,000 into a market where comparable myoelectric devices cost SGD 15,000–50,000. 45 minutes from our Malaysia manufacturing base.
+**Operations base: Malaysia.** Low-cost manufacturing, grant-funded R&D, and MREC-approved clinical validation pathway. B40 patients access the device at subsidised cost via hospital referrals.
 
-**Operations and validation base: Malaysia.** Low-cost manufacturing, CIP Spark and NTIS grant funding, and clinical validation via MREC-approved ethics pathway. B40 patients access the device at subsidised price through hospital referral.
+**Scale market: UK.** NHS prosthetics pathway and CE Mark. Target Year 3+ post-Singapore.
 
-**Scale market: United Kingdom.** NHS prosthetics budget, private medical insurance, and CE Mark pathway. Target Year 3+ following Singapore commercial establishment.
+**GTM model:** Prosthetist referral → clinical fitting + annual service subscription. Revenue: RM 9,500 device + RM 1,200–2,000/year service. Gross margin 63–74% at pilot stage, targeting 75%+ at volume.
 
-**GTM model:** Clinical partnership → prosthetist referral → device fitting + annual service subscription. Revenue per patient: RM 9,500 device + RM 1,200–2,000/year service. Gross margin 63–74% at pilot stage, targeting 75%+ at volume. Full distribution operation not required at entry — fitting is performed by our clinical team directly.
-
-**Funding Roadmap:** We are leveraging the RM 150,000 CIP Spark grant to build the functional MVP and achieve 1-patient technical validation. This milestone is designed to directly qualify BANGKIT for the RM 250,000 NTIS Sandbox 1 grant, which will fund the formal, multi-patient clinical trials required for Singapore and UK commercial entry.
+**Funding roadmap:** CIP Spark funds the MVP and 1-patient technical validation, positioning BANGKIT to qualify for NTIS Sandbox 1 (RM 250K), which funds the formal multi-patient clinical trials required for commercial entry.
 
 ---
 
