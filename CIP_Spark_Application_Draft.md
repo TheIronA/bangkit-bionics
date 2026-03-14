@@ -23,8 +23,8 @@ Cradle wants to see that RM 150K gets you to a commercially viable milestone. Fo
 | 3D Printing Materials | PA12 Nylon and TPU filament for iterative 3D-printed rigid shells and flexible skin contacts. | RM 11,000 | |
 | PCB Manufacturing | Small batch custom PCB fabrication (V3 prototype) to consolidate development boards into a single footprint. | RM 6,000 | |
 | **2. Talent & Engineering Stipends (Non-Developmental)** | **RM 58,000** | **39%** |
-| ML & Firmware Development | Allocation for Martynas: dedicated ML pipeline optimization (transfer learning deployment) & embedded C++ on the Cortex-M4F processor. | RM 31,000 | |
-| Hardware Assembly & CAD | Allocation for Alwi: dedicated hours for hardware integration, iterative socket printing, and CAD redesigns. | RM 27,000 | |
+| ML & Firmware Development | Allocation for Martynas: dedicated ML pipeline optimization (transfer learning deployment) & embedded C++ on the Cortex-M4F processor. | RM 29,000 | |
+| Hardware Assembly & CAD | Allocation for Alwi: dedicated hours for hardware integration, iterative socket printing, and CAD redesigns. | RM 29,000 | |
 | **3. 1-Patient Technical Usability Validation & Regulatory** | **RM 20,000** | **13%** |
 | MREC Application | Fees and administrative costs preparing for the Medical Research and Ethics Committee (MREC) submission for the single-patient pilot. | RM 5,000 | |
 | Pilot Patient Costs | Transport coverage, time compensation, and 3D scanning overhead for 1 amputee patient testing the final Spark MVP. | RM 5,000 | |
