@@ -488,6 +488,16 @@
       margin-bottom: 14px;
     }
 
+    .team-photo {
+      width: 100%;
+      height: 280px;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center 35%;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+
     /* ── MARKET MAP ── */
     .market-row {
       display: grid;
@@ -594,11 +604,12 @@
               <li>Upper-limb amputation in Malaysia is driven by industrial accidents and road trauma — predominantly
                 affecting B40 working-age adults.</li>
               <li><strong>SOCSO covers RM 2,000.</strong> Imported myoelectric hands that restore hand function cost
-                <strong>RM 20,000–80,000.</strong> Government hospital budgets don't cover the gap.</li>
+                <strong>RM 20,000–80,000.</strong> Government hospital budgets don't cover the gap.
+              </li>
               <li>Most B40 amputees go without a functional hand — or take on debt for a device with no local support.
               </li>
-              <li>Across Southeast Asia: <strong>180,000 new upper-limb amputees per year.</strong> No affordable
-                myoelectric option exists for any of them.</li>
+              <li>Across Southeast Asia: <strong>180,000 new upper-limb amputees each year.</strong> No affordable
+                myoelectric option exists for the majority of the working-age population.</li>
             </ul>
           </div>
 
@@ -677,9 +688,10 @@
             <ul class="bullet" style="margin-top:0;">
               <li><strong>Ottobock &amp; Össur</strong> — dominant globally, but priced SGD 15K–50K+. Serve premium
                 private market only.</li>
-              <li><strong>Open Bionics (Hero Arm)</strong> — UK-based, CE-marked, priced ~SGD 10K. No SEA clinical
-                presence or local support.</li>
-              <li><strong>Vulcan Augmetics</strong> — SEA-based, ~USD 1,100. No motorised thumb: users manually reposition with their other hand — the #1 complaint. No on-device AI, no custom socket. Limited clinical validation data.</li>
+              <li><strong>Open Bionics (Hero Arm)</strong> — UK-based, CE-marked, priced ~SGD 13K–17K. Motorized flexion
+                but requires manual rotation for different grips; no SEA clinical presence.</li>
+              <li><strong>Vulcan Augmetics</strong> — SEA-based, ~USD 1,100. Uses ML-based control but depends on manual
+                thumb rotation for grip switching—the #1 user complaint.</li>
               <li>Barriers to new entrants: regulatory (MREC, MDA, CE Mark), clinical partnerships, and local
                 manufacturing know-how — all areas we are actively building.</li>
             </ul>
@@ -705,7 +717,7 @@
               <th>Motorised Thumb</th>
               <th>On-device AI</th>
               <th>Custom Socket</th>
-              <th>SEA Clinical Support</th>
+              <th>SEA Clinical Presence</th>
               <th>Local Manufacturing</th>
             </tr>
           </thead>
@@ -730,8 +742,8 @@
             </tr>
             <tr>
               <td>Open Bionics Hero Arm</td>
-              <td>~10,000</td>
-              <td class="cross">✗</td>
+              <td>~13,000–17,000</td>
+              <td>Flexion Only<sup>*</sup></td>
               <td class="cross">✗</td>
               <td class="check">✓</td>
               <td class="cross">✗</td>
@@ -740,8 +752,8 @@
             <tr>
               <td>Vulcan Augmetics</td>
               <td>~1,470 <span style="font-size:0.7rem;color:var(--muted);">(USD 1,100)</span></td>
-              <td class="cross">✗</td>
-              <td class="cross">✗</td>
+              <td>Flexion Only<sup>*</sup></td>
+              <td class="check">✓</td>
               <td class="cross">✗</td>
               <td class="check">✓</td>
               <td class="cross">✗</td>
@@ -757,6 +769,10 @@
             </tr>
           </tbody>
         </table>
+        <p style="font-size: 0.65rem; color: var(--muted); margin-top: 8px;">
+          * Flexion Only: Motorized open/close, but requires manual rotation (repositioning with the other hand) to
+          switch between grip types.
+        </p>
 
       </div>
     </div>
@@ -988,7 +1004,8 @@
               </tr>
               <tr>
                 <td><strong style="color:var(--text);">Talent &amp; Engineering Stipends</strong></td>
-                <td>Martynas: ML pipeline + embedded C++ firmware (RM 29K). Alwi: hardware integration + CAD + socket printing (RM 29K).</td>
+                <td>Martynas: ML pipeline + embedded C++ firmware (RM 29K). Alwi: hardware integration + CAD + socket
+                  printing (RM 29K).</td>
                 <td class="amt">RM 58,000</td>
                 <td class="pct">39%</td>
               </tr>
@@ -1062,12 +1079,16 @@
 
       <div class="grid-2" style="flex:1;align-items:start;gap:28px;">
         <div class="team-card">
+          <div class="team-photo" style="background-image: url('images/alwi-alhaddad.jpg');"></div>
           <div class="name">Alwi Al-Haddad</div>
           <div class="role">Co-Founder · Hardware &amp; Clinical Lead</div>
           <ul class="bullet">
             <li><strong>UCL MEng Biomedical Engineering</strong> — deep learning pipeline for automated NEC diagnosis;
               87.5% accuracy via SE-ResNet50 transfer learning.</li>
-            <li>Built and shipped <strong>Gunung</strong> (e-commerce), <strong>SAPOT</strong> (healthcare), and <strong>MIDPOINT</strong> (consumer tech) solo from zero to live users — proven full-stack execution ability.</li>
+            <li>Built and shipped <strong>Gunung</strong> (e-commerce), <strong>SAPOT</strong> (healthcare), and
+              <strong>MIDPOINT</strong> (consumer tech) solo from zero to live users — proven full-stack execution
+              ability.
+            </li>
             <li><strong>Clinical network:</strong> practising consultant neurosurgeon family contact; orthopaedic
               referral contacts in Malaysia. Pilot patient access conversations underway.</li>
             <li>Co-developed the EMG signal processing pipeline underpinning BANGKIT's prosthetic control system.</li>
@@ -1077,6 +1098,7 @@
         </div>
 
         <div class="team-card">
+          <div class="team-photo" style="background-image: url('images/martynas-pocius.jpg');"></div>
           <div class="name">Martynas Pocius</div>
           <div class="role">Co-Founder · ML &amp; Firmware Lead</div>
           <ul class="bullet">
@@ -1087,8 +1109,6 @@
             <li>Developed EMG-controlled cursor interface using C++ firmware on Arduino translating live analog muscle
               signals into reliable, noise-resistant output commands. Brings production ML engineering experience from
               Autodesk and Drafted.ai to the on-device inference pipeline.</li>
-            <li>Direct experience with embedded C++ on Cortex-M class processors — the same architecture as the nRF52840
-              used in BANGKIT's prototype.</li>
             <li><strong>Role in project:</strong> TFLite Micro model development, transfer learning pipeline, on-device
               inference optimization, BLE/UART firmware.</li>
           </ul>
