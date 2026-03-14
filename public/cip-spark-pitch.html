@@ -470,6 +470,12 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .team-card ul.bullet {
+      flex: 1;
     }
 
     .team-card .name {
@@ -485,17 +491,23 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--teal-light);
-      margin-bottom: 14px;
     }
 
     .team-photo {
-      width: 100%;
-      height: 280px;
-      border-radius: 10px;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
       background-size: cover;
-      background-position: center 35%;
-      margin-bottom: 20px;
-      border: 1px solid var(--border);
+      background-position: center top;
+      border: 2px solid var(--teal);
+      flex-shrink: 0;
+    }
+
+    .team-card-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
     }
 
     /* ── MARKET MAP ── */
@@ -592,7 +604,6 @@
 ═══════════════════════════════════════════════════════ -->
   <div class="slide">
     <div class="slide-inner">
-      <div class="eyebrow">Project Description</div>
       <div class="slide-heading">Project Description</div>
       <div class="divider"></div>
 
@@ -660,7 +671,6 @@
 ═══════════════════════════════════════════════════════ -->
   <div class="slide">
     <div class="slide-inner">
-      <div class="eyebrow">Technology Benchmarking</div>
       <div class="slide-heading">Technology Benchmarking</div>
       <div class="divider"></div>
 
@@ -785,7 +795,6 @@
 ═══════════════════════════════════════════════════════ -->
   <div class="slide">
     <div class="slide-inner">
-      <div class="eyebrow">Target Market</div>
       <div class="slide-heading">Target Market</div>
       <div class="divider"></div>
 
@@ -870,7 +879,6 @@
 ═══════════════════════════════════════════════════════ -->
   <div class="slide">
     <div class="slide-inner">
-      <div class="eyebrow">Product Roadmap</div>
       <div class="slide-heading">Product Roadmap</div>
       <div class="divider"></div>
 
@@ -979,7 +987,6 @@
 ═══════════════════════════════════════════════════════ -->
   <div class="slide">
     <div class="slide-inner">
-      <div class="eyebrow">Cost Structure / Funding Utilization</div>
       <div class="slide-heading">Cost Structure / Funding Utilization</div>
       <div class="divider"></div>
 
@@ -1073,42 +1080,47 @@
 ═══════════════════════════════════════════════════════ -->
   <div class="slide">
     <div class="slide-inner">
-      <div class="eyebrow">Management Team</div>
       <div class="slide-heading">Management Team</div>
       <div class="divider"></div>
 
-      <div class="grid-2" style="flex:1;align-items:start;gap:28px;">
+      <div class="grid-2" style="flex:1;align-items:stretch;gap:28px;">
         <div class="team-card">
-          <div class="team-photo" style="background-image: url('images/alwi-alhaddad.jpg');"></div>
-          <div class="name">Alwi Al-Haddad</div>
-          <div class="role">Co-Founder · Hardware &amp; Clinical Lead</div>
+          <div class="team-card-header">
+            <div class="team-photo" style="background-image: url('images/alwi-alhaddad.jpg');"></div>
+            <div>
+              <div class="name">Alwi Al-Haddad</div>
+              <div class="role">Co-Founder</div>
+            </div>
+          </div>
           <ul class="bullet">
             <li><strong>UCL MEng Biomedical Engineering</strong> — deep learning pipeline for automated NEC diagnosis;
               87.5% accuracy via SE-ResNet50 transfer learning.</li>
             <li>Built and shipped <strong>Gunung</strong> (e-commerce), <strong>SAPOT</strong> (healthcare), and
-              <strong>MIDPOINT</strong> (consumer tech) solo from zero to live users — proven full-stack execution
+              <strong>MIDPOINT</strong> (consumer tech), proven full-stack execution
               ability.
             </li>
             <li><strong>Clinical network:</strong> practising consultant neurosurgeon family contact; orthopaedic
               referral contacts in Malaysia. Pilot patient access conversations underway.</li>
-            <li>Co-developed the EMG signal processing pipeline underpinning BANGKIT's prosthetic control system.</li>
             <li><strong>Role in project:</strong> hardware integration, iterative socket printing, CAD redesigns,
               clinical partner liaison, regulatory coordination.</li>
           </ul>
         </div>
 
         <div class="team-card">
-          <div class="team-photo" style="background-image: url('images/martynas-pocius.jpg');"></div>
-          <div class="name">Martynas Pocius</div>
-          <div class="role">Co-Founder · ML &amp; Firmware Lead</div>
+          <div class="team-card-header">
+            <div class="team-photo" style="background-image: url('images/martynas-pocius.jpg');"></div>
+            <div>
+              <div class="name">Martynas Pocius</div>
+              <div class="role">Co-Founder</div>
+            </div>
+          </div>
           <ul class="bullet">
             <li><strong>UCL MEng Biomedical Engineering</strong> — first-author IEEE ISBI 2024 publication on
               reinforcement learning.</li>
             <li><strong>Former Senior ML Engineer at Autodesk</strong> and Founding Engineer at Drafted.ai — production
               ML systems at scale.</li>
-            <li>Developed EMG-controlled cursor interface using C++ firmware on Arduino translating live analog muscle
-              signals into reliable, noise-resistant output commands. Brings production ML engineering experience from
-              Autodesk and Drafted.ai to the on-device inference pipeline.</li>
+            <li>Developed EMG-controlled cursor interface using C++ firmware on Arduino — translating live analog muscle
+              signals into reliable, noise-resistant output commands.</li>
             <li><strong>Role in project:</strong> TFLite Micro model development, transfer learning pipeline, on-device
               inference optimization, BLE/UART firmware.</li>
           </ul>
