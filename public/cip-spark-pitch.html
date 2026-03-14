@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BANGKIT Bionics — CIP Spark Application</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  :root {
+    --teal: #028090;
+    --teal-light: #04a0b4;
+    --teal-dim: rgba(2,128,144,0.15);
+    --bg: #030911;
+    --surface: #060f19;
+    --surface2: #091522;
+    --border: rgba(2,128,144,0.25);
+    --text: #e8f4f6;
+    --muted: #7a9aaa;
+    --accent: #f0a500;
+    --red: #e05252;
+    --green: #3dba7e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #020609;
+    color: var(--text);
+  }
+
+  .slide {
+    width: 1280px;
+    min-height: 720px;
+    background: var(--bg);
+    margin: 0 auto 2px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--teal), transparent);
+  }
+
+  .slide-inner {
+    padding: 56px 72px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--teal), transparent 60%);
+  }
+
+  .slide-num {
+    position: absolute;
+    bottom: 28px; right: 72px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .slide-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+    margin: 16px 0 28px;
+  }
+
+  /* ── COVER ── */
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(2,128,144,0.12) 0%, transparent 65%);
+  }
+
+  .cover-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(2,128,144,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(2,128,144,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 60px;
+  }
+
+  h1.deck-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4.2rem;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 0.4em;
+  }
+
+  /* ── LAYOUT ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .col-split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+  }
+
+  .card-teal {
+    background: var(--teal-dim);
+    border: 1px solid var(--teal);
+    border-radius: 12px;
+    padding: 22px;
+  }
+
+  .card h4 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 8px;
+  }
+
+  .card p, .card-teal p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .card p strong, .card-teal p strong {
+    color: var(--text);
+  }
+
+  /* ── BULLETS ── */
+  ul.bullet {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  ul.bullet li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.5;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  ul.bullet li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  ul.bullet li strong { color: var(--text); font-weight: 600; }
+
+  /* ── TAG ── */
+  .tag {
+    display: inline-block;
+    background: var(--teal-dim);
+    color: var(--teal-light);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+  }
+
+  /* ── BIG NUM ── */
+  .big-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    color: var(--teal-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .big-num-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .stat-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-chip .val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--teal-light);
+    line-height: 1;
+  }
+
+  .stat-chip .lbl {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── COMP TABLE ── */
+  table.comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+  }
+
+  table.comp-table th {
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    border-bottom: 2px solid var(--teal);
+  }
+
+  table.comp-table th:first-child { text-align: left; }
+
+  table.comp-table td {
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(2,128,144,0.1);
+    color: var(--muted);
+  }
+
+  table.comp-table td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+
+  table.comp-table tr.our-row td { background: var(--teal-dim); }
+  table.comp-table tr.our-row td:first-child { color: var(--teal-light); }
+
+  .check { color: var(--green); }
+  .cross { color: var(--red); }
+
+  /* ── PHASE TIMELINE ── */
+  .phase-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 14px;
+  }
+
+  .phase-label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .phase-badge {
+    display: inline-block;
+    background: var(--teal-dim);
+    color: var(--teal-light);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    text-transform: uppercase;
+  }
+
+  .phase-months {
+    font-size: 0.68rem;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .phase-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 4px;
+  }
+
+  .phase-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--teal);
+    opacity: 0.75;
+  }
+
+  .phase-milestone {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .phase-milestone strong { color: var(--text); }
+
+  /* ── FUNDING TABLE ── */
+  table.fund-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+  }
+
+  table.fund-table thead tr {
+    border-bottom: 2px solid var(--teal);
+  }
+
+  table.fund-table thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+  }
+
+  table.fund-table tbody td {
+    padding: 12px 14px;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(2,128,144,0.1);
+    line-height: 1.4;
+  }
+
+  table.fund-table tbody td.amt {
+    color: var(--text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  table.fund-table tbody td.pct {
+    color: var(--teal-light);
+    font-weight: 600;
+  }
+
+  table.fund-table tr.total-row td {
+    background: var(--teal-dim);
+    color: var(--text);
+    font-weight: 700;
+    border-top: 2px solid var(--teal);
+  }
+
+  /* ── TEAM ── */
+  .team-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+
+  .team-card .name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .team-card .role {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 14px;
+  }
+
+  /* ── MARKET MAP ── */
+  .market-row {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 14px;
+    align-items: start;
+    margin-bottom: 16px;
+  }
+
+  .market-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--teal-dim);
+    border: 1.5px solid var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--teal-light);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .market-body h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .market-body p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .market-body p strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     SLIDE 1 · COVER — APPLICATION OF CIP SPARK
+═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="cover-bg"></div>
+  <div class="cover-grid-lines"></div>
+  <div class="slide-inner" style="justify-content:space-between;">
+    <div class="logo-mark">B</div>
+    <div>
+      <div class="eyebrow">Application of CIP Spark · Cradle Fund · 2026</div>
+      <h1 class="deck-title">Affordable<br>Bionic Hand<br>for Southeast Asia</h1>
+      <div class="divider"></div>
+      <p style="font-size:1.1rem;color:var(--muted);max-width:560px;line-height:1.7;">
+        A myoelectric prosthetic hand with on-device AI — built in Malaysia,<br>
+        priced for the region, validated for clinical use.
+      </p>
+    </div>
+    <div style="display:flex;align-items:center;gap:32px;padding-bottom:16px;">
+      <div>
+        <div class="big-num">RM 150K</div>
+        <div class="big-num-label">CIP Spark Ask</div>
+      </div>
+      <div style="width:1px;height:48px;background:var(--border);"></div>
+      <div>
+        <div class="big-num">18 mo</div>
+        <div class="big-num-label">Project Duration</div>
+      </div>
+      <div style="width:1px;height:48px;background:var(--border);"></div>
+      <div>
+        <div class="big-num">TRL 3</div>
+        <div class="big-num-label">Current Readiness</div>
+      </div>
+      <div style="width:1px;height:48px;background:var(--border);"></div>
+      <div>
+        <div class="big-num" style="font-size:1.8rem;">BANGKIT</div>
+        <div class="big-num-label">Bionics Sdn Bhd</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">01 / 07</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SLIDE 2 · PROJECT DESCRIPTION
+═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Project Description</div>
+    <div class="slide-heading">Project Description</div>
+    <div class="divider"></div>
+
+    <div class="col-split" style="flex:1;">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="card">
+          <h4>The Problem</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li>Upper-limb amputation in Malaysia is driven by industrial accidents and road trauma — predominantly affecting B40 working-age adults.</li>
+            <li><strong>SOCSO covers RM 2,000.</strong> Imported myoelectric hands that restore hand function cost <strong>RM 20,000–80,000.</strong> Government hospital budgets don't cover the gap.</li>
+            <li>Most B40 amputees go without a functional hand — or take on debt for a device with no local support.</li>
+            <li>Across Southeast Asia: <strong>180,000 new upper-limb amputees per year.</strong> No affordable myoelectric option exists for any of them.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Our Solution</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li>Myoelectric prosthetic hand reading EMG + force signals. On-device neural network classifies intended grip in <strong>&lt;5ms</strong> — no phone, no cloud.</li>
+            <li>Motorised thumb automates grip repositioning. 3D-scanned, patient-specific socket addresses the #1 cause of prosthetic abandonment: <strong>poor fit.</strong></li>
+            <li>Target price: <strong>RM 4,500–14,500</strong> — a 5–10× reduction vs. comparable devices.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="card-teal">
+          <h4>Anticipated Outcomes (18 Months)</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li><strong>Working MVP prototype</strong> — sensors, classifier, actuators, and patient-specific socket integrated into one wearable device.</li>
+            <li><strong>1-patient technical usability validation</strong> — MREC-approved clinical session with one amputee pilot, capturing grip accuracy and comfort data.</li>
+            <li><strong>Regulatory foundation</strong> — QMS framework initiated, MDA pre-submission completed, MREC approval in hand.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Potential Impact</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li>First locally-manufactured, clinically-validated myoelectric hand in Malaysia — building regional prosthetics manufacturing capability.</li>
+            <li>Directly enables NTIS Sandbox 1 (RM 250K) application, funding formal multi-patient clinical trials for commercial entry.</li>
+            <li>Long-term: scalable to 180,000 annual amputees across Southeast Asia.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">02 / 07</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SLIDE 3 · TECHNOLOGY BENCHMARKING
+═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Technology Benchmarking</div>
+    <div class="slide-heading">Technology Benchmarking</div>
+    <div class="divider"></div>
+
+    <div style="display:flex;flex-direction:column;gap:20px;flex:1;">
+
+      <div class="grid-3" style="margin-bottom:4px;">
+        <div class="card">
+          <h4>Our Uniqueness</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li><strong>FMG+EMG sensor fusion</strong> — peer-validated at &gt;97% accuracy (Ke et al., Sensors 2020).</li>
+            <li><strong>On-device TFLite Micro</strong> on nRF52840 — &lt;5ms inference, no connectivity dependency.</li>
+            <li><strong>Motorised, auto-repositioning thumb</strong> — absent from all devices in this price tier.</li>
+            <li><strong>Patient-specific 3D-printed socket</strong> — scanned and printed per patient, not off-the-shelf.</li>
+            <li><strong>Local manufacturing</strong> — Malaysia base, Singapore clinical entry; prosthetist-serviced.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Competitive Threats &amp; Barriers</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li><strong>Ottobock &amp; Össur</strong> — dominant globally, but priced SGD 15K–50K+. Serve premium private market only.</li>
+            <li><strong>Open Bionics (Hero Arm)</strong> — UK-based, CE-marked, priced ~SGD 10K. No SEA clinical presence or local support.</li>
+            <li><strong>Vulcan Augmetics</strong> — SEA-based, early stage. Limited clinical validation data.</li>
+            <li>Barriers to new entrants: regulatory (MREC, MDA, CE Mark), clinical partnerships, and local manufacturing know-how — all areas we are actively building.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Substitutes &amp; Our Advantage</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li><strong>Body-powered hooks</strong> — RM 500–2,000, no grip automation, high abandonment. Our device outperforms on function.</li>
+            <li><strong>Cosmetic prosthetics</strong> — no functional value; only address appearance.</li>
+            <li><strong>Our moat:</strong> affordable price + motorised thumb + on-device AI + local clinical support + patient-specific fit. No single competitor offers all five.</li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Device</th>
+            <th>Price (SGD)</th>
+            <th>Motorised Thumb</th>
+            <th>On-device AI</th>
+            <th>Custom Socket</th>
+            <th>SEA Clinical Support</th>
+            <th>Local Manufacturing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="our-row">
+            <td>BANGKIT (ours)</td>
+            <td>~3,000</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Ottobock Bebionic</td>
+            <td>15,000–50,000</td>
+            <td class="check">✓</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+          </tr>
+          <tr>
+            <td>Open Bionics Hero Arm</td>
+            <td>~10,000</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="check">✓</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+          </tr>
+          <tr>
+            <td>Vulcan Augmetics</td>
+            <td>~5,000</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="check">✓</td>
+            <td class="cross">✗</td>
+          </tr>
+          <tr>
+            <td>Body-powered hook</td>
+            <td>200–800</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">03 / 07</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SLIDE 4 · TARGET MARKET
+═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Target Market</div>
+    <div class="slide-heading">Target Market</div>
+    <div class="divider"></div>
+
+    <div class="col-split" style="flex:1;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+
+        <div class="stat-row" style="margin-bottom:8px;">
+          <div class="stat-chip">
+            <span class="val">180K</span>
+            <span class="lbl">New SEA amputees / year</span>
+          </div>
+          <div class="stat-chip">
+            <span class="val">SGD 3K</span>
+            <span class="lbl">Our entry price</span>
+          </div>
+          <div class="stat-chip">
+            <span class="val">5–10×</span>
+            <span class="lbl">Cheaper than comparable</span>
+          </div>
+        </div>
+
+        <div class="market-row">
+          <div class="market-icon">1</div>
+          <div class="market-body">
+            <h4>Primary Market — Singapore</h4>
+            <p>Private and employer insurance covers prosthetic devices, with prosthetist infrastructure and GDP per capita supporting out-of-pocket payment. Entry price <strong>SGD 3,000</strong> into a market where comparable myoelectric devices cost <strong>SGD 15,000–50,000.</strong> Clinical partnerships established through direct prosthetist outreach prior to launch. Manufacturing base in Malaysia.</p>
+          </div>
+        </div>
+
+        <div class="market-row">
+          <div class="market-icon">2</div>
+          <div class="market-body">
+            <h4>Operations Base — Malaysia</h4>
+            <p>Low-cost manufacturing, grant-funded R&amp;D, and MREC-approved clinical validation pathway. B40 patients access the device at subsidised cost via hospital referrals.</p>
+          </div>
+        </div>
+
+        <div class="market-row">
+          <div class="market-icon">3</div>
+          <div class="market-body">
+            <h4>Scale Market — UK (Year 3+)</h4>
+            <p>NHS prosthetics pathway and CE Mark. Target post-Singapore commercial validation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card-teal">
+          <h4>Go-to-Market Model</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li><strong>Channel:</strong> Prosthetist referral → clinical fitting → annual service subscription.</li>
+            <li><strong>Revenue:</strong> RM 9,500 device + RM 1,200–2,000 / year service contract.</li>
+            <li><strong>Gross margin:</strong> 63–74% at pilot stage, targeting 75%+ at volume.</li>
+            <li><strong>Why prosthetists?</strong> They are the trusted clinical gatekeeper — fitting, adjusting, and recommending devices. Prescriber-driven model mirrors how Ottobock and Open Bionics operate in developed markets.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Funding Pathway</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li><strong>CIP Spark (now):</strong> Funds the engineering build and 1-patient MVP validation.</li>
+            <li><strong>NTIS Sandbox 1 (RM 250K):</strong> Unlocked by the working Spark prototype + 1-patient data. Funds formal multi-patient clinical trials required for commercial entry.</li>
+            <li><strong>Commercial launch:</strong> Singapore prosthetist channel, post-NTIS clinical clearance.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">04 / 07</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SLIDE 5 · PRODUCT ROADMAP
+═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Product Roadmap</div>
+    <div class="slide-heading">Product Roadmap</div>
+    <div class="divider"></div>
+
+    <div class="col-split" style="flex:1;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:6px;">
+
+        <div class="phase-row">
+          <div class="phase-label">
+            <span class="phase-badge">Phase 1</span>
+            <span class="phase-months">Months 1–5</span>
+          </div>
+          <div class="phase-bar-wrap">
+            <div class="phase-bar" style="width:27%;opacity:0.9;"></div>
+            <div class="phase-milestone">
+              <strong>Foundation &amp; Benchtop</strong> — Procure hardware (Bambu P1S, MyoWare, nRF52840). Build benchtop EMG+FMG test rig with 5 servos. Train base TFLite Micro model on founder able-bodied signals.<br>
+              <span style="color:var(--teal-light);">✓ Milestone: 3 grip states classified live on-device.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-label">
+            <span class="phase-badge">Phase 2</span>
+            <span class="phase-months">Months 6–10</span>
+          </div>
+          <div class="phase-bar-wrap">
+            <div class="phase-bar" style="width:54%;margin-left:27%;opacity:0.85;"></div>
+            <div class="phase-milestone">
+              <strong>Wearable V2 &amp; Ethics Submission</strong> — Miniaturize into wearable form factor (PA12 Nylon + TPU). Achieve &lt;5ms on-device inference. <strong>Submit MREC ethics application (Month 8–10)</strong> — ethics boards approve protocols, not finished hardware.<br>
+              <span style="color:var(--teal-light);">✓ Milestone: V2 wearable working on founders. MREC submitted.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-label">
+            <span class="phase-badge">Phase 3</span>
+            <span class="phase-months">Months 11–15</span>
+          </div>
+          <div class="phase-bar-wrap">
+            <div class="phase-bar" style="width:55%;margin-left:27%;opacity:0.75;"></div>
+            <div class="phase-milestone">
+              <strong>V3 Pre-Clinical Hardware</strong> — Transition breadboards to custom unified PCB. Finalize structural socket. Respond to MREC queries. MREC approval expected Month 14–15.<br>
+              <span style="color:var(--teal-light);">✓ Milestone: V3 hardware finalized. MREC approval received.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-label">
+            <span class="phase-badge">Phase 4</span>
+            <span class="phase-months">Months 16–18</span>
+          </div>
+          <div class="phase-bar-wrap">
+            <div class="phase-bar" style="width:18%;margin-left:82%;opacity:0.95;background:var(--accent);"></div>
+            <div class="phase-milestone">
+              <strong>1-Patient Usability Validation</strong> — Fit V3 prototype to one amputee pilot (MREC-approved). Evaluate grip accuracy and socket comfort. Capture video evidence. Apply for <strong>NTIS Sandbox 1 (RM 250K).</strong><br>
+              <span style="color:var(--accent);">✓ Milestone: MVP validated. CIP Spark closed. NTIS application submitted.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <h4>Current Development Stage — TRL 3</h4>
+          <ul class="bullet" style="margin-top:0;">
+            <li><strong>EMG pipeline built:</strong> Analog signal conditioning, threshold classification, C++ firmware on Arduino — live muscle signals to output commands. Direct technical foundation of BANGKIT's architecture.</li>
+            <li><strong>Clinical access:</strong> Co-founder has consultant neurosurgeon family contact and orthopaedic referral network in Malaysia. Patient access conversations underway.</li>
+            <li><strong>Regulatory scoped:</strong> MDA classification and MREC process fully mapped. Pre-submission with MDA planned for Month 3.</li>
+            <li><strong>BOM validated:</strong> Benchmarked against Ottobock, Open Bionics, Vulcan. Component costs and margin structure confirmed against published data.</li>
+          </ul>
+        </div>
+
+        <div class="card-teal">
+          <h4>The Two-Grant Strategy</h4>
+          <p>CIP Spark is not the end — it is the unlock. The Spark MVP and 1-patient data directly qualify BANGKIT for <strong>NTIS Sandbox 1 (RM 250K)</strong>, which funds the formal multi-patient clinical trials required for MDA registration and commercial launch. We know exactly how to chain this funding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">05 / 07</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SLIDE 6 · COST STRUCTURE / FUNDING UTILIZATION
+═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Cost Structure / Funding Utilization</div>
+    <div class="slide-heading">Cost Structure / Funding Utilization</div>
+    <div class="divider"></div>
+
+    <div class="col-split" style="flex:1;align-items:start;">
+      <div>
+        <table class="fund-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Key Items</th>
+              <th>Allocation</th>
+              <th>%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:var(--text);">Hardware R&amp;D &amp; Prototyping</strong></td>
+              <td>Bambu Lab P1S (PA12 Nylon printing), lab rent (18 mo), MyoWare 2.0 EMGs, FSR 400s, nRF52840 MCUs, servos, PA12/TPU filament, custom PCB fabrication</td>
+              <td class="amt">RM 62,000</td>
+              <td class="pct">41%</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text);">Talent &amp; Engineering Stipends</strong></td>
+              <td>Martynas: ML pipeline + embedded C++ firmware (RM 31K). Alwi: hardware integration + CAD + socket printing (RM 27K).</td>
+              <td class="amt">RM 58,000</td>
+              <td class="pct">39%</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text);">1-Patient Validation &amp; Regulatory</strong></td>
+              <td>MREC application fees (RM 5K), pilot patient transport + compensation + scanning (RM 5K), fractional regulatory consultant + QMS framework (RM 10K)</td>
+              <td class="amt">RM 20,000</td>
+              <td class="pct">13%</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text);">Testing Ops, Software &amp; Contingency</strong></td>
+              <td>Cloud compute (model training), CAD/CAM licenses, server hosting, 10% contingency buffer</td>
+              <td class="amt">RM 10,000</td>
+              <td class="pct">7%</td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="2"><strong>Total CIP Spark Ask</strong></td>
+              <td class="amt">RM 150,000</td>
+              <td class="pct">100%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card-teal">
+          <h4>What RM 150K Gets You</h4>
+          <p>A working, wearable bionic arm — sensors integrated with on-device AI and a patient-specific 3D-printed socket — successfully worn and actuated by one amputee pilot patient in a MREC-approved clinical session. This is a fully de-risked engineering milestone, not a clinical trial.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div class="card" style="text-align:center;">
+            <div class="big-num">41%</div>
+            <div class="big-num-label">Hardware R&amp;D</div>
+            <p style="font-size:0.75rem;color:var(--muted);margin-top:6px;">Printer, lab, sensors, PCB</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div class="big-num">39%</div>
+            <div class="big-num-label">Engineering Talent</div>
+            <p style="font-size:0.75rem;color:var(--muted);margin-top:6px;">ML + hardware stipends</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div class="big-num">13%</div>
+            <div class="big-num-label">Validation &amp; Reg</div>
+            <p style="font-size:0.75rem;color:var(--muted);margin-top:6px;">MREC, patient, QMS</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div class="big-num">7%</div>
+            <div class="big-num-label">Ops &amp; Contingency</div>
+            <p style="font-size:0.75rem;color:var(--muted);margin-top:6px;">Software, cloud, buffer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">06 / 07</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SLIDE 7 · MANAGEMENT TEAM
+═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner">
+    <div class="eyebrow">Management Team</div>
+    <div class="slide-heading">Management Team</div>
+    <div class="divider"></div>
+
+    <div class="grid-2" style="flex:1;align-items:start;gap:28px;">
+      <div class="team-card">
+        <div class="name">Alwi Al-Haddad</div>
+        <div class="role">Co-Founder · Hardware &amp; Clinical Lead</div>
+        <ul class="bullet">
+          <li><strong>UCL MEng Biomedical Engineering</strong> — deep learning pipeline for automated NEC diagnosis; 87.5% accuracy via SE-ResNet50 transfer learning.</li>
+          <li>Built and shipped multiple products solo from zero to live users — proven full-stack execution ability.</li>
+          <li><strong>Clinical network:</strong> practising consultant neurosurgeon family contact; orthopaedic referral contacts in Malaysia. Pilot patient access conversations underway.</li>
+          <li>Co-developed the EMG signal processing pipeline underpinning BANGKIT's prosthetic control system.</li>
+          <li><strong>Role in project:</strong> hardware integration, iterative socket printing, CAD redesigns, clinical partner liaison, regulatory coordination.</li>
+        </ul>
+      </div>
+
+      <div class="team-card">
+        <div class="name">Martynas Pocius</div>
+        <div class="role">Co-Founder · ML &amp; Firmware Lead</div>
+        <ul class="bullet">
+          <li><strong>UCL MEng Biomedical Engineering</strong> — first-author IEEE ISBI 2024 publication on reinforcement learning.</li>
+          <li><strong>Former Senior ML Engineer at Autodesk</strong> and Founding Engineer at Drafted.ai — production ML systems at scale.</li>
+          <li>Co-developed EMG-controlled cursor interface in UCL embedded systems research — C++ firmware on Arduino translating live analog muscle signals into reliable, noise-resistant output commands.</li>
+          <li>Direct experience with embedded C++ on Cortex-M class processors — the same architecture as the nRF52840 used in BANGKIT's prototype.</li>
+          <li><strong>Role in project:</strong> TFLite Micro model development, transfer learning pipeline, on-device inference optimization, BLE/UART firmware.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="card-teal" style="padding:18px 22px;">
+        <p style="font-size:0.82rem;line-height:1.6;">
+          <strong>Why this team?</strong> Two UCL biomedical engineers with complementary hardware and ML expertise, an existing EMG signal pipeline, a clinical access network, and a track record of shipping software products. Both have real industry experience beyond academia — Martynas in production ML, Alwi in product development. The combination of engineering depth, clinical access, and execution history is directly relevant to every risk in this project.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"></div>
+  <div class="slide-num">07 / 07</div>
+</div>
+
+</body>
+</html>
