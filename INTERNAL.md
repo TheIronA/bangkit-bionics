@@ -155,7 +155,7 @@ The CE Mark process alone takes 18–24 months minimum with a Notified Body. Do 
 
 | Fund                        | What it is                                     | Notes                                                                                                                            |
 | --------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **CIP Spark**               | Cradle Investment Programme, Malaysia          | Single most important near-term target. Up to RM 300K. Prototype not required to apply but helps.                                |
+| **CIP Spark**               | Cradle Investment Programme, Malaysia          | Single most important near-term target. Up to RM 150K over 18 months. Prototype not required to apply. Rolling admissions.       |
 | **MaGIC**                   | Malaysia Global Innovation & Creativity Centre | Accelerator + grant hybrid                                                                                                       |
 | **SOCSO/PERKESO**           | National Social Security Organisation          | Potential reimbursement pathway _for patients_, not direct funding — but a conversation with them now builds the commercial case |
 | **UCL networks**            | Alumni, Hatchery, UCL Business grant schemes   | Martynas + Alwi both eligible                                                                                                    |
@@ -230,6 +230,39 @@ The website is appropriately hedged throughout ("prototype target", "to be valid
 - [ ] Video the arm moving from muscle signal — this is your fundraising asset
 - [ ] Agree on BLE/UART packet format between sensor MCU and servo controller
 - [ ] Start ethics application draft
+
+---
+
+## Future R&D — Not for investor materials
+
+### Ear-EEG: Supplement → Data → Replace
+
+**Strategy:** A wearable EEG device worn near the ear starts as a third signal source alongside FMG+EMG. Every patient fitting and usage session builds a proprietary EEG+EMG+FMG dataset that no competitor has. As the dataset grows and models improve, EEG gradually takes over more of the classification burden — eventually replacing EMG+FMG entirely.
+
+**Why start now (even though accuracy is low today):**
+- Around-ear EEG currently achieves 68–83% motor imagery accuracy (2023–24 literature) — not enough to replace EMG+FMG, but adding it as a third channel to an already-working FMG+EMG system is low risk
+- Every patient who wears the device generates labelled EEG data paired with ground-truth EMG+FMG intent — this is the training signal
+- The proprietary multi-modal dataset compounds over time and becomes the real moat — no one else will have EEG+EMG+FMG data from real prosthetic users in tropical conditions
+- Transfer learning pipeline already planned for per-patient EMG adaptation; extending it to include EEG channels is an architecture decision, not a research moonshot
+
+**Progression path:**
+1. **Phase 1 (prototype):** FMG+EMG only — ship what works
+2. **Phase 2 (Year 2–3):** Add ear-EEG sensor as optional third input channel; classifier uses all three but FMG+EMG carry the load. Collect EEG data passively.
+3. **Phase 3 (Year 3+):** Retrain models on accumulated dataset. As EEG accuracy improves with more data, gradually reduce dependence on FMG+EMG.
+4. **Phase 4 (long-term):** EEG-only control — fully non-contact, no socket sensors needed. Fundamentally different product category.
+
+**Risks to track:**
+- Regulatory: EEG-based motor control may trigger BCI device classification — different regulatory path. Monitor this as the EEG channel's weight in the classifier increases.
+- Hardware: ear-EEG form factor, battery, and signal quality in daily wear need validation
+- **Keep internal only until Phase 2 hardware exists.** Premature investor-facing claims about EEG would look like scope creep.
+
+### SNN (Spiking Neural Networks) vs ANN
+
+- The `Tech stack - our moat.txt` file mentions SNN as "being better"
+- SNNs require neuromorphic hardware (Intel Loihi, BrainChip Akida) — the nRF52840 cannot run an SNN
+- If SNN is a genuine R&D direction, it would require different hardware (Akida or FPGA-based), different deployment toolchain, and new power/latency analysis
+- **Current prototype plan: standard ANN (MLP/CNN) via TFLite Micro on nRF52840.** SNN is a post-prototype research question only.
+- Decision point: revisit after Year 2 clinical data shows whether ANN accuracy is sufficient or a fundamentally different architecture is needed
 
 ---
 

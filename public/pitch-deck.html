@@ -769,7 +769,7 @@
           <div class="card-teal" style="padding:16px;">
             <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">Flagship</div>
             <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:4px;">RM 9,500</div>
-            <p style="font-size:0.78rem; color:var(--muted);">Full myoelectric control, 4-grip pattern classifier (development target), EMG calibration app, 1-year warranty. Core product.</p>
+            <p style="font-size:0.78rem; color:var(--muted);">Full myoelectric control, 3-grip classifier at launch, targeting 4&ndash;6 post-prototype, EMG calibration app, 1-year warranty. Core product.</p>
           </div>
           <div class="card" style="padding:16px;">
             <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--teal-light); margin-bottom:6px;">Advanced</div>
@@ -787,7 +787,7 @@
         <div class="card" style="padding:22px; margin-bottom:16px;">
           <h3 class="card-title">Key Differentiators</h3>
           <ul class="bullet" style="margin-top:10px;">
-            <li><strong>FMG + EMG sensor fusion with on-device ML</strong> &mdash; we capture both EMG (electrical muscle activity) and FMG (force myography &mdash; pressure as muscles contract) from the residual limb. Peer-reviewed research shows combined FMG+EMG achieves &gt;97% classification accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; directly relevant to tropical-climate wearability (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). A compact neural net classifier runs on the microcontroller; transfer learning adapts per patient and accommodates limb changes over time, reducing recalibration overhead at each fitting.</li>
+            <li><strong>FMG + EMG sensor fusion with on-device ML</strong> &mdash; we capture both EMG (electrical muscle activity) and FMG (force myography &mdash; pressure as muscles contract) from the residual limb. Ke et al. (2020) demonstrated that FMG+EMG fusion can achieve &gt;97% classification accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; directly relevant to tropical-climate wearability (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). A compact neural net classifier runs on the microcontroller; transfer learning adapts per patient and accommodates limb changes over time, reducing recalibration overhead at each fitting.</li>
             <li><strong>Motorized thumb architecture</strong> &mdash; target design eliminates manual thumb repositioning. This is the single most common complaint against Vulcan and similar low-cost devices. It is a hardware engineering problem, not a research problem.</li>
             <li><strong>Clinically-fitted custom 3D-printed socket</strong> &mdash; our clinical team uses 3D scanning to capture an accurate model of the residual limb geometry and produces a patient-specific socket. Variable density: rigid load-bearing shell, flexible skin-contact surfaces. The patient needs no special hardware; socket fitting is a clinical service delivered at each appointment. Will be validated in prototype trials.</li>
             <li><strong>Built in KL, sold in Singapore and the UK</strong> &mdash; Malaysia is the operations and clinical validation base. Singapore is the first commercial market (MediShield Life, functioning prosthetist infrastructure, 45 min from KL). UK is the scale market (NHS, private insurance, CE Mark pathway).</li>
@@ -820,7 +820,7 @@
           <div class="step-num">01</div>
           <div class="step-body">
             <h4>FMG + EMG Sensor Fusion</h4>
-            <p>Two complementary sensor types capture muscle intent from the residual limb: EMG electrodes pick up millivolt-level electrical signals; FMG sensors read pressure changes as muscles contract. Peer-reviewed research shows combined FMG+EMG achieves &gt;97% classification accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; a meaningful gap for a device worn in tropical Southeast Asia (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). Both are non-invasive, wearable, and low-cost. No surgery. No skin penetration.</p>
+            <p>Two complementary sensor types capture muscle intent from the residual limb: EMG electrodes pick up millivolt-level electrical signals; FMG sensors read pressure changes as muscles contract. Ke et al. (2020) demonstrated that FMG+EMG fusion can achieve &gt;97% classification accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; a meaningful gap for a device worn in tropical Southeast Asia (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). Both are non-invasive, wearable, and low-cost. No surgery. No skin penetration.</p>
           </div>
         </div>
         <div class="step">
@@ -834,7 +834,7 @@
           <div class="step-num">03</div>
           <div class="step-body">
             <h4>On-Device Neural Net Classification</h4>
-            <p>Stage one uses threshold-based control: the signal pipeline is demonstrated. Stage two &mdash; in development &mdash; trains a compact neural network on the patient&rsquo;s own FMG+EMG data to classify 4&ndash;6 grip intentions directly on the microcontroller. No cloud dependency, no latency. Transfer learning adapts the model to new users and accommodates residual limb changes over time, reducing per-patient calibration overhead. The claim is not that this matches Ottobock&rsquo;s decade of R&amp;D. It is that it covers the grips most users need, runs on a RM&nbsp;45 MCU, and works reliably in day-to-day use.</p>
+            <p>Stage one uses threshold-based control: the signal pipeline is demonstrated. Stage two &mdash; in development &mdash; trains a compact neural network on the patient&rsquo;s own FMG+EMG data to classify 3 core grip intentions (power grasp, pinch, open) directly on the microcontroller, with 4&ndash;6 as a post-prototype target. No cloud dependency, no latency. Transfer learning adapts the model to new users and accommodates residual limb changes over time, reducing per-patient calibration overhead. The claim is not that this matches Ottobock&rsquo;s decade of R&amp;D. It is that it covers the grips most users need, runs on a RM&nbsp;45 MCU, and works reliably in day-to-day use.</p>
           </div>
         </div>
         <div class="step">
@@ -859,14 +859,14 @@
             <li><strong>Structure:</strong> FDM-printed biocompatible nylon (PA12) &mdash; RM 180</li>
             <li><strong>Actuators:</strong> 5&times; micro servo motors &mdash; RM 120 &mdash; <em>configured for 3 distinct grip states via coupled finger groups; independent per-finger actuation is a post-prototype target</em></li>
             <li><strong>FMG + EMG front-end:</strong> Custom PCB, FMG pressure sensors + EMG electrodes &mdash; RM 110</li>
-            <li><strong>MCU + BLE:</strong> Nordic nRF52840 module &mdash; RM 45</li>
+            <li><strong>MCU + BLE:</strong> Nordic nRF52840 (Adafruit Feather) &mdash; RM 110 (production module: RM 45)</li>
             <li><strong>Power:</strong> Li-ion 2000mAh + USB-C charge IC &mdash; RM 55</li>
             <li><strong>Cosmetic silicone glove:</strong> Custom moulded &mdash; RM 90</li>
             <li><strong>Assembly + QC labour:</strong> RM 200&ndash;400</li>
           </ul>
           <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
             <span style="font-size:0.78rem; color:var(--muted);">Total prototype COGS: </span>
-            <span style="font-size:0.88rem; font-weight:700; color:var(--teal-light);">RM 800&ndash;1,000</span>
+            <span style="font-size:0.88rem; font-weight:700; color:var(--teal-light);">RM 900&ndash;1,100</span>
             <span style="font-size:0.72rem; color:var(--muted);"> direct BOM only; fully loaded pilot COGS lands at RM 2,500&ndash;3,500 once fitting, QA, clinician support, replacements, and warranty reserve are included.</span>
           </div>
         </div>
@@ -914,9 +914,9 @@
             <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">Population of Southeast Asia in 2024, based on UN population data</p>
           </div>
           <div class="card">
-            <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-light); margin-bottom:6px;">Beachhead Model</div>
+            <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-light); margin-bottom:6px;">Beachhead TAM</div>
             <div class="big-num" style="font-size:2rem;">USD 80M</div>
-            <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">Internal Year 1&ndash;3 model for a Malaysia + Singapore beachhead</p>
+            <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">Addressable market estimate for Malaysia + Singapore (not a revenue target)</p>
           </div>
         </div>
         <div class="card" style="margin-top:16px; padding:16px 20px; background:rgba(240,165,0,0.06); border-color:rgba(240,165,0,0.25);">
@@ -1133,7 +1133,7 @@
           <tr>
             <td><strong>Year 1</strong></td>
             <td class="num">5&ndash;10 (R&amp;D)</td>
-            <td class="num">RM 76K</td>
+            <td class="num">RM 76K (grant)</td>
             <td class="num">Grant-funded</td>
             <td>&mdash;</td>
             <td>Malaysia (ops)</td>
@@ -1421,12 +1421,12 @@
       <div class="adv-card">
         <div class="icon">&#129504;</div>
         <h4>ML Pattern Classification at This Price Point</h4>
-        <p>The primary technical moat: fused FMG+EMG sensors feeding a patient-specific neural net classifier, running on a RM&nbsp;45 microcontroller, at a device price of RM&nbsp;9,500. Peer-reviewed research shows FMG+EMG fusion achieves &gt;97% accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; directly relevant to tropical wearability (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). Transfer learning adapts the model per patient and accommodates limb changes over time. No competitor in this price bracket ships this sensor+ML combination &mdash; only binary threshold control or manual repositioning. To be validated in our clinical trial.</p>
+        <p>The primary technical moat: fused FMG+EMG sensors feeding a patient-specific neural net classifier, running on a RM&nbsp;45 microcontroller, at a device price of RM&nbsp;9,500. Ke et al. (2020) demonstrated that FMG+EMG fusion can achieve &gt;97% accuracy under impeded-contact conditions (sweat, clothing isolation) versus ~84–91% for EMG alone &mdash; directly relevant to tropical wearability (Ke et al., <em>Sensors</em>, 2020; doi:10.3390/s20174775). Transfer learning adapts the model per patient and accommodates limb changes over time. No competitor in this price bracket ships this sensor+ML combination &mdash; only binary threshold control or manual repositioning. To be validated in our clinical trial.</p>
       </div>
       <div class="adv-card">
         <div class="icon">&#128196;</div>
         <h4>Honest Performance Positioning</h4>
-        <p>We are not competing with Ottobock on control sophistication. We are building a device that covers the 4&ndash;6 grip patterns 80% of users actually need, eliminates the manual thumb repositioning that makes Vulcan frustrating, and delivers it with a local clinical service model that importers cannot match. That is a defined product gap &mdash; it doesn&rsquo;t require solving unsolved neuroscience.</p>
+        <p>We are not competing with Ottobock on control sophistication. We are building a device that covers the 3 core grip patterns (power grasp, pinch, open) that handle 80%+ of daily tasks, eliminates the manual thumb repositioning that makes Vulcan frustrating, and delivers it with a local clinical service model that importers cannot match. That is a defined product gap &mdash; it doesn&rsquo;t require solving unsolved neuroscience.</p>
       </div>
       <div class="adv-card">
         <div class="icon">&#127760;</div>

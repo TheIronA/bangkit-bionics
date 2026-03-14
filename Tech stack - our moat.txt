@@ -1,7 +1,9 @@
-Tech stack - our moat 
+Tech stack - our moat
 
-sensors - FMG + EMG 97% accuracy in humid environments compared to 83% for EMG alone 
+Sensors - FMG + EMG 97% accuracy in humid environments compared to 83% for EMG alone (Ke et al., Sensors, 2020 — their custom sensor, not ours yet. We target comparable performance.)
 
-NN - SNN vs ANN - snn being better 
+NN - Current plan: ANN (MLP/CNN) via TFLite Micro on nRF52840. SNN is a post-prototype research question — requires neuromorphic hardware (e.g. BrainChip Akida), not compatible with nRF52840. Revisit after Year 2 clinical data.
 
-Socket Comfort 
+Socket Comfort - 3D print, reduce drop rate
+
+EEG - ear-EEG starts as third signal source alongside FMG+EMG (68-83% accuracy alone today). Every patient session builds proprietary EEG+EMG+FMG dataset. As data accumulates and models improve, EEG gradually replaces EMG+FMG entirely. Internal R&D — keep off investor materials until Phase 2 hardware exists.
