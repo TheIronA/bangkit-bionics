@@ -114,9 +114,8 @@ The integrated wearable prosthetic system — combining the sensor module, neura
 
 - **EMG signal pipeline demonstrated** through UCL embedded systems coursework: analog signal conditioning, threshold-based classification, and C++ firmware on Arduino controlling output actuators via muscle signals — the direct technical precursor to the prosthetic control architecture.
 - **Clinical network established:** Co-founder Alwi Al-Haddad has direct access to a consultant neurosurgeon (family network) and an orthopaedic referral network in Malaysia. Early pilot patient outreach is facilitated through existing local clinical contacts, enabling patient recruitment and ethics-board engagement prior to prototype completion.
-- **Regulatory pathway mapped:** MDA device classification, MREC ethics application process, and NTIS Sandbox 1 funding pathway have been scoped. Pre-submission engagement with MDA is planned for Month 3 of the Spark period.
-- **Two-grant roadmap defined:** Leveraging CIP Spark for hardware iteration and MVP validation to unlock the formal clinical trial phase via NTIS Sandbox 1.
-- **Singapore commercial entry strategy mapped:** Competitive benchmarking of Ottobock, Open Bionics, and Vulcan completed; BOM, pricing model, and gross margin projections estimated against published component costs.
+- **Regulatory pathway mapped:** MDA device classification and MREC ethics application process have been scoped. Pre-submission engagement with MDA is planned for Month 3 of the Spark period.
+- **Market research and competitive analysis completed:** Competitive benchmarking of Ottobock, Open Bionics, and Vulcan completed; BOM, pricing model, and gross margin projections estimated against published component costs.
 
 ---
 
@@ -146,6 +145,8 @@ The integrated wearable prosthetic system — combining the sensor module, neura
 **Scale market: United Kingdom.** NHS prosthetics budget, private medical insurance, and CE Mark pathway. Target Year 3+ following Singapore commercial establishment.
 
 **GTM model:** Clinical partnership → prosthetist referral → device fitting + annual service subscription. Revenue per patient: RM 9,500 device + RM 1,200–2,000/year service. Gross margin 63–74% at pilot stage, targeting 75%+ at volume. Full distribution operation not required at entry — fitting is performed by our clinical team directly.
+
+**Funding Roadmap:** We are leveraging the RM 150,000 CIP Spark grant to build the functional MVP and achieve 1-patient technical validation. This milestone is designed to directly qualify BANGKIT for the RM 250,000 NTIS Sandbox 1 grant, which will fund the formal, multi-patient clinical trials required for Singapore and UK commercial entry.
 
 ---
 
